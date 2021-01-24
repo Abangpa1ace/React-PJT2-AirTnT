@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-const Reset = createGlobalStyle`
+const GlobalReset = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
@@ -28,3 +28,5 @@ const Reset = createGlobalStyle`
     text-decoration: none;
   }
 `;
+
+export default GlobalReset;
