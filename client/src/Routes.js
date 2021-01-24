@@ -9,8 +9,8 @@ function Routes() {
   return (
     <Router id="Routes">
       <ThemeProvider theme={theme}>
+      <GlobalReset />
         <Switch>
-          <GlobalReset />
           <Route exact path="/" component={Home} />
         </Switch>
       </ThemeProvider>
