@@ -1,11 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalReset = createGlobalStyle`
-  body {
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     line-height: 1;
+  }
+
+  ul, li {
     list-style: none;
   }
 
