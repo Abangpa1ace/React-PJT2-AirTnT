@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 const theme = {
-  navWidth: '1600px',
+  webWidth: '1600px',
   themeBlack: '#222222',
   themePink: '#FF385C',
   themePinkDarker: '#E7204D',
