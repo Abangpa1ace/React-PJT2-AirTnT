@@ -1,6 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
 import styled from 'styled-components';
+import { useGlobalContext } from '../../../Context';
+import { Linker, Button } from '../../Global/GlobalComponent';
+import ProfileMenu from './ProfileMenu';
 import { RiGlobalLine, RiMenuLine } from 'react-icons/ri';
 import { CgProfile } from 'react-icons/cg';
 import { flexCenter, flexAlign } from '../../../styles/theme';
@@ -9,40 +11,44 @@ const NavRightWrapper = styled.div`
   ${flexAlign};
   justify-content: flex-end;
   width: 30%;
+`;
 
-  & > button {
-    margin: 0 0 0 20px;
+const MenuButton = styled.div`
+  ${flexCenter};
+  position: relative;
+  padding: 10px;
+  margin: 0 0 0 10px;
+  background: #ffffff;
+  border-radius: ${({ theme }) => theme.radius};
+  cursor: pointer;
 
-    a { color: #ffffff; }
-    svg { fill: #ffffff; }
-  }
-
-  .menu-btn-container {
-    ${flexCenter};
-    padding: 10px;
-    background: #ffffff;
-    border-radius: 21px;
-
-    svg { 
-      margin: 0 5px; 
-      fill: ${(props) => props.theme.themeBlack}
-    }
+  svg { 
+    margin: 0 5px; 
+    fill: ${(props) => props.theme.themeBlack}
   }
 `;
 
 const NavRight = () => {
+  const { navFixed } = useGlobalContext();
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
     <NavRightWrapper>
-      <button>
-        <Link to="/host">호스트 되기</Link>
-      </button>
-      <button>
-        <RiGlobalLine />
-      </button> 
-      <button className="menu-btn-container">
+      <Button padding="15px" background2='rgba(255, 255, 255, 0.1)'>
+        <Linker 
+          to="/host" 
+          color={navFixed ? null : '#FFFFFF'}>
+          호스트 되기
+        </Linker>
+      </Button>
+      <Button padding="15px" background2='rgba(255, 255, 255, 0.1)'>
+        <RiGlobalLine fill={navFixed ? 'black' : '#ffffff'} />
+      </Button> 
+      <MenuButton onClick={() => setShowMenu(!showMenu)}>
         <RiMenuLine />
         <CgProfile />
-      </button>
+        {showMenu && <ProfileMenu />}
+      </MenuButton>
   </NavRightWrapper> 
   )
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import styled, { css } from 'styled-components';
+import { useGlobalContext } from '../../Context';
+import styled from 'styled-components';
 import NavLeft from './components/NavLeft';
 import NavCenter from './components/NavCenter';
 import NavRight from './components/NavRight';
@@ -16,13 +17,10 @@ const Nav = styled.nav`
   transition: all .2s ease;
   z-index: 500;
 
-  ${(props) => 
-    props.fixed &&
-      css`
-        position: fixed;
-        top: 0;
-        background: #aaaaaa;
-      `
+  &.fixed {
+    position: fixed;
+    top: 0;
+    background: #ffffff;
   }
 `;
 
@@ -33,14 +31,8 @@ const NavContainer = styled.div`
 `;
 
 export default function Navbar() {
-  const [navFixed, setNavFixed] = useState(false);
+  const { navFixed, handleNavFixed } = useGlobalContext();
   const [focus, setFocus] = useState(0);
-
-  const handleNavFixed = () => {
-    const { pageYOffset } = window;
-    const isFixed = pageYOffset > 0;
-    setNavFixed(isFixed);
-  }
 
   useEffect(() => {
     window.addEventListener('scroll', handleNavFixed);
@@ -48,8 +40,8 @@ export default function Navbar() {
   }, [])
 
   return (
-    <Nav className="Navbar" fixed={navFixed}>
-      <NavContainer >
+    <Nav className={`Navbar ${navFixed ? 'fixed' : ''}`}>
+      <NavContainer>
         <NavLeft />
         <NavCenter focus={focus} changeFocus={setFocus} />
         <NavRight />

@@ -1,22 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useGlobalContext } from '../../../Context';
+import { Linker } from '../../Global/GlobalComponent';
 import styled from 'styled-components';
 
-const NavLeftWrapper = styled.div`
+const Navleft = styled.div`
   width: 30%;
-  a {
-    font-size: 24px;
-    color: #ffffff;
-  }
 `;
 
 const NavLeft = () => {
+  const { navFixed } = useGlobalContext();
   return (
-    <NavLeftWrapper>
+    <Navleft>
       <h2>
-        <Link to="/">airbnb</Link>
+        <Linker 
+          to="/" 
+          color={(props) => navFixed ? props.theme.themePink : '#ffffff'}
+          fontSize="24px">
+          airbnb
+        </Linker>
       </h2>
-    </NavLeftWrapper>
+    </Navleft>
   )
 }
 

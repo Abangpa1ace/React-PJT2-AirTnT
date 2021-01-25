@@ -4,7 +4,11 @@ const theme = {
   navWidth: '1600px',
   themeBlack: '#222222',
   themePink: '#FF385C',
-  gray0: '#DDDDDD',
+  themePinkDarker: '#E7204D',
+  gray0: '#F4F4F4',
+  gray1: '#DDDDDD',
+  gray2: '#757575',
+  radius: '32px',
 }
 
 export default theme;
@@ -24,4 +28,10 @@ export const flexBetween = css`
 export const flexAlign = css`
   display: flex;
   align-items: center;
+`;
+
+export const flexAlignCol = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;

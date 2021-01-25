@@ -1,25 +1,96 @@
-import React from 'react';
-import './SearchBar.css';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+// import { useGlobalContext } from '../../../Context';
+import { Button } from '../../Global/GlobalComponent';
+import { SEARCHSET } from '../NavbarData';
+import { BiSearch } from 'react-icons/bi';
+import { flexCenter, flexAlignCol } from '../../../styles/theme';
+
+const Searchbar = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 70%);
+  ${flexCenter};
+  width: 850px;
+  height: 65px;
+  background: #ffffff;
+  border-radius: ${(props) => props.theme.radius};
+  overflow: hidden;
+`;
+
+const SearchUnit = styled.div`
+  ${flexAlignCol};
+  height: 100%;
+  padding: 10px 30px;
+  border-radius: ${(props) => props.theme.radius};
+  &:hover { 
+    background: ${(props) => props.theme.gray0};
+  }
+
+  &.unit-location, &.unit-people {
+    width: 30%;
+  }
+  &.unit-checkin, &.unit-checkout {
+    width: 20%;
+  }
+
+  &.focus {
+    box-shadow: 0px 2px 5px 1px #aaaaaa;
+  }
+
+  span {
+    margin-bottom: 3px;
+    font-size: 12px;
+    color: #000000;
+    font-weight: 600;
+  }
+
+  p {
+    color: ${(props) => props.theme.gray2};
+  }
+
+  button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    height: 49px;
+    border-radius: 30px;
+
+    svg { 
+      fill: #ffffff;
+    }
+  }
+`;
 
 export default function SearchBar() {
+  const [active, setActive] = useState(false);
+  const [searchFocus, setSearchFocus] = useState(-1);
+
   return (
-    <div className='search-bar-container'>
-      <div className='input1'>
-        <span>위치</span>
-        <input type="text" placeholder="어디로 여행가세요?" />
-      </div>
-      <div className='input2 focus'>
-        <span>체크인</span>
-        <p>날짜 추가</p>
-      </div>
-      <div className='input3'>
-        <span>체크아웃</span>
-        <p>날짜 추가</p>
-      </div>
-      <div className='input4'>
-        <span>인원</span>
-        <p>게스트 추가</p>
-      </div>
-    </div>
+    <Searchbar onClick={() => setActive(!active)}>
+      {SEARCHSET.map((unit, idx) => {
+        const { id, className, type, title, desc } = unit;
+        return (
+          <SearchUnit key={id} 
+            className={idx === searchFocus ? `${className} focus` : className} 
+            onClick={() => setSearchFocus(idx)}>
+            <span>{title}</span>
+            {type === 'input'
+              ? <input type="text" placeholder={desc} />
+              : <p>{desc}</p>}
+            {idx === SEARCHSET.length - 1 && 
+              <Button 
+                width={active ? "80px" : "49px"}
+                color="#ffffff"
+                background={(props) => props.theme.themePink}
+                background2={(props) => props.theme.themePinkDarker}>
+                <BiSearch />{active && '검색'}
+              </Button>
+            }
+          </SearchUnit>
+        )
+      })}
+    </Searchbar>
   )
 }
