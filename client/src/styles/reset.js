@@ -6,6 +6,8 @@ const GlobalReset = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     line-height: 1;
+    font-size: 14px;
+    color: #222222;
   }
 
   ul, li {
@@ -27,8 +29,11 @@ const GlobalReset = createGlobalStyle`
   }
 
   a {
-    color: #000000;
     text-decoration: none;
+  }
+
+  svg {
+    font-size: 20px;
   }
 `;
 
