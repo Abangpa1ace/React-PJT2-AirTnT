@@ -1,45 +1,59 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import SearchBar from './components/SearchBar';
-import { NAVBARMENU } from './NavbarData';
-import { RiGlobalLine, RiMenuLine } from 'react-icons/ri';
-import { CgProfile } from 'react-icons/cg';
-import './Navbar.css';
+import React, { useState, useEffect } from 'react';
+import styled, { css } from 'styled-components';
+import NavLeft from './components/NavLeft';
+import NavCenter from './components/NavCenter';
+import NavRight from './components/NavRight';
+import { flexBetween } from '../../styles/theme';
+
+
+const Nav = styled.nav`
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  background: transparent;
+  transition: all .2s ease;
+  z-index: 500;
+
+  ${(props) => 
+    props.fixed &&
+      css`
+        position: fixed;
+        top: 0;
+        background: #aaaaaa;
+      `
+  }
+`;
+
+const NavContainer = styled.div`
+  ${flexBetween};
+  margin: 0 auto;
+  width: ${(props) => props.theme.navWidth};
+`;
 
 export default function Navbar() {
+  const [navFixed, setNavFixed] = useState(false);
   const [focus, setFocus] = useState(0);
 
+  const handleNavFixed = () => {
+    const { pageYOffset } = window;
+    const isFixed = pageYOffset > 0;
+    setNavFixed(isFixed);
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleNavFixed);
+    return () => window.removeEventListener('scroll', handleNavFixed);
+  }, [])
+
   return (
-    <nav className="Navbar">
-      <div className="nav-container">
-        <div className="nav-left">
-          <h2><Link to="/">airbnb</Link></h2>
-        </div>
-        <div className="nav-center">
-          <ul className="nav-menu-container">
-            {NAVBARMENU.map((menu, idx) => 
-              <li key={menu.key} className={idx === focus ? 'focus' : ''} onClick={() => setFocus(idx)}>
-                <Link to={menu.link}>{menu.text}</Link>
-              </li>  
-            )}
-          </ul>
-          <SearchBar />
-        </div>
-        <div className="nav-right">
-          <Link to="/host">호스트 되기</Link>
-          <button>
-            <RiGlobalLine />
-          </button>
-          <div className="menu-btn-container">
-            <button>
-              <RiMenuLine />
-            </button>
-            <button>
-              <CgProfile />
-            </button>
-          </div>
-        </div> 
-      </div>
-    </nav>
+    <Nav className="Navbar" fixed={navFixed}>
+      <NavContainer >
+        <NavLeft />
+        <NavCenter focus={focus} changeFocus={setFocus} />
+        <NavRight />
+      </NavContainer>
+    </Nav>
   )
 }
