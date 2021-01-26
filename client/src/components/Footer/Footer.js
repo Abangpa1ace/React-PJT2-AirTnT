@@ -4,7 +4,6 @@ import FooterLinks from './components/FooterLinks';
 import FooterRights from './components/FooterRights';
 
 const Foot = styled.footer`
-  margin-top: 30px;   // delete later
   background: ${(props) => props.theme.gray0};
   border-top: 2px solid ${(props) => props.theme.gray1};
 `;
