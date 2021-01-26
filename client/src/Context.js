@@ -4,6 +4,10 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [navFixed, setNavFixed] = useState(false);
+  const [location, setLocation] = useState('');
+  const [dateIn, setDateIn] = useState(null);
+  const [dateOut, setDateOut] = useState(null);
+  const [guest, setGuest] = useState(0);
 
   const handleNavFixed = () => {
     const { pageYOffset } = window;
@@ -17,6 +21,14 @@ const AppProvider = ({ children }) => {
         navFixed,
         setNavFixed,
         handleNavFixed,
+        location,
+        setLocation,
+        dateIn,
+        setDateIn,
+        dateOut,
+        setDateOut,
+        guest,
+        setGuest,
       }}>
       {children}
     </AppContext.Provider>

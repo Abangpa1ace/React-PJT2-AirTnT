@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useGlobalContext } from '../../Context';
 import styled, { css } from 'styled-components';
 import NavLeft from './components/NavLeft';
@@ -16,7 +16,6 @@ const Nav = styled.nav`
   background: transparent;
   transition: all .2s ease;
   z-index: 500;
-  border: 1px solid green;
 
   ${({ fixed }) => fixed &&
     css`
@@ -27,7 +26,7 @@ const Nav = styled.nav`
 
 const NavContainer = styled.div`
   ${flexBetween};
-  width: ${(props) => props.theme.webWidth};
+  width: ${({ theme }) => theme.webWidth};
   height: 40px;
   margin: 0 auto;
   border: 1px solid blue;
@@ -35,8 +34,7 @@ const NavContainer = styled.div`
 
 export default function Navbar() {
   const { navFixed, handleNavFixed } = useGlobalContext();
-  const [searchFocus, setSearchFocus] = useState(0);
-
+  
   useEffect(() => {
     window.addEventListener('scroll', handleNavFixed);
     return () => window.removeEventListener('scroll', handleNavFixed);
@@ -46,7 +44,7 @@ export default function Navbar() {
     <Nav fixed={navFixed}>
       <NavContainer>
         <NavLeft />
-        <NavCenter focus={searchFocus} changeFocus={setSearchFocus} />
+        <NavCenter />
         <NavRight />
       </NavContainer>
     </Nav>

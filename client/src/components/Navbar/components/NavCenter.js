@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useGlobalContext } from '../../../Context';
 import SearchBar from './Search/SearchBar';
 import SearchMenu from './Search/SearchMenu';
+import SearchDetails from './Search/SearchDetails';
 import { flexAlignCol } from '../../../styles/theme';
 
 const Navcenter = styled.div`
@@ -9,23 +11,20 @@ const Navcenter = styled.div`
   ${flexAlignCol};
   align-items: center;
   width: 850px;
-  transform: translateY(10px);
-  border: 1px solid red;
+  transform: translateY(12px);
 `;
 
-const SearchDetails = styled.div`
-  width: 850px;
-  height: 420px;
-  background: blue;
-`;
+const NavCenter = () => {
+  const { navFixed } = useGlobalContext();
+  const [navFocus, setNavFocus] = useState(0);
+  const [searchFocus, setSearchFocus] = useState(-1);
 
-const NavCenter = ({ focus, changeFocus }) => {
-  
   return (
     <Navcenter>
-      <SearchMenu focus={focus} changeFocus={changeFocus} />
-      <SearchBar />
-      <SearchDetails>hihi</SearchDetails>
+      <SearchMenu focus={navFocus} changeFocus={setNavFocus} />
+      <SearchBar focus={searchFocus} changeFocus={setSearchFocus} />
+      {(!navFixed && searchFocus !== -1) && 
+        <SearchDetails focus={searchFocus} setFocus={setSearchFocus} />}
     </Navcenter>
   )
 }

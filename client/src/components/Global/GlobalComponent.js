@@ -19,9 +19,15 @@ const StyledButton = styled.button`
   border-radius: ${({ radius, theme }) => radius || theme.radius};
 `;
 
-export const Button = ({ children, width, margin, padding, color, background, background2 }) => {
+export const Button = ({ children, width, margin, padding, color, background, backgroundHov }) => {
   return (
-    <StyledButton width={width} margin={margin} padding={padding} color={color} background={background} background2={background2}>
+    <StyledButton 
+      width={width} 
+      margin={margin} 
+      padding={padding} 
+      color={color} 
+      background={background} 
+      backgroundHov={backgroundHov}>
       {children}
     </StyledButton>
   )
