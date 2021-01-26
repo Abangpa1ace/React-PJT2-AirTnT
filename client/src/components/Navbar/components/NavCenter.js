@@ -34,7 +34,7 @@ const NavCenter = ({ focus, changeFocus }) => {
           </li>  
         )
       })}
-      <SearchBar />
+      {/* <SearchBar /> */}
     </Navcenter>
   )
 }

@@ -3,7 +3,9 @@ import React, { useState, useContext } from 'react';
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  const [navFixed, setNavFixed] = useState(false);
+  const [navFixed, setNavFixed] = useState(true);
+  const [guest, setGuest] = useState(2);
+  const [restList, setRestList] = useState(new Array(4));
 
   const handleNavFixed = () => {
     const { pageYOffset } = window;
@@ -17,6 +19,10 @@ const AppProvider = ({ children }) => {
         navFixed,
         setNavFixed,
         handleNavFixed,
+        guest,
+        setGuest,
+        restList,
+        setRestList,
       }}>
       {children}
     </AppContext.Provider>

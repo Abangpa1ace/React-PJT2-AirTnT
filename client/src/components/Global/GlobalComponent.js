@@ -15,13 +15,23 @@ const StyledButton = styled.button`
   padding: ${({ padding }) => padding};
   color: ${({ color, theme }) => color || theme.themeBlack };
   background: ${({ background }) => background};
-  &:hover { background: ${({ backgroundHov }) => backgroundHov}; }
+  border: 1px solid ${({ border }) => border || 0};
+  &:hover { 
+    background: ${({ backgroundHov }) => backgroundHov};
+    border-color: ${({ borderHov }) => borderHov};
+  }
   border-radius: ${({ radius, theme }) => radius || theme.radius};
 `;
 
-export const Button = ({ children, width, margin, padding, color, background, background2 }) => {
+export const Button = ({ 
+  children, 
+  width, margin, padding, 
+  color, background, border, backgroundHov, borderHov, radius }) => {
   return (
-    <StyledButton width={width} margin={margin} padding={padding} color={color} background={background} background2={background2}>
+    <StyledButton 
+      width={width} margin={margin} padding={padding} 
+      color={color} background={background} backgroundHov={backgroundHov}
+      border={border} borderHov={borderHov} radius={radius}>
       {children}
     </StyledButton>
   )

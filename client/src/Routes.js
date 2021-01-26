@@ -5,6 +5,7 @@ import GlobalReset from './styles/reset';
 import theme from './styles/theme';
 import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
+import List from  './pages/List/List';
 import Footer from './components/Footer/Footer';
 
 function Routes() {
@@ -14,7 +15,8 @@ function Routes() {
       <GlobalReset />
         <Navbar />
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/" component={List} />
         </Switch>
         <Footer />
       </ThemeProvider>
