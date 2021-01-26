@@ -1,6 +1,37 @@
+import { css } from 'styled-components';
+
 const theme = {
-  mainRed: '#F7323F',
-  contentRed: '#F2264C',
+  webWidth: '1600px',
+  themeBlack: '#222222',
+  themePink: '#FF385C',
+  themePinkDarker: '#E7204D',
+  gray0: '#F4F4F4',
+  gray1: '#DDDDDD',
+  gray2: '#757575',
+  radius: '32px',
 }
 
 export default theme;
+
+export const flexCenter = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const flexBetween = css`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const flexAlign = css`
+  display: flex;
+  align-items: center;
+`;
+
+export const flexAlignCol = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
