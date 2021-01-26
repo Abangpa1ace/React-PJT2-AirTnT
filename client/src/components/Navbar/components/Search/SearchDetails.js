@@ -20,7 +20,7 @@ const DetailCloser = styled.div`
   z-index: -5;
 `;
 
-const SearchDetails = ({ focus, setFocus }) => {
+const SearchDetails = ({ setActive, focus, setFocus }) => {
   const detailObj = {
     0: <SearchMap />,
     1: <SearchCalender />,
@@ -28,10 +28,15 @@ const SearchDetails = ({ focus, setFocus }) => {
     3: <SearchMember />,
   }
 
+  const closeDetails = () => {
+    setFocus(-1);
+    setActive(false);
+  }
+
   return (
     <DetailsCon>
       {detailObj[focus]}
-      <DetailCloser onClick={() => setFocus(-1)} />
+      <DetailCloser onClick={() => closeDetails()} />
     </DetailsCon>
   )
 }

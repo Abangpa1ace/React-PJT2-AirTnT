@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useGlobalContext } from '../../../../Context';
 import { flexCenter, flexBetween } from '../../../../styles/theme';
 import MemberBtn from './MemberBtn';
-import { MEMBERCONTROLLER } from '../../NavbarData'; 
+// import { MEMBERCONTROLLER } from '../../NavbarData'; 
 
 const DetailMember = styled.ul`
   position: absolute;
@@ -43,9 +44,14 @@ const MemberRight = styled.div`
 `;
 
 const SearchMember = () => {
+  const { setGuest } = useGlobalContext();
   const [adult, setAdult] = useState(0);
   const [kid, setKid] = useState(0);
   const [baby, setBaby] = useState(0);
+
+  useEffect(() => {
+    setGuest(adult+kid+baby)
+  }, [adult, kid, baby, setGuest])
 
   return (
     <DetailMember>

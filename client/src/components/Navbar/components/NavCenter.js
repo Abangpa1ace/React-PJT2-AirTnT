@@ -17,14 +17,15 @@ const Navcenter = styled.div`
 const NavCenter = () => {
   const { navFixed } = useGlobalContext();
   const [navFocus, setNavFocus] = useState(0);
+  const [searchActive, setSearchActive] = useState(false);
   const [searchFocus, setSearchFocus] = useState(-1);
 
   return (
     <Navcenter>
       <SearchMenu focus={navFocus} changeFocus={setNavFocus} />
-      <SearchBar focus={searchFocus} changeFocus={setSearchFocus} />
+      <SearchBar active={searchActive} setActive={setSearchActive} focus={searchFocus} setFocus={setSearchFocus} />
       {(!navFixed && searchFocus !== -1) && 
-        <SearchDetails focus={searchFocus} setFocus={setSearchFocus} />}
+        <SearchDetails setActive={setSearchActive} focus={searchFocus} setFocus={setSearchFocus} />}
     </Navcenter>
   )
 }

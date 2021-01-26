@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import { Button } from '../../../Global/GlobalComponent';
+import { Linker, Button } from '../../../Global/GlobalComponent';
 // import { SEARCHSET } from '../../NavbarData';
 import { BiSearch } from 'react-icons/bi';
 import { flexCenter, flexAlignCol } from '../../../../styles/theme';
@@ -12,7 +12,7 @@ const Searchbar = styled.div`
   width: 100%;
   height: 65px;
   margin: 15px;
-  background: #ffffff;
+  background: ${({ active, theme }) => active ? theme.gray1 : '#ffffff' };
   border-radius: ${({ theme }) => theme.radius};
   transition: all .3s ease;
   overflow: hidden;
@@ -20,6 +20,24 @@ const Searchbar = styled.div`
   &.hide { 
     opacity: 0;
     visibility: hidden;
+  }
+
+    button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    height: 49px;
+    border-radius: 30px;
+    transition: all .3s ease;
+
+    svg { 
+      fill: #ffffff;
+    }
+
+    span {
+      margin-left: 5px;
+      color: #ffffff;
+    }
   }
 `;
 
@@ -53,57 +71,69 @@ const SearchUnit = styled.div`
     font-weight: 600;
   }
 
-  p {
-    color: ${({ theme }) => theme.gray2};
-  }
-
-  button {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    height: 49px;
-    border-radius: 30px;
-
-    svg { 
-      fill: #ffffff;
-    }
+  p, input {
+    color: ${({ onColor, theme }) => onColor ? theme.themePinkDarker : theme.gray2};
   }
 `;
 
-const SearchBar = ({ focus, changeFocus }) => {
-  const [active, setActive] = useState(false);
-  const { navFixed, location, setLocation, dateIn, dateOut, guest } = useGlobalContext();
+const SearchBar = ({ active, setActive, focus, setFocus }) => {
+  const { 
+    navFixed, 
+    location, setLocation, 
+    dateIn, 
+    dateOut,
+    guest,
+  } = useGlobalContext();
+  
+  useEffect(() => {
+    setActive(false)
+    setFocus(-1)
+  }, [navFixed, setActive, setFocus])
 
   return (
-    <Searchbar className={!navFixed ? '' : 'hide'} onClick={() => setActive(true)}>
+    <Searchbar active={active} className={!navFixed ? '' : 'hide'} onClick={() => setActive(true)}>
       <SearchUnit
         className='unit-location'
-        focused={focus === 0} 
-        onClick={() => changeFocus(0)}>
+        onColor={location}
+        focused={focus === 0}
+        onClick={() => setFocus(0)}>
         <span>위치</span>
         <input type="text" placeholder='어디로 여행가세요?' value={location} onChange={(e) => setLocation(e.target.value)}/>
       </SearchUnit>
       <SearchUnit
         className='unit-checkin'
+        onColor={dateIn}
         focused={focus === 1} 
-        onClick={() => changeFocus(1)}>
+        onClick={() => setFocus(1)}>
         <span>체크인</span>
         <p>{dateIn ? dateIn : '날짜 추가'}</p>
       </SearchUnit>
       <SearchUnit
         className='unit-checkout'
+        onColor={dateOut}
         focused={focus === 2} 
-        onClick={() => changeFocus(2)}>
+        onClick={() => setFocus(2)}>
         <span>체크아웃</span>
         <p>{dateOut ? dateOut : '날짜 추가'}</p>
       </SearchUnit>
       <SearchUnit
         className='unit-people'
+        onColor={guest !== 0}
         focused={focus === 3} 
-        onClick={() => changeFocus(3)}>
+        onClick={() => setFocus(3)}>
         <span>인원</span>
-        <p placeholder="게스트 추가"></p>
+        <p>게스트 {guest === 0 ? '추가' : `${guest}명`}</p>
       </SearchUnit>
+      <Linker to="/list">
+        <Button 
+          width={active ? "80px" : "49px"}
+          color="#ffffff"
+          background={(props) => props.theme.themePink}
+          backgroundHov={(props) => props.theme.themePinkDarker}>
+          <BiSearch />
+          {active && <span>검색</span>}
+        </Button>
+      </Linker>
     </Searchbar>
   )
 }

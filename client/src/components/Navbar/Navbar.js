@@ -29,7 +29,6 @@ const NavContainer = styled.div`
   width: ${({ theme }) => theme.webWidth};
   height: 40px;
   margin: 0 auto;
-  border: 1px solid blue;
 `;
 
 export default function Navbar() {
@@ -38,7 +37,7 @@ export default function Navbar() {
   useEffect(() => {
     window.addEventListener('scroll', handleNavFixed);
     return () => window.removeEventListener('scroll', handleNavFixed);
-  }, [])
+  }, [handleNavFixed])
 
   return (
     <Nav fixed={navFixed}>
