@@ -4,7 +4,8 @@ import FooterLinks from './components/FooterLinks';
 import FooterRights from './components/FooterRights';
 
 const Foot = styled.footer`
-  background: ${(props) => props.theme.gray0};
+  background: #777777;
+  /* background: ${(props) => props.theme.gray0}; */
   border-top: 2px solid ${(props) => props.theme.gray1};
 `;
 

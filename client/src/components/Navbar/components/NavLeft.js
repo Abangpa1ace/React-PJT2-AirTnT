@@ -16,7 +16,7 @@ const NavLeft = () => {
           to="/" 
           color={(props) => navFixed ? props.theme.themePink : '#ffffff'}
           fontSize="24px">
-          airbnb
+          airbnd
         </Linker>
       </h2>
     </Navleft>

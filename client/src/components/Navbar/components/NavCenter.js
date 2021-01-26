@@ -1,40 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useGlobalContext } from '../../../Context';
-import { Linker } from '../../Global/GlobalComponent';
-import SearchBar from '../components/SearchBar';
-import { flexAlign } from '../../../styles/theme';
-import { NAVBARMENU } from '../NavbarData';
+import SearchBar from './Search/SearchBar';
+import SearchMenu from './Search/SearchMenu';
+import { flexAlignCol } from '../../../styles/theme';
 
-const Navcenter = styled.ul`
-  position: relative;
-  ${flexAlign}
+const Navcenter = styled.div`
+  align-self: flex-start;
+  ${flexAlignCol};
+  align-items: center;
+  width: 850px;
+  transform: translateY(10px);
+  border: 1px solid red;
+`;
 
-  li {
-    margin: 0 15px;
-    &.focus a { border-bottom: 1px solid #ffffff; }
-  }
+const SearchDetails = styled.div`
+  width: 850px;
+  height: 420px;
+  background: blue;
 `;
 
 const NavCenter = ({ focus, changeFocus }) => {
-  const { navFixed } = useGlobalContext();
-
+  
   return (
     <Navcenter>
-      {NAVBARMENU.map((menu, idx) => {
-        return (
-          <li key={menu.id} className={idx === focus ? 'focus' : ''} onClick={() => changeFocus(idx)}>
-            <Linker 
-              to={menu.link}
-              color={navFixed ? null : '#FFFFFF'}
-              colorHov={(props) => props.theme.gray1}
-              fontSize="initial">
-                {menu.text}
-            </Linker>
-          </li>  
-        )
-      })}
+      <SearchMenu focus={focus} changeFocus={changeFocus} />
       <SearchBar />
+      <SearchDetails>hihi</SearchDetails>
     </Navcenter>
   )
 }
