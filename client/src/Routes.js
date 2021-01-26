@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalReset from './styles/reset';
 import theme from './styles/theme';
 import Home from './pages/Home/Home';
+import Footer from './components/Footer/Footer';
 
 function Routes() {
   return (
@@ -13,6 +14,7 @@ function Routes() {
         <Switch>
           <Route exact path="/" component={Home} />
         </Switch>
+        <Footer />
       </ThemeProvider>
     </Router>
   );
