@@ -27,7 +27,7 @@ const NavCenter = ({ focus, changeFocus }) => {
             <Linker 
               to={menu.link}
               color={navFixed ? null : '#FFFFFF'}
-              color2={(props) => props.theme.gray1}
+              colorHov={(props) => props.theme.gray1}
               fontSize="initial">
                 {menu.text}
             </Linker>

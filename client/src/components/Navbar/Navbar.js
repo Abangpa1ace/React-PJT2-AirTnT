@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useGlobalContext } from '../../Context';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import NavLeft from './components/NavLeft';
 import NavCenter from './components/NavCenter';
 import NavRight from './components/NavRight';
@@ -17,10 +17,12 @@ const Nav = styled.nav`
   transition: all .2s ease;
   z-index: 500;
 
-  &.fixed {
-    position: fixed;
-    top: 0;
-    background: #ffffff;
+  ${({ fixed }) => fixed &&
+    css`
+      position: fixed;
+      top: 0;
+      background: #ffffff;
+    `
   }
 `;
 
@@ -40,7 +42,7 @@ export default function Navbar() {
   }, [])
 
   return (
-    <Nav className={`Navbar ${navFixed ? 'fixed' : ''}`}>
+    <Nav fixed={navFixed}>
       <NavContainer>
         <NavLeft />
         <NavCenter focus={focus} changeFocus={setFocus} />

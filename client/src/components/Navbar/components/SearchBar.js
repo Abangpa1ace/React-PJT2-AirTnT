@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-// import { useGlobalContext } from '../../../Context';
+import styled, { css } from 'styled-components';
 import { Button } from '../../Global/GlobalComponent';
 import { SEARCHSET } from '../NavbarData';
 import { BiSearch } from 'react-icons/bi';
 import { flexCenter, flexAlignCol } from '../../../styles/theme';
 
 const Searchbar = styled.div`
+  ${flexCenter};
   position: absolute;
   left: 50%;
   top: 0;
   transform: translate(-50%, 70%);
-  ${flexCenter};
   width: 850px;
   height: 65px;
   background: #ffffff;
@@ -23,11 +22,11 @@ const SearchUnit = styled.div`
   ${flexAlignCol};
   height: 100%;
   padding: 10px 30px;
-  border-radius: ${(props) => props.theme.radius};
-  &:hover { 
-    background: ${(props) => props.theme.gray0};
-  }
+  border-radius: ${({ theme }) => theme.radius};
 
+  &:hover { 
+    background: ${({ theme }) => theme.gray0};
+  }
   &.unit-location, &.unit-people {
     width: 30%;
   }
@@ -35,8 +34,11 @@ const SearchUnit = styled.div`
     width: 20%;
   }
 
-  &.focus {
-    box-shadow: 0px 2px 5px 1px #aaaaaa;
+  ${({ focused }) => focused &&
+    css`
+      background: #ffffff;
+      box-shadow: 0px 2px 5px 1px #aaaaaa;
+    `
   }
 
   span {
@@ -47,7 +49,7 @@ const SearchUnit = styled.div`
   }
 
   p {
-    color: ${(props) => props.theme.gray2};
+    color: ${({ theme }) => theme.gray2};
   }
 
   button {
@@ -72,8 +74,9 @@ export default function SearchBar() {
       {SEARCHSET.map((unit, idx) => {
         const { id, className, type, title, desc } = unit;
         return (
-          <SearchUnit key={id} 
-            className={idx === searchFocus ? `${className} focus` : className} 
+          <SearchUnit key={id}
+            className={className}
+            focused={idx === searchFocus} 
             onClick={() => setSearchFocus(idx)}>
             <span>{title}</span>
             {type === 'input'
@@ -84,7 +87,7 @@ export default function SearchBar() {
                 width={active ? "80px" : "49px"}
                 color="#ffffff"
                 background={(props) => props.theme.themePink}
-                background2={(props) => props.theme.themePinkDarker}>
+                backgroundHov={(props) => props.theme.themePinkDarker}>
                 <BiSearch />{active && '검색'}
               </Button>
             }

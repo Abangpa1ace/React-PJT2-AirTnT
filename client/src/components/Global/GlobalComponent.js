@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { flexCenter } from '../../styles/theme';
 
 export const Linker = styled(Link)`
-  color: ${({ color, theme }) => color ? color : theme.themeBlack };
-  &:hover { color: ${({ color2 }) => color2}; }
+  color: ${({ color, theme }) => color || theme.themeBlack };
+  &:hover { color: ${({ colorHov }) => colorHov}; }
   font-size: ${({ fontSize }) => fontSize };
 `;
 
@@ -13,10 +13,10 @@ const StyledButton = styled.button`
   width: ${({ width }) => width};
   margin: ${({ margin }) => margin};
   padding: ${({ padding }) => padding};
-  color: ${({ color, theme }) => color ? color : theme.themeBlack };
+  color: ${({ color, theme }) => color || theme.themeBlack };
   background: ${({ background }) => background};
-  &:hover { background: ${({ background2 }) => background2}; }
-  border-radius: ${({ radius, theme }) => radius ? radius : theme.radius};
+  &:hover { background: ${({ backgroundHov }) => backgroundHov}; }
+  border-radius: ${({ radius, theme }) => radius || theme.radius};
 `;
 
 export const Button = ({ children, width, margin, padding, color, background, background2 }) => {

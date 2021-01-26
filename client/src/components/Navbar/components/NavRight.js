@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useGlobalContext } from '../../../Context';
 import { Linker, Button } from '../../Global/GlobalComponent';
 import ProfileMenu from './ProfileMenu';
@@ -21,10 +21,15 @@ const MenuButton = styled.div`
   background: #ffffff;
   border-radius: ${({ theme }) => theme.radius};
   cursor: pointer;
+  ${({ fixed, theme }) => fixed &&
+    css`
+      box-shadow: 1px 1px 3px 1px ${theme.gray1};
+    `
+  }
 
   svg { 
     margin: 0 5px; 
-    fill: ${(props) => props.theme.themeBlack}
+    fill: ${({ theme }) => theme.themeBlack}
   }
 `;
 
@@ -34,17 +39,17 @@ const NavRight = () => {
 
   return (
     <NavRightWrapper>
-      <Button padding="15px" background2='rgba(255, 255, 255, 0.1)'>
+      <Button padding="15px" backgroundHov='rgba(255, 255, 255, 0.1)'>
         <Linker 
-          to="/host" 
+          to="/host"
           color={navFixed ? null : '#FFFFFF'}>
           호스트 되기
         </Linker>
       </Button>
-      <Button padding="15px" background2='rgba(255, 255, 255, 0.1)'>
+      <Button padding="15px" backgroundHov='rgba(255, 255, 255, 0.1)'>
         <RiGlobalLine fill={navFixed ? 'black' : '#ffffff'} />
       </Button> 
-      <MenuButton onClick={() => setShowMenu(!showMenu)}>
+      <MenuButton fixed={navFixed} onClick={() => setShowMenu(!showMenu)}>
         <RiMenuLine />
         <CgProfile />
         {showMenu && <ProfileMenu />}
