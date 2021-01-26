@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { AppProvider } from './Context'; 
 import Routes from './Routes';
-import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Routes />
+    <AppProvider>
+      <Routes />
+    </AppProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-reportWebVitals();
