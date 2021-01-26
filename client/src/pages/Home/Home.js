@@ -1,10 +1,18 @@
 import React from 'react'
-// import theme from '../../styles/theme';
+import HomeImage from './components/HomeImage';
+import HomeCities from './components/HomeCities';
+import HomeRecommend from './components/HomeRecommend';
+import HomeExperience from './components/HomeExperience';
+import HomeHosting from './components/HomeHosting';
 
 export default function Home() {
   return (
-    <div>
-      Home
-    </div>
+    <>
+      <HomeImage />
+      <HomeCities />
+      <HomeRecommend />
+      <HomeExperience />
+      <HomeHosting />
+    </>
   )
 }
