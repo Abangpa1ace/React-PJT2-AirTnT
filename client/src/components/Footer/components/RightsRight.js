@@ -23,6 +23,8 @@ const RightList = styled.ul`
       margin-left: 5px;
       font-weight: 500;
       text-decoration: underline;
+      cursor: pointer;
+      &:hover { color: ${(props) => props.theme.gray2}; }
     }
     svg {
       width: 20px;
