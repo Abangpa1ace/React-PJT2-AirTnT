@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from '../../../components/Global/GlobalComponent';
+import { Linker, Button } from '../../../components/Global/GlobalComponent';
 
 const ImageContainer = styled.div`
   position: relative;
@@ -41,14 +41,15 @@ const HomeImage = () => {
     <ImageContainer>
       <div className="nearby-search">
         <p>이제, 여행은<br />가까운 곳에서</p>
-        <Button
-          padding="10px 15px"
-          background="#ffffff"
-          background2={(props) => props.theme.gray0}
-          radius="10px"
-          >
-          근처의 숙소 둘러보기
-        </Button>
+        <Linker to="/nearby">
+          <Button
+            padding="10px 15px"
+            background="#ffffff"
+            background2={(props) => props.theme.gray0}
+            radius="10px"
+            >근처의 숙소 둘러보기
+          </Button>    
+        </Linker>
       </div>
       <img src="https://a0.muscache.com/im/pictures/cf39f4c4-e860-43d4-85be-deddd7b2da90.jpg?im_w=1920" alt="instagram-main-img" />
     </ImageContainer>

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { flexCenter } from '../../styles/theme';
 
 export const Linker = styled(Link)`
+  width: ${({ width }) => width };
+  height: ${({ height }) => height };
   color: ${({ color, theme }) => color ? color : theme.themeBlack };
   &:hover { color: ${({ color2 }) => color2}; }
   font-size: ${({ fontSize }) => fontSize };
