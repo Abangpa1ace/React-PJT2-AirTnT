@@ -11,6 +11,7 @@ export const Linker = styled(Link)`
 const StyledButton = styled.button`
   ${flexCenter};
   width: ${({ width }) => width};
+  height: ${({ height }) => height};
   margin: ${({ margin }) => margin};
   padding: ${({ padding }) => padding};
   color: ${({ color, theme }) => color || theme.themeBlack };
@@ -21,17 +22,21 @@ const StyledButton = styled.button`
     border-color: ${({ borderHov }) => borderHov};
   }
   border-radius: ${({ radius, theme }) => radius || theme.radius};
+  font-size: ${({ fontSize }) => fontSize};
 `;
 
 export const Button = ({ 
-  children, 
-  width, margin, padding, 
-  color, background, border, backgroundHov, borderHov, radius }) => {
+  children, onClick,
+  width, height, margin, padding, 
+  color, background, border, backgroundHov, borderHov, 
+  radius, fontSize }) => {
   return (
     <StyledButton 
-      width={width} margin={margin} padding={padding} 
+      width={width} height={height} margin={margin} padding={padding}
       color={color} background={background} backgroundHov={backgroundHov}
-      border={border} borderHov={borderHov} radius={radius}>
+      border={border} borderHov={borderHov} radius={radius} fontSize={fontSize}
+      onClick={onClick}
+      >
       {children}
     </StyledButton>
   )

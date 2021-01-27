@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useGlobalContext } from '../../Context';
 import RestsHeader from './components/RestsHeader/RestsHeader';
-import RestsItem from './components/RestsItem';
+import RestsItem from './components/RestsItem/RestsItem';
 import { RestsMockData } from './ListData';
 
 const RestContainer = styled.div`
@@ -15,17 +16,13 @@ const RestsItemCon = styled.ul`
 `;
 
 const ListRests = () => {
-  const [list, setList] = useState([]);
-  
-  useEffect(() => {
-    setList(RestsMockData);
-  }, []);
+  const { restList } = useGlobalContext();
 
   return (
     <RestContainer>
       <RestsHeader />
       <RestsItemCon>
-        {list.map((rest) => {
+        {restList.map((rest) => {
           const { id, imageList, category, title, mainInfo, subInfo, price, like } = rest;
           return (
             <RestsItem 

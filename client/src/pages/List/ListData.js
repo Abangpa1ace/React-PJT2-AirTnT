@@ -14,7 +14,7 @@ export const RestsMockData = [
       'https://a0.muscache.com/im/pictures/5e143527-8918-492c-bdbe-7dfde6a620b9.jpg?im_w=720',
     ],
     category: {
-      location: '마포',
+      city: '마포',
       type: '콘도(아파트)',
       validRoom: '전체',
     },
@@ -36,7 +36,11 @@ export const RestsMockData = [
       isLiked: false,
       likeAvg: 4.87,
       likeCount: 31,
-    }
+    },
+    location: {
+      lat: 33.306124,
+      long: 127.294725,
+    },
   },
   {
     id: 1,
@@ -51,7 +55,7 @@ export const RestsMockData = [
       'https://a0.muscache.com/im/pictures/5e143527-8918-492c-bdbe-7dfde6a620b9.jpg?im_w=720',
     ],
     category: {
-      location: '마포',
+      city: '마포',
       type: '콘도(아파트)',
       validRoom: '전체',
     },
@@ -73,7 +77,11 @@ export const RestsMockData = [
       isLiked: false,
       likeAvg: 4.87,
       likeCount: 31,
-    }
+    },
+    location: {
+      lat: 33.306124,
+      long: 127.294725,
+    },
   },
   {
     id: 2,
@@ -88,7 +96,7 @@ export const RestsMockData = [
       'https://a0.muscache.com/im/pictures/5e143527-8918-492c-bdbe-7dfde6a620b9.jpg?im_w=720',
     ],
     category: {
-      location: '마포',
+      city: '마포',
       type: '콘도(아파트)',
       validRoom: '전체',
     },
@@ -110,6 +118,10 @@ export const RestsMockData = [
       isLiked: false,
       likeAvg: 4.87,
       likeCount: 31,
-    }
+    },
+    location: {
+      lat: 33.306124,
+      long: 127.294725,
+    },
   },
 ];
