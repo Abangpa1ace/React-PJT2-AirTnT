@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { useGlobalContext } from '../../Context';
 import { Button } from '../../components/Global/GlobalComponent';
 import { flexCenter } from '../../styles/theme';
 
@@ -10,6 +11,19 @@ const MapContainer = styled.div`
   top: 0;
   width: 53%;
   height: 100vh;
+
+  .pin {
+    padding: 7px 15px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 1px 1px 5px 2px #999999;
+    font-weight: bold;
+    transition: all .2s ease;
+
+    &:hover {
+      transform: scale(1.15);
+    }
+  }
 `;
 
 const MapCheckBox = styled.div`
@@ -52,20 +66,52 @@ const ZoomBtn = styled.div`
 `;
 
 const ListMap = () => {
-  const [latitude, setLatitude] = useState(35.450701);
-  const [longitude, setLongitude] = useState(126.570667);
+  const [latitude, setLatitude] = useState(37.5024);
+  const [longitude, setLongitude] = useState(126.7772);
   const [zoom, setZoom] = useState(8);
+  const { restList } = useGlobalContext();
+  const pinList = restList.map((ele) => {
+    return {
+      title: ele.title,
+      price: ele.price,
+      ...ele.location,
+    }
+  });
 
   useEffect(() => {
+    loadMap();
+  }, [zoom, restList]);
+
+  const loadMap = () => {
     const container = document.querySelector('.map-container');
     const options = {
       center: new kakao.maps.LatLng(latitude, longitude),
       level: zoom,
     }
     const map = new kakao.maps.Map(container, options);
-  }, [zoom, latitude, longitude])
+    
+    pinList.forEach((pin) => {
+      let marker = new kakao.maps.Marker({
+        map: map,
+        position: new kakao.maps.LatLng(pin.lat, pin.long),
+        title: pin.title,
+        zIndex: 3,
+      })
+      const content = `<div class="pin">₩${pin.price.toLocaleString()}</div>`;
+      let pinBox = new kakao.maps.CustomOverlay({
+        map: map,
+        position: new kakao.maps.LatLng(pin.lat, pin.long),
+        content: content,
+        clickable: true,
+        yAnchor: 1.3,
+        zIndex: 2,
+      })
+      kakao.maps.event.addListener(marker, 'click', () => {
+        console.log('hihi');
+      })
+    })
 
-
+  }
 
   const ZoomIn = () => {
     setZoom(zoom < 0 ? 0 : zoom - 1)

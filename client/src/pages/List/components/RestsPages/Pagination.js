@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Linker, Button } from '../../../../components/Global/GlobalComponent';
+import { Link } from 'react-router-dom';
+import { Button } from '../../../../components/Global/GlobalComponent';
 import { flexCenter } from '../../../../styles/theme';
 
 const PageBtnCon = styled.div`
@@ -8,14 +9,23 @@ const PageBtnCon = styled.div`
   width: 400px;
   margin: 0 auto;
 
-  button {
-    width: 40px;
-    height: 40px;
+  a {
     border-radius: 50%;
-    font-size: 16px;
+    margin: 0 10px;
 
-    &:hover {
-      background: ${({ theme }) => theme.gray0};
+    button {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+
+      &:hover {
+        background: ${({ theme }) => theme.gray0};
+      }
+    }
+
+    &.focus {
+      background: ${({ theme }) => theme.themeBlack};
+      button { color: #ffffff; }
     }
   }
 `;
@@ -24,11 +34,11 @@ const Pagination = () => {
   return (
     <PageBtnCon>
       <Button>&lt;</Button>
-      <Linker><Button>1</Button></Linker>
-      <Linker><Button>2</Button></Linker>
-      <Linker><Button>3</Button></Linker>
-      <Linker><Button>4</Button></Linker>
-      <Linker><Button>5</Button></Linker>
+      <Link to="/" className="focus"><Button>1</Button></Link>
+      <Link to="/"><Button>2</Button></Link>
+      <Link to="/"><Button>3</Button></Link>
+      <Link to="/"><Button>4</Button></Link>
+      <Link to="/"><Button>5</Button></Link>
       <Button>&gt;</Button>
     </PageBtnCon>
   )
