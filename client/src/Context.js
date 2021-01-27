@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { RestsAPI } from './data/config';
 
 const AppContext = React.createContext();
@@ -13,7 +13,10 @@ const AppProvider = ({ children }) => {
     const result = await response.json();
     setRestList(result.data);
   }
-  fetchRests();
+  
+  useEffect(() => {
+    fetchRests();
+  }, []);
 
   const handleNavFixed = () => {
     const { pageYOffset } = window;

@@ -15,7 +15,7 @@ const List = () => {
   // delete later
   useEffect(() => {
     setNavFixed(true)  
-  }, [navFixed])
+  }, [navFixed, setNavFixed])
 
   return (
     <ListPage>

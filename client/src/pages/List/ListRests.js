@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../Context';
 import RestsHeader from './components/RestsHeader/RestsHeader';
 import RestsItem from './components/RestsItem/RestsItem';
-import { RestsMockData } from './ListData';
 
 const RestContainer = styled.div`
   width: 47%;

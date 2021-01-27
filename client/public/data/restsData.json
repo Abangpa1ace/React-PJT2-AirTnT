@@ -32,14 +32,15 @@
       ],
       "price": 75095,
       "like": {
-        "isLiked": false,
+        "isLiked": true,
         "likeAvg": 4.87,
         "likeCount": 31
       },
       "location": {
         "lat": 33.306124,
         "long": 127.294725
-      }
+      },
+      "superHost": false
     },
     {
       "id": 1,
@@ -80,7 +81,8 @@
       "location": {
         "lat": 33.306124,
         "long": 127.294725
-      }
+      },
+      "superHost": false
     },
     {
       "id": 2,
@@ -121,7 +123,8 @@
       "location": {
         "lat": 33.306124,
         "long": 127.294725
-      }
+      },
+      "superHost": false
     },
     {
       "id": 3,
@@ -162,7 +165,8 @@
       "location": {
         "lat": 33.306124,
         "long": 127.294725
-      }
+      },
+      "superHost": false
     },
     {
       "id": 4,
@@ -203,7 +207,8 @@
       "location": {
         "lat": 33.306124,
         "long": 127.294725
-      }
+      },
+      "superHost": false
     }
   ]
 }
