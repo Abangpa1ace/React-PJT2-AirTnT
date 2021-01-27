@@ -2,27 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 import ItemSlider from './ItemSlider';
 import ItemInfo from './ItemInfo';
+import { flexBetween } from '../../../../styles/theme';
 
 const Restsitem = styled.li`
-  display: flex;
+  ${flexBetween};
   width: 100%;
   height: 250px;
   padding: 25px 0;
   border-top: 1px solid ${({ theme }) => theme.gray1};
-
-  img {
-    width: 270px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
 `;
 
 
 
 const RestsItem = ({ idx, imageList, category, title, mainInfo, subInfo, price, like }) => {
   return (
-    <Restsitem>
+    <Restsitem as="a" href="/details">
       <ItemSlider 
         idx={idx} 
         imageList={imageList} 
