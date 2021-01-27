@@ -19,7 +19,6 @@ const InfoFooter = styled.footer`
       ${flexAlign};
       height: 15px;
       
-
       svg {
         width: 15px;
         fill: ${({ theme }) => theme.themePink };
@@ -86,4 +85,4 @@ const ItemInfoFooter = ({ mainInfo, subInfo, price, like }) => {
   )
 }
 
-export default ItemInfoFooter
+export default ItemInfoFooter;

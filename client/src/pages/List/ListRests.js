@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useGlobalContext } from '../../Context';
 import RestsHeader from './components/RestsHeader/RestsHeader';
 import RestsItem from './components/RestsItem/RestsItem';
+import RestsPages from './components/RestsPages/RestsPages';
 
 const RestContainer = styled.div`
   width: 47%;
@@ -38,6 +39,7 @@ const ListRests = () => {
           )
         })}
       </RestsItemCon>
+      <RestsPages />
     </RestContainer>
   )
 }
