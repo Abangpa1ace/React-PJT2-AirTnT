@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
 import { useGlobalContext } from '../../Context';
 import { Button } from '../../components/Global/GlobalComponent';
+import MapModal from './components/MapComponents/MapModal';
 import { flexCenter } from '../../styles/theme';
 
 const { kakao } = window;
@@ -22,6 +23,11 @@ const MapContainer = styled.div`
 
     &:hover {
       transform: scale(1.15);
+    }
+
+    &.focus {
+      background: ${({ theme }) => theme.themeBlack};
+      color: #ffffff;
     }
   }
 `;
@@ -69,9 +75,10 @@ const ListMap = () => {
   const [latitude, setLatitude] = useState(37.5024);
   const [longitude, setLongitude] = useState(126.7772);
   const [zoom, setZoom] = useState(8);
-  const { restList } = useGlobalContext();
+  const { restList, restId } = useGlobalContext();
   const pinList = restList.map((ele) => {
     return {
+      id: ele.id,
       title: ele.title,
       price: ele.price,
       ...ele.location,
@@ -80,7 +87,7 @@ const ListMap = () => {
 
   useEffect(() => {
     loadMap();
-  }, [zoom, restList]);
+  }, [zoom, restList, restId]);
 
   const loadMap = () => {
     const container = document.querySelector('.map-container');
@@ -97,7 +104,11 @@ const ListMap = () => {
         title: pin.title,
         zIndex: 3,
       })
-      const content = `<div class="pin">₩${pin.price.toLocaleString()}</div>`;
+      const content = 
+      `<div 
+        class= 'pin ${pin.id === restId ? 'focus' : ''}'>
+        ₩${pin.price.toLocaleString()}
+      </div>`;
       let pinBox = new kakao.maps.CustomOverlay({
         map: map,
         position: new kakao.maps.LatLng(pin.lat, pin.long),
@@ -107,10 +118,9 @@ const ListMap = () => {
         zIndex: 2,
       })
       kakao.maps.event.addListener(marker, 'click', () => {
-        console.log('hihi');
+        console.log(marker);
       })
     })
-
   }
 
   const ZoomIn = () => {
@@ -147,6 +157,7 @@ const ListMap = () => {
           onClick={ZoomOut}
         >-</Button>
       </ZoomBtn>
+      <MapModal />
     </MapContainer>
   )
 }

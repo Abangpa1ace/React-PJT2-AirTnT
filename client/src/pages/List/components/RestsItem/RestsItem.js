@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { useGlobalContext } from '../../../../Context';
 import ItemSlider from './ItemSlider';
 import ItemInfo from './ItemInfo';
 import { flexBetween } from '../../../../styles/theme';
@@ -14,13 +15,20 @@ const Restsitem = styled.li`
 
 
 
-const RestsItem = ({ idx, imageList, category, title, mainInfo, subInfo, price, like }) => {
+const RestsItem = ({ id, imageList, category, title, mainInfo, subInfo, price, like, focusedRest }) => {
+  const { restId, setRestId } = useGlobalContext();
   return (
-    <Restsitem as="a" href="/details">
+    <Restsitem 
+      as="a" href={`/details/${id}`} 
+      focusedRest={id === restId}
+      onMouseEnter={() => setRestId(id)}>
       <ItemSlider 
-        idx={idx} 
+        id={id} 
         imageList={imageList} 
-        title={title} 
+        title={title}
+        width="300px"
+        height="200px"
+        focusedRest={id === restId}
       />
       <ItemInfo 
         category={category} 

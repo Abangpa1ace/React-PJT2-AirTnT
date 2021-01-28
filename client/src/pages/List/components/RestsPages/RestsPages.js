@@ -21,7 +21,7 @@ const RestsPages = () => {
 
   return (
     <Restspages>
-      <Pagination setPageIdx={setPageIdx} />
+      <Pagination pageIdx={pageIdx} setPageIdx={setPageIdx} />
       <p>숙소 {restList.length}개 중 {startCount} - {startCount+19}</p>
       <span>추가 수수료가 부과됩니다. 세금도 부과될 수 있습니다.</span>
     </Restspages>

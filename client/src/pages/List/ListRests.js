@@ -27,7 +27,7 @@ const ListRests = () => {
           return (
             <RestsItem 
               key={id}
-              idx={id}
+              id={id}
               imageList={imageList}
               category={category}
               title={title}

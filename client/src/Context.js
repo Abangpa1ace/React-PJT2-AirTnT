@@ -7,6 +7,7 @@ const AppProvider = ({ children }) => {
   const [navFixed, setNavFixed] = useState(true);
   const [guest, setGuest] = useState(2);
   const [restList, setRestList] = useState([]);
+  const [restId, setRestId] = useState(1);
 
   const fetchRests = async () => {
     const response = await fetch(RestsAPI, { method: 'GET' });
@@ -34,6 +35,8 @@ const AppProvider = ({ children }) => {
         setGuest,
         restList,
         setRestList,
+        restId,
+        setRestId,
       }}>
       {children}
     </AppContext.Provider>

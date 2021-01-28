@@ -30,15 +30,15 @@ const PageBtnCon = styled.div`
   }
 `;
 
-const Pagination = () => {
+const Pagination = ({ pageIdx, setPageIdx }) => {
   return (
     <PageBtnCon>
       <Button>&lt;</Button>
-      <Link to="/" className="focus"><Button>1</Button></Link>
-      <Link to="/"><Button>2</Button></Link>
-      <Link to="/"><Button>3</Button></Link>
-      <Link to="/"><Button>4</Button></Link>
-      <Link to="/"><Button>5</Button></Link>
+      {[1,2,3,4,5].map((ele, idx) => {
+        return (
+          <Link to="/" className={idx===pageIdx ? 'focus' : ''}><Button onClick={() => setPageIdx(idx)}>{ele}</Button></Link>
+        )
+      })}
       <Button>&gt;</Button>
     </PageBtnCon>
   )
