@@ -15,8 +15,8 @@ function Routes() {
       <GlobalReset />
         <Navbar />
         <Switch>
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/" component={List} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/list" component={List} />
         </Switch>
         <Footer />
       </ThemeProvider>
