@@ -22,7 +22,7 @@ const RestInfo = styled.section`
   }
 `;
 
-const ItemInfo = ({ category, title, mainInfo, subInfo, price, like }) => {
+const ItemInfo = ({ id, category, title, mainInfo, subInfo, price, like }) => {
   const { isLiked } = like;
   return (
     <RestInfo>

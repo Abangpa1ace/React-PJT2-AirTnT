@@ -38,6 +38,7 @@ const InfoFooter = styled.footer`
 
       span {
         text-decoration: underline;
+        cursor: pointer;
       }
     }
   }
@@ -78,7 +79,7 @@ const ItemInfoFooter = ({ mainInfo, subInfo, price, like }) => {
         </div>
         <div className="price">
           <p><strong>₩{price.toLocaleString()}</strong>/1박</p>
-          <span>총 요금: ₩{price.toLocaleString()}</span>
+          <span>총 요금: ₩{(price * 2).toLocaleString()}</span>
         </div>
       </section>
     </InfoFooter>

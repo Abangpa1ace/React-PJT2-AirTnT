@@ -2,7 +2,7 @@
 const Server = "http://localhost:3000";
 
 export const RestsAPI = `${Server}/data/restsData.json`;
-
+export const RecentAPI = `${Server}/data/recentRestsData.json`;
 
 
 // SVG

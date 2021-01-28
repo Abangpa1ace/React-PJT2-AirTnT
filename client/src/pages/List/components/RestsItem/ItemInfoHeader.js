@@ -12,10 +12,13 @@ const InfoHeader = styled.header`
     font-size: 18px;
     font-weight: 400;
   }
-
-  svg {
-    fill: ${({ isLiked, theme }) => isLiked && theme.themePink }
+  button {
+    z-index: 10;
+    svg {
+      fill: ${({ isLiked, theme }) => isLiked && theme.themePink }
+    }
   }
+  
 `;
 
 const ItemInfoHeader = ({ category, title}) => {
