@@ -4,13 +4,13 @@ import styled, { css } from 'styled-components';
 import NavLeft from './components/NavLeft';
 import NavCenter from './components/NavCenter';
 import NavRight from './components/NavRight';
-import { flexBetween } from '../../styles/theme';
+import { flexBetween, flexAlign } from '../../styles/theme';
 
 
 const Nav = styled.nav`
-  position: relative;
-  display: flex;
-  align-items: center;
+  ${flexAlign};
+  position: fixed;
+  top: 0;
   width: 100%;
   height: 80px;
   background: transparent;
@@ -20,8 +20,6 @@ const Nav = styled.nav`
 
   ${({ fixed }) => fixed &&
     css`
-      position: fixed;
-      top: 0;
       background: #ffffff;
     `
   }

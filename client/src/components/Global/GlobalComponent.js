@@ -2,8 +2,11 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { flexCenter } from '../../styles/theme';
 
+// styled Link
 export const Linker = styled(Link)`
-  color: ${({ color, theme }) => color || theme.themeBlack };
+  width: ${({ width }) => width };
+  height: ${({ height }) => height };
+  color: ${({ color, theme }) => color ? color : theme.themeBlack };
   &:hover { color: ${({ colorHov }) => colorHov}; }
   font-size: ${({ fontSize }) => fontSize };
 `;
@@ -25,6 +28,7 @@ const StyledButton = styled.button`
   font-size: ${({ fontSize }) => fontSize};
 `;
 
+// styled button
 export const Button = ({ 
   children, onClick,
   width, height, margin, padding, 
@@ -41,3 +45,35 @@ export const Button = ({
     </StyledButton>
   )
 }
+
+
+const StyledImage = styled.img`
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
+  object-fit: cover;
+  border-radius: ${({ radius }) => radius ? radius : "10px"};
+`;
+
+// styled img
+export const Image = ({ src, alt, width, height, radius }) => {
+  return (
+    <StyledImage 
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      radius={radius}
+    />
+  )
+}
+
+// grid-box for home
+export const GridBox = styled.div`
+  display: grid;
+  grid-template-columns: repeat(${({ repeat }) => repeat}, 1fr);
+  grid-gap: ${({ gap }) => gap ? gap : "15px"};
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
+  margin: ${({ margin }) => margin ? margin : "0 auto"};
+  padding: ${({ padding }) => padding};
+`;
