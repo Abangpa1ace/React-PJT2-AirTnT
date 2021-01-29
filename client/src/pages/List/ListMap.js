@@ -16,7 +16,7 @@ const ListMap = () => {
   useEffect(() => {
     loadMap();
     setIsModalOn(false)
-  }, [zoom, restList, restId]);
+  }, [zoom, restId]);
 
   // Pin Setting
   const pinList = restList.map((ele) => {
