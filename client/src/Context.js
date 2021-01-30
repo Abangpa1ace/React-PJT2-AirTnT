@@ -1,9 +1,28 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { RestsAPI } from './data/config';
 
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  const [navFixed, setNavFixed] = useState(false);
+  // Navigation bar Control
+  const [navFixed, setNavFixed] = useState(true);
+
+  // Search Values
+  const [guest, setGuest] = useState(2);
+
+  // Rests Data
+  const [restList, setRestList] = useState([]);
+  const [restId, setRestId] = useState(-1);
+
+  const fetchRests = async () => {
+    const response = await fetch(RestsAPI, { method: 'GET' });
+    const result = await response.json();
+    setRestList(result.data);
+  }
+  
+  useEffect(() => {
+    fetchRests();
+  }, []);
 
   const handleNavFixed = () => {
     const { pageYOffset } = window;
@@ -17,6 +36,12 @@ const AppProvider = ({ children }) => {
         navFixed,
         setNavFixed,
         handleNavFixed,
+        guest,
+        setGuest,
+        restList,
+        setRestList,
+        restId,
+        setRestId,
       }}>
       {children}
     </AppContext.Provider>

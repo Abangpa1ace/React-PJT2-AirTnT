@@ -14,6 +14,7 @@ const Nav = styled.nav`
   width: 100%;
   height: 80px;
   background: transparent;
+  box-shadow: 0px 3px 5px 0px ${({ theme }) => theme.gray1};
   transition: all .2s ease;
   z-index: 500;
 
@@ -37,7 +38,7 @@ export default function Navbar() {
   useEffect(() => {
     window.addEventListener('scroll', handleNavFixed);
     return () => window.removeEventListener('scroll', handleNavFixed);
-  }, [])
+  }, [handleNavFixed])
 
   return (
     <Nav fixed={navFixed}>
