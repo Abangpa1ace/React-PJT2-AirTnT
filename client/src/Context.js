@@ -1,11 +1,15 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import moment from 'moment';
+import { RestsAPI } from './data/config';
 
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
+  // Navigation bar Control
   const [navFixed, setNavFixed] = useState(false);
   const [searchOn, setSearchOn] = useState(true);
+
+  // Search Values
   const [searchValue, setSearchValue] = useState({
     location: '',
     dateIn: null,
@@ -13,6 +17,20 @@ const AppProvider = ({ children }) => {
     dateDiff: 0,
     guest: 0,
   });
+
+  // Rests Data
+  const [restList, setRestList] = useState([]);
+  const [restId, setRestId] = useState(-1); // move to list page
+
+  const fetchRests = async () => {
+    const response = await fetch(RestsAPI, { method: 'GET' });
+    const result = await response.json();
+    setRestList(result.data);
+  }
+  
+  useEffect(() => {
+    fetchRests();
+  }, []);
 
   const handleNavFixed = () => {
     const { pageYOffset } = window;
@@ -38,6 +56,10 @@ const AppProvider = ({ children }) => {
         setSearchOn,
         searchValue,
         updateSearchValue,
+        restList,
+        setRestList,
+        // restId,
+        // setRestId,
       }}>
       {children}
     </AppContext.Provider>

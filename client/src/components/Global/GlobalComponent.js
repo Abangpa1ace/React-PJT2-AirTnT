@@ -2,11 +2,12 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { flexCenter } from '../../Styles/theme';
 
+// styled Link
 export const Linker = styled(Link)`
   width: ${({ width }) => width };
   height: ${({ height }) => height };
   color: ${({ color, theme }) => color ? color : theme.themeBlack };
-  &:hover { color: ${({ color2 }) => color2}; }
+  &:hover { color: ${({ colorHov }) => colorHov}; }
   font-size: ${({ fontSize }) => fontSize };
 `;
 
@@ -18,24 +19,33 @@ const StyledButton = styled.button`
   padding: ${({ padding }) => padding};
   color: ${({ color, theme }) => color || theme.themeBlack };
   background: ${({ background }) => background};
-  &:hover { background: ${({ backgroundHov }) => backgroundHov}; }
+  border: 1px solid ${({ border }) => border || 0};
+  &:hover { 
+    background: ${({ backgroundHov }) => backgroundHov};
+    border-color: ${({ borderHov }) => borderHov};
+  }
   border-radius: ${({ radius, theme }) => radius || theme.radius};
+  font-size: ${({ fontSize }) => fontSize};
 `;
 
-export const Button = ({ children, width, height, margin, padding, color, background, backgroundHov, radius }) => {
+// styled button
+export const Button = ({ 
+  children, onClick,
+  width, height, margin, padding, 
+  color, background, border, backgroundHov, borderHov, 
+  radius, fontSize }) => {
   return (
     <StyledButton 
-      width={width} height={height}
-      margin={margin} 
-      padding={padding} 
-      color={color} 
-      background={background} 
-      backgroundHov={backgroundHov}
-      radius={radius}>
+      width={width} height={height} margin={margin} padding={padding}
+      color={color} background={background} backgroundHov={backgroundHov}
+      border={border} borderHov={borderHov} radius={radius} fontSize={fontSize}
+      onClick={onClick}
+      >
       {children}
     </StyledButton>
   )
 }
+
 
 const StyledImage = styled.img`
   width: ${({ width }) => width};
@@ -44,6 +54,7 @@ const StyledImage = styled.img`
   border-radius: ${({ radius }) => radius ? radius : "10px"};
 `;
 
+// styled img
 export const Image = ({ src, alt, width, height, radius }) => {
   return (
     <StyledImage 
@@ -56,6 +67,7 @@ export const Image = ({ src, alt, width, height, radius }) => {
   )
 }
 
+// grid-box for home
 export const GridBox = styled.div`
   display: grid;
   grid-template-columns: repeat(${({ repeat }) => repeat}, 1fr);

@@ -10,10 +10,6 @@ const GlobalReset = createGlobalStyle`
     color: #222222;
   }
 
-  body {
-    height: 300vh;
-  }
-
   ul, li {
     list-style: none;
   }
