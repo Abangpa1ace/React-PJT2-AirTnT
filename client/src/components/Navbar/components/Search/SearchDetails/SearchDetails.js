@@ -7,8 +7,8 @@ import SearchMember from './SearchMember';
 const SearchDetails = ({ setSearchActive, searchFocus, setSearchFocus }) => {
   const detailObj = {
     0: <SearchNearby />,
-    1: <SearchCalender />,
-    2: <SearchCalender />,
+    1: <SearchCalender setSearchFocus={setSearchFocus}/>,
+    2: <SearchCalender setSearchFocus={setSearchFocus}/>,
     3: <SearchMember />,
   }
 

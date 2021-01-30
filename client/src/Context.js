@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import moment from 'moment';
 
 const AppContext = React.createContext();
 
@@ -7,11 +8,11 @@ const AppProvider = ({ children }) => {
   const [searchOn, setSearchOn] = useState(true);
   const [searchValue, setSearchValue] = useState({
     location: '',
-    date: [new Date(), new Date()],
+    dateIn: null,
+    dateOut: null,
+    dateDiff: 0,
     guest: 0,
   });
-  let today = new Date();
-  const [startDate, setStartDate] = useState(today);
 
   const handleNavFixed = () => {
     const { pageYOffset } = window;
@@ -37,8 +38,6 @@ const AppProvider = ({ children }) => {
         setSearchOn,
         searchValue,
         updateSearchValue,
-        startDate,
-        setStartDate,
       }}>
       {children}
     </AppContext.Provider>

@@ -1,17 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import moment from 'moment';
 import 'react-dates/initialize';
-import { DateRangePicker } from 'react-dates';
+import { DayPickerRangeController } from 'react-dates';
+import { START_DATE } from 'react-dates/constants';
 import 'react-dates/lib/css/_datepicker.css';
 import { useGlobalContext } from '../../../../../Context';
 
-const SearchCalender = () => {
-  const { startDate } = useGlobalContext();
-  
+const SearchCalender = ({ setSearchFocus }) => {
+  const { updateSearchValue } = useGlobalContext();
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [focusedInput, setFocusedInput] = useState(START_DATE);
+
+  useEffect(() => {
+    dateSelect();
+  }, [startDate, endDate]);
+
+  const dateSelect = () => {
+    const dateKey = "_d"
+    if (startDate !== null) {
+      updateSearchValue('dateIn', moment(startDate[dateKey].toString()).format("M월 D일"));
+      setSearchFocus(2);
+    }
+    if (endDate !== null) {
+      updateSearchValue('dateOut', moment(endDate[dateKey].toString()).format("M월 D일"));
+      setSearchFocus(3);
+    }
+  }
+
   return (
     <DetailCalender>
-      <DateRangePicker 
+      <DayPickerRangeController
         startDate={startDate}
+        endDate={endDate}
+        onDatesChange={({ startDate, endDate }) => {
+          setStartDate(startDate);
+          setEndDate(endDate);
+        }}
+        focusedInput={focusedInput}
+        onFocusChange={(focusedInput) => {
+          setFocusedInput(focusedInput || START_DATE)
+        }}
+        numberOfMonths={2}
       />
     </DetailCalender>
   )
@@ -20,11 +51,11 @@ const SearchCalender = () => {
 const DetailCalender = styled.div`
   position: absolute;
   width: 100%;
+  height: 400px;
   background: #ffffff;
   padding: 40px;
   border-radius: ${({ theme }) => theme.radius };
   box-shadow: ${({ theme }) => theme.shadowDiagonal};
-  overflow: hidden;
 `;
 
 export default SearchCalender;
