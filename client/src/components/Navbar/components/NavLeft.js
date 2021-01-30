@@ -7,7 +7,7 @@ import { flexAlign } from '../../../Styles/theme';
 
 const NavLeft = () => {
   const { navFixed } = useGlobalContext();
-  console.log(navFixed);
+
   return (
     <Navleft navFixed={navFixed}>
       <Link to="/">

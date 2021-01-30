@@ -22,7 +22,6 @@ const NavCenter = () => {
 const Navcenter = styled.div`
   ${flexAlignCol};
   align-items: center;
-  /* border: 2px solid blue; */
   transition: all .5s ease;
   z-index: 250;
 `;

@@ -7,10 +7,11 @@ const AppProvider = ({ children }) => {
   const [searchOn, setSearchOn] = useState(true);
   const [searchValue, setSearchValue] = useState({
     location: '',
-    dateIn: null,
-    dateOut: null,
+    date: [new Date(), new Date()],
     guest: 0,
   });
+  let today = new Date();
+  const [startDate, setStartDate] = useState(today);
 
   const handleNavFixed = () => {
     const { pageYOffset } = window;
@@ -36,6 +37,8 @@ const AppProvider = ({ children }) => {
         setSearchOn,
         searchValue,
         updateSearchValue,
+        startDate,
+        setStartDate,
       }}>
       {children}
     </AppContext.Provider>
