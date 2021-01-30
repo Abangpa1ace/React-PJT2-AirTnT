@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { useGlobalContext } from '../../../Context';
 import { Linker, Button } from '../../Global/GlobalComponent';
 import ProfileMenu from './ProfileMenu';
 import { RiGlobalLine, RiMenuLine } from 'react-icons/ri';
 import { CgProfile } from 'react-icons/cg';
-import { flexCenter, flexAlign } from '../../../styles/theme';
+import { flexCenter, flexAlign } from '../../../Styles/theme';
 
 const NavRightWrapper = styled.div`
   ${flexAlign};
@@ -21,11 +21,8 @@ const MenuButton = styled.div`
   background: #ffffff;
   border-radius: ${({ theme }) => theme.radius};
   cursor: pointer;
-  ${({ fixed, theme }) => fixed &&
-    css`
-      box-shadow: 1px 1px 3px 1px ${theme.gray1};
-    `
-  }
+  box-shadow: ${({ fixed, theme}) => fixed && theme.shadowDiagonal};
+
 
   svg { 
     margin: 0 5px; 

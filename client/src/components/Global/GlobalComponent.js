@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { flexCenter } from '../../styles/theme';
+import { flexCenter } from '../../Styles/theme';
 
 export const Linker = styled(Link)`
   width: ${({ width }) => width };
@@ -13,6 +13,7 @@ export const Linker = styled(Link)`
 const StyledButton = styled.button`
   ${flexCenter};
   width: ${({ width }) => width};
+  height: ${({ height }) => height};
   margin: ${({ margin }) => margin};
   padding: ${({ padding }) => padding};
   color: ${({ color, theme }) => color || theme.themeBlack };
@@ -21,10 +22,10 @@ const StyledButton = styled.button`
   border-radius: ${({ radius, theme }) => radius || theme.radius};
 `;
 
-export const Button = ({ children, width, margin, padding, color, background, backgroundHov, radius }) => {
+export const Button = ({ children, width, height, margin, padding, color, background, backgroundHov, radius }) => {
   return (
     <StyledButton 
-      width={width} 
+      width={width} height={height}
       margin={margin} 
       padding={padding} 
       color={color} 

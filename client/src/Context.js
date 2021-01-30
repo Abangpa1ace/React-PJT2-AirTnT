@@ -4,16 +4,27 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [navFixed, setNavFixed] = useState(false);
-  const [location, setLocation] = useState('');
-  const [dateIn, setDateIn] = useState(null);
-  const [dateOut, setDateOut] = useState(null);
-  const [guest, setGuest] = useState(0);
+  const [searchOn, setSearchOn] = useState(true);
+  const [searchValue, setSearchValue] = useState({
+    location: '',
+    dateIn: null,
+    dateOut: null,
+    guest: 0,
+  });
 
   const handleNavFixed = () => {
     const { pageYOffset } = window;
-    const isFixed = pageYOffset > 10;
+    let isFixed = pageYOffset >= 60;
     setNavFixed(isFixed);
+    setSearchOn(!isFixed);
   }
+
+  const updateSearchValue = (name, value) => {
+    setSearchValue({
+      ...searchValue,
+      [name]: value,
+    })
+  };
 
   return (
     <AppContext.Provider
@@ -21,14 +32,10 @@ const AppProvider = ({ children }) => {
         navFixed,
         setNavFixed,
         handleNavFixed,
-        location,
-        setLocation,
-        dateIn,
-        setDateIn,
-        dateOut,
-        setDateOut,
-        guest,
-        setGuest,
+        searchOn,
+        setSearchOn,
+        searchValue,
+        updateSearchValue,
       }}>
       {children}
     </AppContext.Provider>

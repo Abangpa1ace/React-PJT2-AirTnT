@@ -2,27 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../../Context';
 import { Linker } from '../../../Global/GlobalComponent';
-import { flexAlign } from '../../../../styles/theme';
+import { flexAlign } from '../../../../Styles/theme';
 import { NAVBARMENU } from '../../NavbarData';
 
-const MenuList = styled.ul`
-  ${flexAlign}
-
-  li {
-    margin: 0 15px;
-    &.focus a { border-bottom: 1px solid #ffffff; }
-  }
-`;
-
-const SearchMenu = ({ focus, changeFocus }) => {
+const SearchMenu = ({ navFocus, setNavFocus }) => {
   const { navFixed } = useGlobalContext();
 
   return (
     <MenuList>
       {NAVBARMENU.map((menu, idx) => {
         return (
-          <li key={menu.id} className={idx === focus ? 'focus' : ''} 
-            onClick={() => changeFocus(idx)}>
+          <MenuItem key={menu.id} fixed={navFixed} focused={idx === navFocus} 
+            onClick={() => setNavFocus(idx)}>
             <Linker 
               to={menu.link}
               color={navFixed ? null : '#FFFFFF'}
@@ -30,11 +21,20 @@ const SearchMenu = ({ focus, changeFocus }) => {
               fontSize="initial">
               {menu.text}
             </Linker>
-          </li>  
+          </MenuItem>  
         )
       })}
     </MenuList>
   )
 }
 
-export default SearchMenu
+const MenuList = styled.ul`
+  ${flexAlign}
+`;
+
+const MenuItem = styled.li`
+  margin: 0 15px;
+  border-bottom: ${({ focused }) => focused ? `2px solid #ffffff` : 'none'};
+`;
+
+export default SearchMenu;

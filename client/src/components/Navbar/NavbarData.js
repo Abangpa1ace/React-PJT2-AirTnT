@@ -75,7 +75,7 @@ export const SEARCHSET = [
   },
 ]
 
-export const MEMBERCONTROLLER = [
+export const GUESTCATEGORY = [
   {
     id: 0,
     group: 'adult',

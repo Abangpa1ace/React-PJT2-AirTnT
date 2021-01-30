@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Linker, GridBox, Image } from '../../../components/Global/GlobalComponent';
+import { Linker, GridBox, Image } from '../../../Components/Global/GlobalComponent';
 import { HOSTINGDATA } from '../HomeData';
 
 const HostingCon = styled.div`
