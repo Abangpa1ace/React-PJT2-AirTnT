@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import NavLeft from './components/NavLeft';
 import NavCenter from './components/NavCenter';
 import NavRight from './components/NavRight';
-import { flexBetween, flexAlign } from '../../styles/theme';
+import { flexBetween, flexAlign } from '../../Styles/theme';
 
 
 const Nav = styled.nav`

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { BsStarFill } from 'react-icons/bs';
-import { flexAlign } from '../../../../styles/theme';
+import { flexAlign } from '../../../../Styles/theme';
 
 const InfoFooter = styled.footer`
   display: flex;

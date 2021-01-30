@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { RestsAPI } from './data/config';
+import { RestsAPI } from './Data/config';
 
 const AppContext = React.createContext();
 

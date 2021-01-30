@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { Button } from '../../Global/GlobalComponent';
 import { SEARCHSET } from '../NavbarData';
 import { BiSearch } from 'react-icons/bi';
-import { flexCenter, flexAlignCol } from '../../../styles/theme';
+import { flexCenter, flexAlignCol } from '../../../Styles/theme';
 
 const Searchbar = styled.div`
   ${flexCenter};

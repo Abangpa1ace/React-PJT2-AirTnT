@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../Context';
 import { Linker } from '../../Global/GlobalComponent';
-import SearchBar from '../components/SearchBar';
-import { flexAlign } from '../../../styles/theme';
+import SearchBar from './SearchBar';
+import { flexAlign } from '../../../Styles/theme';
 import { NAVBARMENU } from '../NavbarData';
 
 const Navcenter = styled.ul`
