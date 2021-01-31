@@ -1,17 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useGlobalContext } from '../../Context';
 import ListRests from './ListRests';
 import ListMap from './ListMap';
 
 const List = () => {
   const [restId, setRestId] = useState(-1);
-  const { navFixed, setNavFixed } = useGlobalContext();
-  
-  // delete later
-  useEffect(() => {
-    setNavFixed(true)  
-  }, [navFixed, setNavFixed])
 
   return (
     <ListPage>

@@ -73,10 +73,10 @@ const ListMap = ({ restId }) => {
         title: rest.title,
         zIndex: 3,
       })
-      marker.setMap(map);
       kakao.maps.event.addListener(marker, 'click', () => {
         showModal(marker.Pc.x, marker.Pc.y, rest);
       })
+      marker.setMap(map);
     })
   }
 
@@ -87,7 +87,7 @@ const ListMap = ({ restId }) => {
         class= 'pin ${rest.id === restId ? 'focus' : ''}'>
         ₩${rest.price.toLocaleString()}
       </div>`;
-      let pinBox = new kakao.maps.CustomOverlay({
+      let priceCusOver = new kakao.maps.CustomOverlay({
         map: map,
         position: new kakao.maps.LatLng(rest.location.lat, rest.location.long),
         content: content,
@@ -95,6 +95,7 @@ const ListMap = ({ restId }) => {
         yAnchor: 0,
         zIndex: 2,
       })
+      priceCusOver.setMap(map);
     })
   }
 
