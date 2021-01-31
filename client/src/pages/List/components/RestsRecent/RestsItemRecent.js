@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ItemSlider from '../../../../Components/Global/ItemSlider';
+import Carousel from '../../../../Components/Carousel/Carousel';
 import { Button, Linker } from '../../../../Components/Global/GlobalComponent';
 import { flexAlign } from '../../../../Styles/theme';
 import { BsHeart, BsStarFill } from 'react-icons/bs';
@@ -72,7 +72,7 @@ const RestsItemRecent = ({ id, imageList, title, category, price, like, recentId
       onMouseOver={() => setRecentId(id)}
       onMouseOut={() => setRecentId(-1)}>
       <Button><BsHeart /></Button>
-      <ItemSlider 
+      <Carousel
         id={id} 
         imageList={imageList} 
         width="100%"

@@ -7,72 +7,39 @@ import { flexCenter } from '../../Styles/theme';
 
 const { kakao } = window;
 
-const ListMap = () => {
+const ListMap = ({ restId }) => {
   // Map Setting
+  const { restList } = useGlobalContext();
   const [latitude, setLatitude] = useState(37.5024);
   const [longitude, setLongitude] = useState(126.7772);
   const [zoom, setZoom] = useState(8);
-  const { restList, restId } = useGlobalContext();
+
   useEffect(() => {
     loadMap();
-    setIsModalOn(false)
-  }, [zoom, restId]);
-
-  // Pin Setting
-  const pinList = restList.map((ele) => {
-    return {
-      id: ele.id,
-      title: ele.title,
-      price: ele.price,
-      ...ele.location,
-    }
-  });
+    console.log('rerendre')
+  }, [restList, zoom, restId]);
 
   // Modal Setting
   const [isModalOn, setIsModalOn] = useState(false);
   const [modalX, setModalX] = useState(0);
   const [modalY, setModalY] = useState(0);
-  const [modalIdx, setModalIdx] = useState(0);
+  const [modalData, setModalData] = useState({});
 
-  // Functional Component
+  // Load Map
   const loadMap = () => {
-    // Map Initial Setting
-    const container = document.querySelector('.map-container');
+    const mapContainer = document.querySelector('.map-container');
+    mapContainer.innerHTML = '';
+
     const options = {
       center: new kakao.maps.LatLng(latitude, longitude),
       level: zoom,
     }
-    const map = new kakao.maps.Map(container, options);
-    
+    const map = new kakao.maps.Map(mapContainer, options);
+
     // Marker, Custom Overlay Pinning
-    pinList.forEach((pin, idx) => {
-      const imgSrc= 'https://image.flaticon.com/icons/png/512/1201/1201643.png';
-      const imgSize = new kakao.maps.Size(35, 35);
-      // const imgOption = {offset: new kakao.maps.Point(27, 69)};
-      let marker = new kakao.maps.Marker({
-        map: map,
-        image: new kakao.maps.MarkerImage(imgSrc, imgSize),
-        position: new kakao.maps.LatLng(pin.lat, pin.long),
-        title: pin.title,
-        zIndex: 3,
-      })
-      const content = 
-      `<div 
-        class= 'pin ${pin.id === restId ? 'focus' : ''}'>
-        ₩${pin.price.toLocaleString()}
-      </div>`;
-      let pinBox = new kakao.maps.CustomOverlay({
-        map: map,
-        position: new kakao.maps.LatLng(pin.lat, pin.long),
-        content: content,
-        clickable: true,
-        yAnchor: 0,
-        zIndex: 2,
-      })
-      kakao.maps.event.addListener(marker, 'click', () => {
-        showModal(marker.Pc.x, marker.Pc.y, idx);
-      })
-    })
+    setCustomOverlay(map, []);
+    setMarker(map, restList);
+    setCustomOverlay(map, restList);
 
     // Erase Modal when click map
     kakao.maps.event.addListener(map, 'click', () => {
@@ -95,11 +62,47 @@ const ListMap = () => {
     })
   }
 
-  const showModal = (x, y, idx) => {
-    setIsModalOn(true);
+  const setMarker = (map, list) => {
+    list.map((rest) => {
+      const imgSrc= 'https://image.flaticon.com/icons/png/512/1201/1201643.png';
+      const imgSize = new kakao.maps.Size(35, 35);
+      const marker = new kakao.maps.Marker({
+        map: map,
+        image: new kakao.maps.MarkerImage(imgSrc, imgSize),
+        position: new kakao.maps.LatLng(rest.location.lat, rest.location.long),
+        title: rest.title,
+        zIndex: 3,
+      })
+      marker.setMap(map);
+      kakao.maps.event.addListener(marker, 'click', () => {
+        showModal(marker.Pc.x, marker.Pc.y, rest);
+      })
+    })
+  }
+
+  const setCustomOverlay = (map, list) => {
+    list.map((rest) => {
+      const content = 
+      `<div 
+        class= 'pin ${rest.id === restId ? 'focus' : ''}'>
+        ₩${rest.price.toLocaleString()}
+      </div>`;
+      let pinBox = new kakao.maps.CustomOverlay({
+        map: map,
+        position: new kakao.maps.LatLng(rest.location.lat, rest.location.long),
+        content: content,
+        clickable: true,
+        yAnchor: 0,
+        zIndex: 2,
+      })
+    })
+  }
+
+  const showModal = (x, y, rest) => {
+    setModalData(rest);
     setModalX(x);
     setModalY(y);
-    setModalIdx(idx);
+    setIsModalOn(true);
   }
 
   const ZoomIn = () => {
@@ -138,7 +141,7 @@ const ListMap = () => {
           >-</Button>
         </ZoomBtn>
       </MapContainer>
-      {isModalOn && <MapModal isModalOn={isModalOn} modalX={modalX} modalY={modalY} modalIdx={modalIdx} />}
+      {isModalOn && <MapModal isModalOn={isModalOn} modalX={modalX} modalY={modalY} modalData={modalData} />}
     </Listmap>
   )
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useGlobalContext } from '../../../../Context';
-import ItemSlider from '../../../../Components/Global/ItemSlider';
+import Carousel from '../../../../Components/Carousel/Carousel';
 import ItemInfo from './ItemInfo';
 import { flexBetween } from '../../../../Styles/theme';
 import { Linker } from '../../../../Components/Global/GlobalComponent';
@@ -25,14 +24,13 @@ const Restsitem = styled.li`
 
 
 
-const RestsItem = ({ id, imageList, category, title, mainInfo, subInfo, price, like }) => {
-  const { restId, setRestId } = useGlobalContext();
+const RestsItem = ({ id, imageList, category, title, mainInfo, subInfo, price, like, restId, setRestId }) => {
   return (
     <Restsitem 
       focusedRest={id === restId}
       onMouseOver={() => setRestId(id)}
       onMouseOut={() => setRestId(-1)}>
-      <ItemSlider 
+      <Carousel 
         id={id} 
         imageList={imageList} 
         width="300px"
@@ -53,4 +51,4 @@ const RestsItem = ({ id, imageList, category, title, mainInfo, subInfo, price, l
   )
 }
 
-export default RestsItem
+export default RestsItem;

@@ -1,15 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../Context';
 import ListRests from './ListRests';
 import ListMap from './ListMap';
 
-const ListPage = styled.main`
-  display: flex;
-  align-items: flex-start;
-`;
-
 const List = () => {
+  const [restId, setRestId] = useState(-1);
   const { navFixed, setNavFixed } = useGlobalContext();
   
   // delete later
@@ -19,10 +15,16 @@ const List = () => {
 
   return (
     <ListPage>
-      <ListRests />
-      <ListMap />
+      <ListRests restId={restId} setRestId={setRestId} />
+      <ListMap restId={restId} />
     </ListPage>
   )
 }
+
+const ListPage = styled.main`
+  display: flex;
+  align-items: flex-start;
+`;
+
 
 export default List;
