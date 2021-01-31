@@ -9,6 +9,8 @@ const theme = {
   gray1: '#DDDDDD',
   gray2: '#757575',
   radius: '32px',
+  shadowDown: `0px 1px 5px 1px #aaaaaa`,
+  shadowDiagonal: `1px 1px 5px 1px #aaaaaa}`,
 }
 
 export default theme;

@@ -1,14 +1,22 @@
 import React, { useState, useContext, useEffect } from 'react';
+import moment from 'moment';
 import { RestsAPI } from './Data/config';
 
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   // Navigation bar Control
-  const [navFixed, setNavFixed] = useState(true);
+  const [navFixed, setNavFixed] = useState(false);
+  const [searchOn, setSearchOn] = useState(true);
 
   // Search Values
-  const [guest, setGuest] = useState(2);
+  const [searchValue, setSearchValue] = useState({
+    location: '',
+    dateIn: null,
+    dateOut: null,
+    dateDiff: 0,
+    guest: 0,
+  });
 
   // Rests Data
   const [restList, setRestList] = useState([]);
@@ -25,9 +33,17 @@ const AppProvider = ({ children }) => {
 
   const handleNavFixed = () => {
     const { pageYOffset } = window;
-    const isFixed = pageYOffset > 10;
+    let isFixed = pageYOffset >= 60;
     setNavFixed(isFixed);
+    setSearchOn(!isFixed);
   }
+
+  const updateSearchValue = (name, value) => {
+    setSearchValue({
+      ...searchValue,
+      [name]: value,
+    })
+  };
 
   return (
     <AppContext.Provider
@@ -35,8 +51,10 @@ const AppProvider = ({ children }) => {
         navFixed,
         setNavFixed,
         handleNavFixed,
-        guest,
-        setGuest,
+        searchOn,
+        setSearchOn,
+        searchValue,
+        updateSearchValue,
         restList,
         setRestList,
       }}>
