@@ -11,6 +11,7 @@ const Profilemenu = styled.ul`
   padding: 10px 0;
   background: #ffffff;
   border-radius: ${(props) => props.theme.radius};
+  box-shadow: ${({ theme }) => theme.shadowDiagonal};
   overflow: hidden;
   z-index: 600;
 

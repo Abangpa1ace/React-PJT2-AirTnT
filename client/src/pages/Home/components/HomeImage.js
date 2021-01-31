@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Linker, Button } from '../../../components/Global/GlobalComponent';
+import { Linker, Button } from '../../../Components/Global/GlobalComponent';
 
 const ImageContainer = styled.div`
   position: relative;

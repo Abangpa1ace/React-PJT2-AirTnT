@@ -1,21 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react'
 import styled from 'styled-components';
-import { useGlobalContext } from '../../Context';
+import { useGlobalContext } from '../../Context'
 import ListRests from './ListRests';
 import ListMap from './ListMap';
 
-const ListPage = styled.main`
-  display: flex;
-  align-items: flex-start;
-`;
-
 const List = () => {
-  const { navFixed, setNavFixed } = useGlobalContext();
-  
-  // delete later
+  const { setNavFixed, setSearchOn } = useGlobalContext();
+
   useEffect(() => {
-    setNavFixed(true)  
-  }, [navFixed, setNavFixed])
+    setNavFixed(true);
+    setSearchOn(false);
+  }, [])
 
   return (
     <ListPage>
@@ -24,5 +19,10 @@ const List = () => {
     </ListPage>
   )
 }
+
+const ListPage = styled.main`
+  display: flex;
+  align-items: flex-start;
+`;
 
 export default List;

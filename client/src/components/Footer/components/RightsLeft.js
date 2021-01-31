@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { flexCenter } from '../../../styles/theme';
+import { flexCenter } from '../../../Styles/theme';
 import { Linker } from '../../Global/GlobalComponent';
 import { FOOTERRIGHTSDATA } from '../FooterData';
 
