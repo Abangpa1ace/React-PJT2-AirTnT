@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
-import moment from 'moment';
-import { RestsAPI } from './data/config';
+// import moment from 'moment';
+import { RestsAPI } from './Data/config';
 
 const AppContext = React.createContext();
 
@@ -8,6 +8,7 @@ const AppProvider = ({ children }) => {
   // Navigation bar Control
   const [navFixed, setNavFixed] = useState(false);
   const [searchOn, setSearchOn] = useState(true);
+  const [signModalMode, setSignModalMode] = useState(null);
 
   // Search Values
   const [searchValue, setSearchValue] = useState({
@@ -20,7 +21,6 @@ const AppProvider = ({ children }) => {
 
   // Rests Data
   const [restList, setRestList] = useState([]);
-  const [restId, setRestId] = useState(-1); // move to list page
 
   const fetchRests = async () => {
     const response = await fetch(RestsAPI, { method: 'GET' });
@@ -58,8 +58,6 @@ const AppProvider = ({ children }) => {
         updateSearchValue,
         restList,
         setRestList,
-        // restId,
-        // setRestId,
       }}>
       {children}
     </AppContext.Provider>

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import ItemSlider from '../../../../components/Global/ItemSlider';
-import { Button, Linker } from '../../../../components/Global/GlobalComponent';
-import { flexAlign } from '../../../../styles/theme';
+import ItemSlider from '../../../../Components/Global/ItemSlider';
+import { Button, Linker } from '../../../../Components/Global/GlobalComponent';
+import { flexAlign } from '../../../../Styles/theme';
 import { BsHeart, BsStarFill } from 'react-icons/bs';
 
 const RecentItem = styled.article`
