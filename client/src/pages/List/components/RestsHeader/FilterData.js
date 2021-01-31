@@ -21,12 +21,12 @@ export const FILTERMODALS = [
   {
     id: 3,
     filter: '즉시 예약',
-    modal: <FilterTypes />,
+    modal: null,
   },
   {
     id: 4,
     filter: '필터 추가하기',
-    modal: <FilterTypes />,
+    modal: null,
   },
 ];
 
