@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { useGlobalContext } from '../../../../Context';
-import ItemSlider from '../../../../components/Global/ItemSlider';
-import { Linker } from '../../../../components/Global/GlobalComponent';
+import ItemSlider from '../../../../Components/Global/ItemSlider';
+import { Linker } from '../../../../Components/Global/GlobalComponent';
 import { BsStarFill } from 'react-icons/bs';
-import { flexAlign } from '../../../../styles/theme';
+import { flexAlign } from '../../../../Styles/theme';
 
 const MapModal = ({ isModalOn, modalX, modalY, modalIdx }) => {
   const { restList } = useGlobalContext();

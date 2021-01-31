@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from '../../../../components/Global/GlobalComponent';
+import { Button } from '../../../../Components/Global/GlobalComponent';
 import { BsHeart } from 'react-icons/bs';
 
 const InfoHeader = styled.header`
