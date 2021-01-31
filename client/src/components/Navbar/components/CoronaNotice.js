@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {flexCenter} from '../../Styles/theme';
+import { flexCenter } from '../../../Styles/theme';
 
 const CoronaNotice = () => {
   return (
