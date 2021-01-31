@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "PJT2-Airbnb Server(Express.js)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Express"
+  ],
+  "author": "Abangpa1ace",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
