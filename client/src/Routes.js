@@ -13,7 +13,7 @@ import { useGlobalContext } from './Context';
 
 
 function Routes() {
-  const { signModalMode, setSignModalMode } = useGlobalContext();
+  const { isModalOn } = useGlobalContext();
 
   return (
     <Router id="Routes">
@@ -26,7 +26,7 @@ function Routes() {
           <Route exact path="/list" component={List} />
         </Switch>
         <Footer />
-        {!!signModalMode && <SignModal />}
+        <SignModal />
       </ThemeProvider>
     </Router>
   );

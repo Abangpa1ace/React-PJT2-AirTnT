@@ -2,6 +2,21 @@ import React from 'react';
 import { Linker } from '../../Global/GlobalComponent';
 import styled from 'styled-components';
 import { NAVPROFMENU } from '../NavbarData';
+import { useGlobalContext } from '../../../Context';
+
+const ProfileMenu = () => {
+  const { setSignModalOn } = useGlobalContext();
+  
+  return (
+    <Profilemenu>
+      {NAVPROFMENU.map((menu) => 
+        <li key={menu.id} onClick={() => setSignModalOn(true)}>
+          <Linker to={menu.link}>{menu.text}</Linker>
+        </li>
+      )}
+    </Profilemenu>
+  )
+}
 
 const Profilemenu = styled.ul`
   position: absolute;
@@ -28,14 +43,5 @@ const Profilemenu = styled.ul`
   }
 `;
 
-const ProfileMenu = () => {
-  return (
-    <Profilemenu>
-      {NAVPROFMENU.map((menu) => 
-        <li key={menu.id}><Linker to={menu.link}>{menu.text}</Linker></li>
-      )}
-    </Profilemenu>
-  )
-}
 
 export default ProfileMenu;

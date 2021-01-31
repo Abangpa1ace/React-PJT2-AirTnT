@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ModalLogin = () => {
+const SignUpModal = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const ModalLogin = () => {
   )
 }
 
-export default ModalLogin
+export default SignUpModal
