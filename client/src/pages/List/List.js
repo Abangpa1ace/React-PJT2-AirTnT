@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import ListRests from './ListRests';
-import ListMap from './ListMap';
+import ListRests from './ListRests/ListRests';
+import ListMap from './ListMap/ListMap';
 
 const List = () => {
   const [restId, setRestId] = useState(-1);

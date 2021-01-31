@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
-import { useGlobalContext } from '../../Context';
-import { Button } from '../../Components/Global/GlobalComponent';
-import MapModal from './components/MapComponents/MapModal';
-import { flexCenter } from '../../Styles/theme';
+import { useGlobalContext } from '../../../Context';
+import { Button } from '../../../Components/Global/GlobalComponent';
+import MapModal from '../ListMap/MapModal';
+import { flexCenter } from '../../../Styles/theme';
 
 const { kakao } = window;
 
@@ -16,7 +16,6 @@ const ListMap = ({ restId }) => {
 
   useEffect(() => {
     loadMap();
-    console.log('rerendre')
   }, [restList, zoom, restId]);
 
   // Modal Setting
@@ -37,7 +36,6 @@ const ListMap = ({ restId }) => {
     const map = new kakao.maps.Map(mapContainer, options);
 
     // Marker, Custom Overlay Pinning
-    setCustomOverlay(map, []);
     setMarker(map, restList);
     setCustomOverlay(map, restList);
 
@@ -63,7 +61,7 @@ const ListMap = ({ restId }) => {
   }
 
   const setMarker = (map, list) => {
-    list.map((rest) => {
+    list.forEach((rest) => {
       const imgSrc= 'https://image.flaticon.com/icons/png/512/1201/1201643.png';
       const imgSize = new kakao.maps.Size(35, 35);
       const marker = new kakao.maps.Marker({
@@ -81,7 +79,7 @@ const ListMap = ({ restId }) => {
   }
 
   const setCustomOverlay = (map, list) => {
-    list.map((rest) => {
+    list.forEach((rest) => {
       const content = 
       `<div 
         class= 'pin ${rest.id === restId ? 'focus' : ''}'>
@@ -162,7 +160,7 @@ const MapContainer = styled.div`
     padding: 5px 10px;
     background: #ffffff;
     border-radius: 10px;
-    box-shadow: 1px 1px 5px 2px #999999;
+    box-shadow: 1px 1px 5px 1px #aaaaaa;
     font-weight: bold;
     transition: all .2s ease;
 
@@ -188,7 +186,7 @@ const MapCheckBox = styled.div`
   margin: 30px 0 0 0;
   background: #ffffff;
   border-radius: 10px;
-  box-shadow: 1px 1px 2px 1px #9c9c9c;
+  box-shadow: 1px 1px 5px 1px #aaaaaa;
   z-index: 2;
 
   p {
@@ -201,7 +199,7 @@ const ZoomBtn = styled.div`
   top: 120px;
   right: 30px;
   border-radius: 10px;
-  box-shadow: 1px 1px 3px 1px #9c9c9c;
+  box-shadow: 1px 1px 5px 1px #aaaaaa;
   overflow: hidden;
   z-index: 2;
 
