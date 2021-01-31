@@ -6,12 +6,6 @@ import ListMap from './ListMap';
 
 const List = () => {
   const [restId, setRestId] = useState(-1);
-  const { navFixed, setNavFixed } = useGlobalContext();
-  
-  // delete later
-  useEffect(() => {
-    setNavFixed(true)  
-  }, [navFixed, setNavFixed])
 
   return (
     <ListPage>

@@ -16,8 +16,7 @@ const ListMap = ({ restId }) => {
 
   useEffect(() => {
     loadMap();
-    console.log('rerendre')
-  }, [restList, zoom, restId]);
+  }, [restList, restId]);
 
   // Modal Setting
   const [isModalOn, setIsModalOn] = useState(false);
@@ -37,9 +36,34 @@ const ListMap = ({ restId }) => {
     const map = new kakao.maps.Map(mapContainer, options);
 
     // Marker, Custom Overlay Pinning
-    setCustomOverlay(map, []);
-    setMarker(map, restList);
-    setCustomOverlay(map, restList);
+    restList.map((rest) => {
+      const imgSrc= 'https://image.flaticon.com/icons/png/512/1201/1201643.png';
+      const imgSize = new kakao.maps.Size(35, 35);
+      const marker = new kakao.maps.Marker({
+        map: map,
+        image: new kakao.maps.MarkerImage(imgSrc, imgSize),
+        position: new kakao.maps.LatLng(rest.location.lat, rest.location.long),
+        title: rest.title,
+        zIndex: 3,
+      })
+      kakao.maps.event.addListener(marker, 'click', () => {
+        showModal(marker.Pc.x, marker.Pc.y, rest);
+      })
+
+      const content = 
+      `<div 
+        class= 'pin ${rest.id === restId ? 'focus' : ''}'>
+        ₩${rest.price.toLocaleString()}
+      </div>`;
+      let pinBox = new kakao.maps.CustomOverlay({
+        map: map,
+        position: new kakao.maps.LatLng(rest.location.lat, rest.location.long),
+        content: content,
+        clickable: true,
+        yAnchor: 0,
+        zIndex: 2,
+      })
+    })
 
     // Erase Modal when click map
     kakao.maps.event.addListener(map, 'click', () => {
@@ -59,42 +83,6 @@ const ListMap = ({ restId }) => {
       const nowZoom = map.getLevel();
       setZoom(nowZoom);
       setIsModalOn(false);
-    })
-  }
-
-  const setMarker = (map, list) => {
-    list.map((rest) => {
-      const imgSrc= 'https://image.flaticon.com/icons/png/512/1201/1201643.png';
-      const imgSize = new kakao.maps.Size(35, 35);
-      const marker = new kakao.maps.Marker({
-        map: map,
-        image: new kakao.maps.MarkerImage(imgSrc, imgSize),
-        position: new kakao.maps.LatLng(rest.location.lat, rest.location.long),
-        title: rest.title,
-        zIndex: 3,
-      })
-      marker.setMap(map);
-      kakao.maps.event.addListener(marker, 'click', () => {
-        showModal(marker.Pc.x, marker.Pc.y, rest);
-      })
-    })
-  }
-
-  const setCustomOverlay = (map, list) => {
-    list.map((rest) => {
-      const content = 
-      `<div 
-        class= 'pin ${rest.id === restId ? 'focus' : ''}'>
-        ₩${rest.price.toLocaleString()}
-      </div>`;
-      let pinBox = new kakao.maps.CustomOverlay({
-        map: map,
-        position: new kakao.maps.LatLng(rest.location.lat, rest.location.long),
-        content: content,
-        clickable: true,
-        yAnchor: 0,
-        zIndex: 2,
-      })
     })
   }
 
