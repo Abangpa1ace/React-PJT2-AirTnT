@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { flexCenter } from '../../../../../Styles/theme';
+import { flexCenter } from '../../../../../styles/theme';
 
 const PlusMinusBtn = ({ children, condition, clickEvent }) => {
   return (

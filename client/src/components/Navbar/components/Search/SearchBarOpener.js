@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Button } from '../../../Global/GlobalComponent';
 import { BiSearch } from 'react-icons/bi';
-import { flexBetween } from '../../../../Styles/theme';
+import { flexBetween } from '../../../../styles/theme';
 import { useGlobalContext } from '../../../../Context';
 
 const SearchBarOpener = () => {

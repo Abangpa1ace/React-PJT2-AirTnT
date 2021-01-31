@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import GlobalReset from './Styles/reset';
-import theme from './Styles/theme';
+import GlobalReset from './styles/reset';
+import theme from './styles/theme';
 import CoronaNotice from './Components/Global/CoronaNotice';
 import Navbar from './Components/Navbar/Navbar';
 import Home from './Pages/Home/Home';

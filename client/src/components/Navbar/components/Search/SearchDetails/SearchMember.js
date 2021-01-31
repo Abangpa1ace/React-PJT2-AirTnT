@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../../../Context';
-import { flexCenter, flexBetween } from '../../../../../Styles/theme';
+import { flexCenter, flexBetween } from '../../../../../styles/theme';
 import PlusMinusBtn from './PlusMinusBtn';
 import { GUESTCATEGORY } from '../../../NavbarData'; 
 

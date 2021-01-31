@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { flexCenter, flexAlign } from '../../../Styles/theme';
+import { flexCenter, flexAlign } from '../../../styles/theme';
 import { RiGlobalLine, RiFacebookFill, RiTwitterFill } from 'react-icons/ri';
 import { BiWon } from 'react-icons/bi';
 import { ImInstagram } from 'react-icons/im';

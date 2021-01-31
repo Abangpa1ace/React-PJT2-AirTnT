@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import RightsLeft from './RightsLeft';
 import RightsRight from './RightsRight';
-import { flexBetween } from '../../../Styles/theme';
+import { flexBetween } from '../../../styles/theme';
 
 const Footerrights = styled.div`
   ${flexBetween}
