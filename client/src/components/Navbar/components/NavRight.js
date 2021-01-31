@@ -5,7 +5,7 @@ import { Linker, Button } from '../../Global/GlobalComponent';
 import ProfileMenu from './ProfileMenu';
 import { RiGlobalLine, RiMenuLine } from 'react-icons/ri';
 import { CgProfile } from 'react-icons/cg';
-import { flexCenter, flexAlign } from '../../../styles/theme';
+import { flexCenter, flexAlign } from '../../../Styles/theme';
 
 const NavRightWrapper = styled.div`
   ${flexAlign};

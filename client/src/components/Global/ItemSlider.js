@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
 import { Button } from './GlobalComponent';
-import { flexCenter } from '../../styles/theme';
+import { flexCenter } from '../../Styles/theme';
 
 const ImageSlider = styled.div`
   position: relative;

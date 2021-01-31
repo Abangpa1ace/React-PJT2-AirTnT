@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useGlobalContext } from '../../Context';
 import { Button } from '../../Components/Global/GlobalComponent';
 import MapModal from './components/MapComponents/MapModal';
-import { flexCenter } from '../../styles/theme';
+import { flexCenter } from '../../Styles/theme';
 
 const { kakao } = window;
 

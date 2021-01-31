@@ -4,7 +4,7 @@ import { useGlobalContext } from '../../../../Context';
 import ItemSlider from '../../../../Components/Global/ItemSlider';
 import { Linker } from '../../../../Components/Global/GlobalComponent';
 import { BsStarFill } from 'react-icons/bs';
-import { flexAlign } from '../../../../styles/theme';
+import { flexAlign } from '../../../../Styles/theme';
 
 const MapModal = ({ isModalOn, modalX, modalY, modalIdx }) => {
   const { restList } = useGlobalContext();

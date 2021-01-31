@@ -4,7 +4,7 @@ import { useGlobalContext } from '../../../Context';
 import SearchBarOpener from './Search/SearchBarOpener';
 import SearchBar from './Search/SearchBar';
 import SearchMenu from './Search/SearchMenu';
-import { flexAlignCol } from '../../../styles/theme';
+import { flexAlignCol } from '../../../Styles/theme';
 
 const NavCenter = () => {
   const { searchOn } = useGlobalContext();

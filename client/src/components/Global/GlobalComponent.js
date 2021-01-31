@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { flexCenter } from '../../styles/theme';
+import { flexCenter } from '../../Styles/theme';
 
 // styled Link
 export const Linker = styled(Link)`

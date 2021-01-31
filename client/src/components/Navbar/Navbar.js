@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import NavLeft from './components/NavLeft';
 import NavCenter from './components/NavCenter';
 import NavRight from './components/NavRight';
-import { flexAlign } from '../../styles/theme';
+import { flexAlign } from '../../Styles/theme';
 
 const Navbar = () => {
   const { navFixed, searchOn } = useGlobalContext();

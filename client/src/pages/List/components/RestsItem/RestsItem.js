@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../../Context';
+import { Linker } from '../../../../Components/Global/GlobalComponent';
 import ItemSlider from '../../../../Components/Global/ItemSlider';
 import ItemInfo from './ItemInfo';
-import { flexBetween } from '../../../../styles/theme';
-import { Linker } from '../../../../Components/Global/GlobalComponent';
+import { flexBetween } from '../../../../Styles/theme';
+
 
 const Restsitem = styled.li`
   ${flexBetween};
@@ -30,8 +31,9 @@ const RestsItem = ({ id, imageList, category, title, mainInfo, subInfo, price, l
   return (
     <Restsitem 
       focusedRest={id === restId}
-      onMouseOver={() => setRestId(id)}
-      onMouseOut={() => setRestId(-1)}>
+      // onMouseOver={() => setRestId(id)}
+      // onMouseOut={() => setRestId(-1)}
+      >
       <ItemSlider 
         id={id} 
         imageList={imageList} 

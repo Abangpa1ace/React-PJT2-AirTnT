@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../../Context';
 import { Linker } from '../../../Global/GlobalComponent';
-import { flexAlign } from '../../../../styles/theme';
+import { flexAlign } from '../../../../Styles/theme';
 import { NAVBARMENU } from '../../NavbarData';
 
 const SearchMenu = ({ navFocus, setNavFocus }) => {

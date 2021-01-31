@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Button } from '../../../../Components/Global/GlobalComponent';
-import { flexCenter } from '../../../../styles/theme';
+import { flexCenter } from '../../../../Styles/theme';
 
 const PageBtnCon = styled.div`
   ${flexCenter};

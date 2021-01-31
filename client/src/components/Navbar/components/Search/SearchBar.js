@@ -4,7 +4,7 @@ import { Linker, Button } from '../../../Global/GlobalComponent';
 import SearchDetails from './SearchDetails/SearchDetails';
 // import { SEARCHSET } from '../../NavbarData';
 import { BiSearch } from 'react-icons/bi';
-import { flexCenter, flexAlignCol } from '../../../../styles/theme';
+import { flexCenter, flexAlignCol } from '../../../../Styles/theme';
 import { useGlobalContext } from '../../../../Context';
 
 const SearchBar = () => {
