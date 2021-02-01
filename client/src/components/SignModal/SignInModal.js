@@ -1,3 +1,16 @@
+import React from 'react'
+
+const SignInModal = () => {
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+export default SignInModal
+
+
 // import React, { useState } from 'react'
 // import styled from 'styled-components';
 // import { withRouter } from 'react-router-dom';
