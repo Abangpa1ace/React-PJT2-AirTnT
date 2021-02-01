@@ -9,12 +9,9 @@ import Home from './Pages/Home/Home';
 import List from './Pages/List/List';
 import Footer from './Components/Footer/Footer';
 import SignModal from './Components/SignModal/SignModal';
-import { useGlobalContext } from './Context';
 
 
 function Routes() {
-  const { isModalOn } = useGlobalContext();
-
   return (
     <Router id="Routes">
       <ThemeProvider theme={theme}>

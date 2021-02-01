@@ -88,7 +88,7 @@ const ModalBoxHeader = styled.header`
 `;
 
 const ModalBoxContent = styled.section`
-  padding: 30px 20px;
+  padding: 20px;
 `;
 
 export default ModalContainer;
