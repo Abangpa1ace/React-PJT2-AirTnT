@@ -1,0 +1,12 @@
+h1= "Sign up a.k.a Register"
+
+form(action="/users/signup" method="POST")
+  p firstName:
+    input(type="text" name="firstName" placeholder="이름")
+  p lastName:
+    input(type="text" name="lastName" placeholder="성")
+  p email:
+    input(type="text" name="email" placeholder="이메일")
+  p password:
+    input(type="password" name="password" placeholder="비밀번호")
+  input(type="submit" value="register")
