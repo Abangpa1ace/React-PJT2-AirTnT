@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../../Context';
-import Pagination from './Pagination';
+import RestsPagination from './RestsPagination';
 
 const Restspages = styled.div`
   padding: 20px 0;
@@ -21,7 +21,7 @@ const RestsPages = () => {
 
   return (
     <Restspages>
-      <Pagination pageIdx={pageIdx} setPageIdx={setPageIdx} />
+      <RestsPagination pageIdx={pageIdx} setPageIdx={setPageIdx} />
       <p>숙소 {restList.length}개 중 {startCount} - {startCount+19}</p>
       <span>추가 수수료가 부과됩니다. 세금도 부과될 수 있습니다.</span>
     </Restspages>

@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../../Context';
-import ItemSlider from '../../../../components/Global/ItemSlider';
+import ItemSlider from '../../../../Components/Global/ItemSlider';
 import ItemInfo from './ItemInfo';
-import { flexBetween } from '../../../../styles/theme';
-import { Linker } from '../../../../components/Global/GlobalComponent';
+import { flexBetween } from '../../../../Styles/theme';
+import { Linker } from '../../../../Components/Global/GlobalComponent';
 
 const Restsitem = styled.li`
   ${flexBetween};
