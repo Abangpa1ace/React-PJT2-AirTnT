@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import { useGlobalContext } from '../../Context';
 import { Button } from '../Global/GlobalComponent';
+import { SignInAPI } from '../../Data/config';
 
 const SignInModal = ({ setSignMode, history }) => {
   const { setSignModalOn } = useGlobalContext();
@@ -35,23 +36,21 @@ const SignInModal = ({ setSignMode, history }) => {
       passwordValid: isValidPassword,
     })
     if (isValidEmail && isValidPassword) {
-      // fetch('api', {
-      //   method: "POST",
-      //   body: JSON.stringify({
-      //     email: email,
-      //     password: password,
-      //   }),
-      // })
-      //   .then((response) => response.json())
-      //   .then((result) => {
-      //     const { Message, Token } = result;
-      //     if (Message && Token) {
-      //       localStorage.setItem("token", Token);
-      //       setSignModalOn(false);
-      //       history.push("/");
-      //     }
-      //   })
-      console.log('good')
+      fetch(SignInAPI, {
+        method: "POST",
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          const { success, message, token } = result;
+          if (success && message === 'Success' && token) {
+            localStorage.setItem("token", token);
+            setSignModalOn(false);
+          }
+        })
     }
     else {
       console.log('bad')
