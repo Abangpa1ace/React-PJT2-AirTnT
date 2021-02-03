@@ -2,14 +2,19 @@ import React from 'react';
 import { Linker } from '../../Global/GlobalComponent';
 import styled from 'styled-components';
 import { NAVPROFMENU } from '../NavbarData';
+import { useGlobalContext } from '../../../Context';
 
 const ProfileMenu = () => {
+  const { setSignModalOn, setSignMode } = useGlobalContext();
+  
   const activeModal = (text) => {
     if (text === '회원가입') {
-      console.log('setSignModal', 'register');
+      setSignMode('register')
+      setSignModalOn(true);
     }
     else if (text === '로그인') {
-      console.log('setSignModal', 'login');
+      setSignMode('login')
+      setSignModalOn(true);
     }
     else {
       return null;
@@ -19,10 +24,8 @@ const ProfileMenu = () => {
   return (
     <Profilemenu>
       {NAVPROFMENU.map((menu) => 
-        <li key={menu.id}>
-          <Linker to={menu.link}
-            onClick={activeModal}
-          >{menu.text}</Linker>
+        <li key={menu.id} onClick={() => activeModal(menu.text)}>
+          <Linker to={menu.link}>{menu.text}</Linker>
         </li>
       )}
     </Profilemenu>
