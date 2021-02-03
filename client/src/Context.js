@@ -20,7 +20,6 @@ const AppProvider = ({ children }) => {
 
   // Rests Data
   const [restList, setRestList] = useState([]);
-  const [restId, setRestId] = useState(-1); // move to list page
 
   const fetchRests = async () => {
     const response = await fetch(RestsAPI, { method: 'GET' });
@@ -58,8 +57,6 @@ const AppProvider = ({ children }) => {
         updateSearchValue,
         restList,
         setRestList,
-        // restId,
-        // setRestId,
       }}>
       {children}
     </AppContext.Provider>

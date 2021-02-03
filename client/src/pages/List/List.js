@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
 import { useGlobalContext } from '../../Context'
 import ListRests from './ListRests';
 import ListMap from './ListMap';
 
 const List = () => {
+  const [restId, setRestId] = useState(-1);
   const { setNavFixed, setSearchOn } = useGlobalContext();
 
   useEffect(() => {
@@ -14,8 +15,8 @@ const List = () => {
 
   return (
     <ListPage>
-      <ListRests />
-      <ListMap />
+      <ListRests restId={restId} setRestId={setRestId} />
+      <ListMap restId={restId} />
     </ListPage>
   )
 }
