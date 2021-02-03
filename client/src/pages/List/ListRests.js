@@ -8,7 +8,7 @@ import RestsRecent from './components/RestsRecent/RestsRecent';
 
 const RestContainer = styled.div`
   width: 47%;
-  padding: 110px 0 0;
+  padding: 60px 0 0;
   main {
     padding: 0 24px 30px;
   }
