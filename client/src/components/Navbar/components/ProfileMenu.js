@@ -18,6 +18,32 @@ const ProfileMenu = () => {
   )
 }
 
+const ProfileMenu = () => {
+  const activeModal = (text) => {
+    if (text === '회원가입') {
+      console.log('setSignModal', 'register');
+    }
+    else if (text === '로그인') {
+      console.log('setSignModal', 'login');
+    }
+    else {
+      return null;
+    }
+  }
+
+  return (
+    <Profilemenu>
+      {NAVPROFMENU.map((menu) => 
+        <li key={menu.id}>
+          <Linker to={menu.link}
+            onClick={activeModal}
+          >{menu.text}</Linker>
+        </li>
+      )}
+    </Profilemenu>
+  )
+}
+
 const Profilemenu = styled.ul`
   position: absolute;
   top: 50px;

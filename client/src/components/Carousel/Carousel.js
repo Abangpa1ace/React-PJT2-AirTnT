@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import { Button } from './GlobalComponent';
+import { Button } from '../Global/GlobalComponent';
 import { flexCenter } from '../../Styles/theme';
 
-const ImageSlider = styled.div`
+const Carousel = styled.div`
   position: relative;
   width: ${({ width }) => width};
   height: ${({ height }) => height};
@@ -98,7 +98,7 @@ const ItemSlider = ({ id, imageList, width, height, focusedRest }) => {
   }
 
   return (
-    <ImageSlider width={width} height={height} focusedRest={focusedRest}>
+    <Carousel width={width} height={height} focusedRest={focusedRest}>
       <Button
         btnType='prev'
         width="30px"
@@ -130,7 +130,7 @@ const ItemSlider = ({ id, imageList, width, height, focusedRest }) => {
           <li className={idx === imageIdx ? 'active' : ''} />
         )}
       </DotsCon>
-    </ImageSlider>
+    </Carousel>
   )
 }
 
