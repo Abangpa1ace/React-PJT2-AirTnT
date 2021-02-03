@@ -8,7 +8,8 @@ const AppProvider = ({ children }) => {
   // Navigation bar Control
   const [navFixed, setNavFixed] = useState(false);
   const [searchOn, setSearchOn] = useState(true);
-  const [signModalOn, setSignModalOn] = useState(true);
+  const [signModalOn, setSignModalOn] = useState(false);
+  const [signMode, setSignMode] = useState('signup');
 
   // Search Values
   const [searchValue, setSearchValue] = useState({
@@ -60,6 +61,8 @@ const AppProvider = ({ children }) => {
         setRestList,
         signModalOn,
         setSignModalOn,
+        signMode,
+        setSignMode,
       }}>
       {children}
     </AppContext.Provider>

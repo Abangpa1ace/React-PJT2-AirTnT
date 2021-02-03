@@ -5,8 +5,7 @@ import SignUpModal from './SignUpModal';
 import SignInModal from './SignInModal';
 
 const SignModal = () => {
-  const { signModalOn, setSignModalOn } = useGlobalContext();
-  const [signMode, setSignMode] = useState('signup');
+  const { signModalOn, setSignModalOn, signMode, setSignMode } = useGlobalContext();
 
   const signModalObject = {
     signin: {
@@ -21,9 +20,9 @@ const SignModal = () => {
 
   return (
     <ModalContainer width="550px" isModalOn={signModalOn} setIsModalOn={setSignModalOn}
-      header={!!signMode && signModalObject[signMode].header}
+      header={!!signMode && signModalObject['signin'].header}
     >
-      {!!signMode && signModalObject[signMode].children}
+      {!!signMode && signModalObject['signin'].children}
     </ModalContainer>
   )
 }
