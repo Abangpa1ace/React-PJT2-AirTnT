@@ -32,7 +32,7 @@ const AppProvider = ({ children }) => {
   
   useEffect(() => {
     fetchRests();
-  }, []);
+  }, [page]);
 
   const handleNavFixed = () => {
     const { pageYOffset } = window;
@@ -57,6 +57,7 @@ const AppProvider = ({ children }) => {
         searchOn,
         setSearchOn,
         searchValue,
+        setSearchValue,
         updateSearchValue,
         restList,
         setRestList,

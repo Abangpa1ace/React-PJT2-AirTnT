@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useGlobalContext } from '../../Context';
-import RestsHeader from './components/RestsHeader/RestsHeader';
-import RestsItem from './components/RestsItem/RestsItem';
-import RestsPages from './components/RestsPages/RestsPages';
-import RestsRecent from './components/RestsRecent/RestsRecent';
+import { useGlobalContext } from '../../../Context';
+import RestsHeader from './RestsHeader/RestsHeader';
+import RestsItem from './RestsItem/RestsItem';
+import RestsPages from './RestsPages/RestsPages';
+import RestsRecent from './RestsRecent/RestsRecent';
 
 const RestContainer = styled.div`
   width: 47%;

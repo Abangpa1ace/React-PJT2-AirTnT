@@ -4,6 +4,20 @@ import { Link } from 'react-router-dom';
 import { Button } from '../../../../Components/Global/GlobalComponent';
 import { flexCenter } from '../../../../Styles/theme';
 
+const Pagination = ({ page, setPage }) => {
+  return (
+    <PageBtnCon>
+      <Button>&lt;</Button>
+      {[1,2,3,4,5].map((ele, idx) => {
+        return (
+          <Link className={idx===(page-1) ? 'focus' : ''}><Button onClick={() => setPage(idx+1)}>{ele}</Button></Link>
+        )
+      })}
+      <Button>&gt;</Button>
+    </PageBtnCon>
+  )
+}
+
 const PageBtnCon = styled.div`
   ${flexCenter};
   width: 400px;
@@ -29,19 +43,5 @@ const PageBtnCon = styled.div`
     }
   }
 `;
-
-const Pagination = ({ pageIdx, setPageIdx }) => {
-  return (
-    <PageBtnCon>
-      <Button>&lt;</Button>
-      {[1,2,3,4,5].map((ele, idx) => {
-        return (
-          <Link to="/" className={idx===pageIdx ? 'focus' : ''}><Button onClick={() => setPageIdx(idx)}>{ele}</Button></Link>
-        )
-      })}
-      <Button>&gt;</Button>
-    </PageBtnCon>
-  )
-}
 
 export default Pagination
