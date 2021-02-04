@@ -3,7 +3,7 @@ var router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 
-let usersDB = [];
+let usersDB = require('../database/usersData');
 
 router.get('/', (req, res, next) => {
   res.render('users')
@@ -32,6 +32,7 @@ router.post('/signup', async (req, res, next) => {
         password: hashedPassword,
       })
     }
+    console.log(usersDB);
     res.json(response);
   }
   catch(err) {
