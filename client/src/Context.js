@@ -21,11 +21,13 @@ const AppProvider = ({ children }) => {
 
   // Rests Data
   const [restList, setRestList] = useState([]);
+  const [page, setPage] = useState(1);
+  const LIMIT = 10;
 
   const fetchRests = async () => {
-    const response = await fetch(RestsAPI, { method: 'GET' });
+    const response = await fetch(`${RestsAPI}?page=${page}&limit=${LIMIT}`, { method: 'GET' });
     const result = await response.json();
-    setRestList(result.data);
+    setRestList(result);
   }
   
   useEffect(() => {
@@ -60,6 +62,8 @@ const AppProvider = ({ children }) => {
         setRestList,
         signModalOn,
         setSignModalOn,
+        page,
+        setPage,
       }}>
       {children}
     </AppContext.Provider>

@@ -1,28 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import styled, { css } from 'styled-components';
-import { useGlobalContext } from '../../../../Context';
-import ItemSlider from '../../../../Components/Global/ItemSlider';
+import React from 'react';
+import styled from 'styled-components';
+import Carousel from '../../../../Components/Carousel/Carousel';
 import { Linker } from '../../../../Components/Global/GlobalComponent';
 import { BsStarFill } from 'react-icons/bs';
 import { flexAlign } from '../../../../Styles/theme';
 
-const MapModal = ({ isModalOn, modalX, modalY, modalIdx }) => {
-  const { restList } = useGlobalContext();
-  const [pinRest, setPinRest] = useState(restList[modalIdx]);
-  const { id, imageList, title, category, like, price } = pinRest;
+const MapModal = ({ isModalOn, modalX, modalY, modalData }) => {
+  const { id, imageList, title, category, like, price } = modalData;
   const { likeAvg, likeCount } = like;
   const { city, type, validRoom } = category;
 
-  useEffect(() => {
-    setPinRest(restList[modalIdx])
-  }, [restList, modalIdx])
-  console.log(modalX, modalY)
   return (
     <RestModal 
       isModalOn={isModalOn} 
       modalX={modalX}
       modalY={modalY}>
-      <ItemSlider 
+      <Carousel 
         id={id}
         imageList={imageList}
         width="100%"

@@ -5,12 +5,26 @@ import { NAVPROFMENU } from '../NavbarData';
 import { useGlobalContext } from '../../../Context';
 
 const ProfileMenu = () => {
-  const { setSignModalOn } = useGlobalContext();
+  const { setSignModalOn, setSignMode } = useGlobalContext();
   
+  const activeModal = (text) => {
+    if (text === '회원가입') {
+      setSignMode('register')
+      setSignModalOn(true);
+    }
+    else if (text === '로그인') {
+      setSignMode('login')
+      setSignModalOn(true);
+    }
+    else {
+      return null;
+    }
+  }
+
   return (
     <Profilemenu>
       {NAVPROFMENU.map((menu) => 
-        <li key={menu.id} onClick={() => setSignModalOn(true)}>
+        <li key={menu.id} onClick={() => activeModal(menu.text)}>
           <Linker to={menu.link}>{menu.text}</Linker>
         </li>
       )}

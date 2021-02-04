@@ -1,12 +1,12 @@
 // URI Cluster
-const Client = "http://localhost:3000"
+const Client = "http://localhost:3000";
 const Server = "http://localhost:5000";
 
-export const RestsAPI = `${Client}/data/restsData.json`;
-export const RecentAPI = `${Client}/data/recentRestsData.json`;
-
-export const SignUpAPI = `${Server}/users/signup`;
+export const SignUpAPI = `${Server}/users/signup`; 
 export const SignInAPI = `${Server}/users/signin`;
+
+export const RestsAPI = `${Server}/rests`;
+export const RecentAPI = `${Client}/data/recentRestsData.json`;
 
 
 // SVG

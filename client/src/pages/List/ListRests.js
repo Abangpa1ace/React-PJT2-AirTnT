@@ -8,7 +8,7 @@ import RestsRecent from './components/RestsRecent/RestsRecent';
 
 const RestContainer = styled.div`
   width: 47%;
-  padding: 110px 0 0;
+  padding: 60px 0 0;
   main {
     padding: 0 24px 30px;
   }
@@ -19,7 +19,7 @@ const RestsItemCon = styled.ul`
   margin: 20px 0;
 `;
 
-const ListRests = () => {
+const ListRests = ({ restId, setRestId }) => {
   const { restList } = useGlobalContext();
 
   return (
@@ -28,18 +28,12 @@ const ListRests = () => {
         <RestsHeader />
         <RestsItemCon>
           {restList.map((rest) => {
-            const { id, imageList, category, title, mainInfo, subInfo, price, like } = rest;
             return (
               <RestsItem 
-                key={id}
-                id={id}
-                imageList={imageList}
-                category={category}
-                title={title}
-                mainInfo={mainInfo}
-                subInfo={subInfo}
-                price={price}
-                like={like}
+                key={rest.id}
+                {...rest}
+                restId={restId}
+                setRestId={setRestId}
               />
             )
           })}
