@@ -5,9 +5,9 @@ const jwt = require('jsonwebtoken')
 
 let usersDB = require('../database/usersData');
 
-router.get('/', (req, res, next) => {
-  res.render('users')
-})
+// router.get('/', (req, res, next) => {
+//   res.render('users')
+// })
 
 router.post('/signup', async (req, res, next) => {
   try {
@@ -17,12 +17,12 @@ router.post('/signup', async (req, res, next) => {
       message: 'Unknown Error',
     }
 
-    // Only Inappropriate
+    // Inappropriate Logic
     const errorMessage = checkSignUpError(body, usersDB);
     if (errorMessage) {
       response.message = errorMessage;
     }
-    // When Appropriate
+    // Appropriate Logic
     else {
       response = successMessage();
       const hashedPassword = await bcrypt.hash(body.password, 10);
@@ -32,23 +32,21 @@ router.post('/signup', async (req, res, next) => {
         password: hashedPassword,
       })
     }
-    console.log(usersDB);
     res.json(response);
   }
   catch(err) {
-    res.status(500).send();
+    throw new Error(err);
   }
   next();
 })
 
 router.post('/signin', (req, res, next) => {
   try {
-    // Both wrong and right
     const response = checkSignIn(req, usersDB);
-    res.json(response);
+    return res.json(response);
   }
   catch(err) {
-    res.status(500).send();
+    throw new Error(err);
   }
   next();
 })
@@ -115,7 +113,7 @@ const checkSignIn = (req, usersDB) => {
       const token = jwt.sign(req.body, 'MY_SECRET_KEY');
       response = {
         success: true,
-        message: 'SUCCESS',
+        message: 'Success',
         token: token,
       }
     }
