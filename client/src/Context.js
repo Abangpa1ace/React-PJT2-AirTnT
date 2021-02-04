@@ -8,8 +8,6 @@ const AppProvider = ({ children }) => {
   // Navigation bar Control
   const [navFixed, setNavFixed] = useState(false);
   const [searchOn, setSearchOn] = useState(true);
-  const [signModalOn, setSignModalOn] = useState(false);
-  const [signMode, setSignMode] = useState('signup');
 
   // Search Values
   const [searchValue, setSearchValue] = useState({
@@ -22,16 +20,18 @@ const AppProvider = ({ children }) => {
 
   // Rests Data
   const [restList, setRestList] = useState([]);
+  const [page, setPage] = useState(1);
+  const LIMIT = 10;
 
   const fetchRests = async () => {
-    const response = await fetch(RestsAPI, { method: 'GET' });
+    const response = await fetch(`${RestsAPI}?page=${page}&limit=${LIMIT}`, { method: 'GET' });
     const result = await response.json();
-    setRestList(result.data);
+    setRestList(result);
   }
   
   useEffect(() => {
     fetchRests();
-  }, []);
+  }, [page]);
 
   const handleNavFixed = () => {
     const { pageYOffset } = window;
@@ -59,10 +59,8 @@ const AppProvider = ({ children }) => {
         updateSearchValue,
         restList,
         setRestList,
-        signModalOn,
-        setSignModalOn,
-        signMode,
-        setSignMode,
+        page,
+        setPage,
       }}>
       {children}
     </AppContext.Provider>

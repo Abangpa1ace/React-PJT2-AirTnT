@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import { useGlobalContext } from '../../Context';
 import { Button } from '../Global/GlobalComponent';
+import { SignInAPI } from '../../Data/config';
 
 const SignInModal = ({ setSignMode, history }) => {
   const { setSignModalOn } = useGlobalContext();
@@ -27,34 +28,60 @@ const SignInModal = ({ setSignMode, history }) => {
   const submitSignIn = (e) => {
     e.preventDefault();
     const { email, password } = signInValue;
-    const emailRegex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-    const isValidEmail = emailRegex.test(email);
-    const isValidPassword = password.length >= 8;
-    setSignInValid({
+    const checkReqObj = checkRequest(email, password);
+    if (!Object.values(checkReqObj).includes(false)) {
+      fetch(SignInAPI, {
+        method: "POST",
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          checkResponse(result);
+        })
+    }
+  }
+
+  const checkRequest = (emailVal, passwordVal) => {
+    const emailRegex = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+    const isValidEmail = emailRegex.test(emailVal);
+    const isValidPassword = passwordVal.length >= 8;
+    return {
       emailValid: isValidEmail,
       passwordValid: isValidPassword,
-    })
-    if (isValidEmail && isValidPassword) {
-      // fetch('api', {
-      //   method: "POST",
-      //   body: JSON.stringify({
-      //     email: email,
-      //     password: password,
-      //   }),
-      // })
-      //   .then((response) => response.json())
-      //   .then((result) => {
-      //     const { Message, Token } = result;
-      //     if (Message && Token) {
-      //       localStorage.setItem("token", Token);
-      //       setSignModalOn(false);
-      //       history.push("/");
-      //     }
-      //   })
-      console.log('good')
+    }
+  }
+
+  const checkResponse = (result) => {
+    const { success, message, token } = result;
+    if (!success) {
+      let alertMessage = '';
+      switch(message) {
+        case 'Undefined Value Exist':
+          alertMessage = '입력하지 않은 값이 존재합니다.';
+          break;
+        case 'Not Existing Email':
+          alertMessage = '존재하지 않느 이메일입니다.';
+          break;
+        case 'Unmatched Password':
+          alertMessage = '비밀번호가 일치하지 않습니다.';
+          break;
+        default :
+          alertMessage = '알 수 없는 에러가 발생했습니다.';
+          break;
+      }
+      alert(alertMessage);
     }
     else {
-      console.log('bad')
+      if (message === 'SUCCESS' && token) {
+        localStorage.setItem("token", token);
+        setSignModalOn(false);
+      }
+      else {
+        alert('서버 오류가 발생했습니다. 잠시 후에 접속해주세요.')
+      }
     }
   }
 

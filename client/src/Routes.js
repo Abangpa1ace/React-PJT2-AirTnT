@@ -23,7 +23,7 @@ function Routes() {
           <Route exact path="/list" component={List} />
         </Switch>
         <Footer />
-        <SignModal />
+        {/* <SignModal /> */}
       </ThemeProvider>
     </Router>
   );

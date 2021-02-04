@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import { useGlobalContext } from '../../Context';
 import { Button } from '../Global/GlobalComponent';
 import SignModalInput from './components/SignModalInput';
 import SignDivider from './components/SignDivider';
 
 const SignUpModal = ({ setSignMode }) => {
-  const { setSignModalOn } = useGlobalContext();
   const [signUpValue, setSignUpValue] = useState({
     firstName: '',
     lastName: '',
@@ -29,7 +27,7 @@ const SignUpModal = ({ setSignMode }) => {
     })
   }
 
-  const submitSignIn = (e) => {
+  const submitSignUp = (e) => {
     e.preventDefault();
     setIsValid({
       firstNameValid: false,
@@ -44,7 +42,7 @@ const SignUpModal = ({ setSignMode }) => {
 
   return (
     <>
-      <SignUpForm onSubmit={(e) => submitSignIn(e)}>
+      <SignUpForm onSubmit={(e) => submitSignUp(e)}>
         <SignUpInputWrapper>
           <SignModalInput
             type="text"

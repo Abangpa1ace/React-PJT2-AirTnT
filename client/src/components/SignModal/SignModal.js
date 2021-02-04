@@ -1,28 +1,20 @@
 import React, { useState } from 'react';
 import ModalContainer from '../Modal/ModalContainer';
-import { useGlobalContext } from '../../Context';
 import SignUpModal from './SignUpModal';
 import SignInModal from './SignInModal';
 
-const SignModal = () => {
-  const { signModalOn, setSignModalOn, signMode, setSignMode } = useGlobalContext();
-
-  const signModalObject = {
-    signin: {
-      header: '로그인',
-      children: <SignInModal setSignMode={setSignMode} />
-    },
-    signup: {
-      header: '회원가입',
-      children: <SignUpModal setSignMode={setSignMode} />
-    },
-  }
+const SignModal = ({ signModalOn, setSignModalOn, signMode, setSignMode }) => {
+  const SignModalHeader = signMode === "signup" ? "회원가입" : "로그인";
+  const SignModalChildren = 
+    signMode === "signup" 
+      ? <SignUpModal setSignMode={setSignMode} /> 
+      : <SignInModal setSignMode={setSignMode} />;
 
   return (
     <ModalContainer width="550px" isModalOn={signModalOn} setIsModalOn={setSignModalOn}
-      header={!!signMode && signModalObject['signin'].header}
+      header={SignModalHeader}
     >
-      {!!signMode && signModalObject['signin'].children}
+      {SignModalChildren}
     </ModalContainer>
   )
 }

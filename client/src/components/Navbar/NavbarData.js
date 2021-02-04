@@ -18,16 +18,6 @@ export const NAVBARMENU = [
 
 export const NAVPROFMENU = [
   {
-    id: 0,
-    text: '회원가입',
-    link: '/register',
-  },
-  {
-    id: 1,
-    text: '로그인',
-    link: '/login',
-  },
-  {
     id: 2,
     text: '숙소 호스트 되기',
     link: '/',
