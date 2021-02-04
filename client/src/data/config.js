@@ -1,4 +1,4 @@
-// SERVER API
+// URI Cluster
 const Client = "http://localhost:3000";
 const Server = "http://localhost:5000";
 
