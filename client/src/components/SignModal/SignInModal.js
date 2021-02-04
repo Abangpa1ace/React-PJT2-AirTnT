@@ -28,14 +28,8 @@ const SignInModal = ({ setSignMode, history }) => {
   const submitSignIn = (e) => {
     e.preventDefault();
     const { email, password } = signInValue;
-    const emailRegex = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
-    const isValidEmail = emailRegex.test(email);
-    const isValidPassword = password.length >= 8;
-    setSignInValid({
-      emailValid: isValidEmail,
-      passwordValid: isValidPassword,
-    })
-    if (isValidEmail && isValidPassword) {
+    const checkReqObj = checkRequest(email, password);
+    if (!Object.values(checkReqObj).includes(false)) {
       fetch(SignInAPI, {
         method: "POST",
         body: JSON.stringify({
@@ -47,6 +41,16 @@ const SignInModal = ({ setSignMode, history }) => {
         .then((result) => {
           checkResponse(result);
         })
+    }
+  }
+
+  const checkRequest = (emailVal, passwordVal) => {
+    const emailRegex = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+    const isValidEmail = emailRegex.test(emailVal);
+    const isValidPassword = passwordVal.length >= 8;
+    return {
+      emailValid: isValidEmail,
+      passwordValid: isValidPassword,
     }
   }
 
