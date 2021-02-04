@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import { Button } from '../Global/GlobalComponent';
 import SignModalInput from './components/SignModalInput';
 import SignDivider from './components/SignDivider';
+import { SignUpAPI } from '../../Data/config';
 
-const SignUpModal = ({ setSignMode }) => {
+const SignUpModal = ({ setSignModalOn, setSignMode }) => {
   const [signUpValue, setSignUpValue] = useState({
     firstName: '',
     lastName: '',
@@ -12,7 +13,7 @@ const SignUpModal = ({ setSignMode }) => {
     password: '',
   })
   const [isPwdShown, setIsPwdShown] = useState(false);
-  const [isValid, setIsValid] = useState({
+  const [signUpValid, setSignUpValid] = useState({
     firstNameValid: true,
     lastNameValid: true,
     emailValid: true,
@@ -29,16 +30,77 @@ const SignUpModal = ({ setSignMode }) => {
 
   const submitSignUp = (e) => {
     e.preventDefault();
-    setIsValid({
-      firstNameValid: false,
-      lastNameValid: false,
-      emailValid: false,
-      passwordValid: false,
-    })
+    const checkReqObj = checkRequest(signUpValue);
+    setSignUpValid(checkReqObj);
+
+    if (!Object.values(checkReqObj).includes(false)) {
+      fetch(SignUpAPI, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(signUpValue),
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          checkResponse(result);
+        })
+    }
+  }
+
+  const checkRequest = (values) => {
+    const { firstName, lastName, email, password } = values;
+    const regexNotKor =  /[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
+    const regexEmail = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+    const regexPwd = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,15}$/;
+
+    return {
+      firstNameValid: !regexNotKor.test(firstName),
+      lastNameValid: !regexNotKor.test(lastName),
+      emailValid: regexEmail.test(email),
+      password: regexPwd.test(password),
+    }
+  }
+
+  const checkResponse = (result) => {
+    const { success, message } = result;
+    if (!success) {
+      let alertMessage = '';
+      switch(message) {
+        case 'Undefined Value Exist':
+          alertMessage = '입력하지 않은 값이 존재합니다.';
+          break;
+        case 'Not Valid Name':
+          alertMessage = '이름과 성을 확인해주세요.';
+          break;
+        case 'Not Valid Email':
+          alertMessage = '부적절한 이메일 형식입니다.';
+          break;
+        case 'Already Existing Email':
+          alertMessage = '이미 사용중인 이메일입니다.';
+          break;
+        case 'Not Valid Password':
+          alertMessage = '부적절한 비밀번호 형식입니다.';
+          break;
+        default :
+          alertMessage = '알 수 없는 에러가 발생했습니다.';
+          break;
+      }
+      alert(alertMessage);
+    }
+    else {
+      if (message === 'Success') {
+        alert('가입 성공!');
+        setSignModalOn(false);
+      }
+      else {
+        alert('서버 오류가 발생했습니다. 잠시 후에 접속해주세요.')
+      }
+    }
   }
 
   const { firstName, lastName, email, password } = signUpValue;
-  const { firstNameValid, lastNameValid, emailValid, passwordValid } = isValid;
+  const { firstNameValid, lastNameValid, emailValid, passwordValid } = signUpValid;
 
   return (
     <>
@@ -67,14 +129,14 @@ const SignUpModal = ({ setSignMode }) => {
             isValid={firstNameValid && lastNameValid}>
             {firstNameValid && lastNameValid
               ? '정부 발급 신분증에 표시된 이름과 일치하는지 확인하세요.'
-              : '⚠︎ 이름을 입력하세요'
+              : '⚠︎ 이름이 올바른지 확인하세요'
             }
           </ValidMsg>
         </SignUpInputWrapper>
         <SignUpInputWrapper>
           <SignModalInput
             type="text"
-            name="emailValid"
+            name="email"
             isValid={emailValid}
             value={email}
             onChange={(e) => updateInput(e)}
@@ -90,8 +152,8 @@ const SignUpModal = ({ setSignMode }) => {
         </SignUpInputWrapper>
         <SignUpInputWrapper>
           <SignModalInput
-            type={isPwdShown ? 'text' : 'passwordValid'}
-            name="passwordValid"
+            type={isPwdShown ? 'text' : 'password'}
+            name="password"
             isValid={passwordValid}
             value={password}
             onChange={(e) => updateInput(e)}
