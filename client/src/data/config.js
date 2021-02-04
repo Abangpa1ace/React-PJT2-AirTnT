@@ -1,8 +1,12 @@
 // SERVER API
-const Server = "http://localhost:3000";
+const Client = "http://localhost:3000";
+const Server = "http://localhost:5000";
 
-export const RestsAPI = `${Server}/data/restsData.json`;
-export const RecentAPI = `${Server}/data/recentRestsData.json`;
+export const SignUpAPI = `${Server}/users/signup`; 
+export const SignInAPI = `${Server}/users/signin`;
+
+export const RestsAPI = `${Server}/rests`;
+export const RecentAPI = `${Client}/data/recentRestsData.json`;
 
 
 // SVG

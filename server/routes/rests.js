@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
     const page = Number(Query.page);
     const limit = Number(Query.limit)
     const startIdx = (page - 1) * limit;
-    restList = restList.slice(startIdx, startIdx + limit + 1);
+    restList = restList.slice(startIdx, startIdx + limit);
   }
   res.json(restList);
 });
