@@ -28,12 +28,6 @@ const AppProvider = ({ children }) => {
     const result = await response.json();
     setRestList(result);
   }
-
-  // const fetchRests = async () => {
-  //   const response = await fetch(RestsAPI, { method: 'GET' });
-  //   const result = await response.json();
-  //   setRestList(result.data);
-  // }
   
   useEffect(() => {
     fetchRests();
@@ -65,6 +59,8 @@ const AppProvider = ({ children }) => {
         updateSearchValue,
         restList,
         setRestList,
+        page,
+        setPage,
       }}>
       {children}
     </AppContext.Provider>
