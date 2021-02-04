@@ -32,7 +32,6 @@ router.post('/signup', async (req, res, next) => {
         password: hashedPassword,
       })
     }
-    
     res.json(response);
   }
   catch(err) {
@@ -53,6 +52,8 @@ router.post('/signin', (req, res, next) => {
   next();
 })
 
+
+// SignUp Functions
 const checkSignUpError = (body, usersDB) => {
   const { firstName, lastName, email, password } = body;
   const undefinedValue = Object.values(body).map(bodyVal => bodyVal.length).includes(0);
@@ -88,6 +89,7 @@ const successMessage = () => {
   }
 }
 
+// SignIn Functions
 const checkSignIn = (req, usersDB) => {
   const { email, password } = req.body;
   const undefinedValue = !email || !password;
