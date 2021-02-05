@@ -8,7 +8,6 @@ const AppProvider = ({ children }) => {
   // Navigation bar Control
   const [navFixed, setNavFixed] = useState(false);
   const [searchOn, setSearchOn] = useState(true);
-  const [signModalOn, setSignModalOn] = useState(true);
 
   // Search Values
   const [searchValue, setSearchValue] = useState({
@@ -64,8 +63,6 @@ const AppProvider = ({ children }) => {
         restList,
         setRestList,
         restsTotal,
-        signModalOn,
-        setSignModalOn,
         page,
         setPage,
         LIMIT,

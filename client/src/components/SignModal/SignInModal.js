@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import { withRouter } from 'react-router-dom';
-import { useGlobalContext } from '../../Context';
 import { Button } from '../Global/GlobalComponent';
 import { SignInAPI } from '../../Data/config';
 
-const SignInModal = ({ setSignMode, history }) => {
-  const { setSignModalOn } = useGlobalContext();
+const SignInModal = ({ setSignModalOn, setSignMode }) => {
   const [signInValue, setSignInValue] = useState({
     email: '',
     password: '',
@@ -29,13 +26,15 @@ const SignInModal = ({ setSignMode, history }) => {
     e.preventDefault();
     const { email, password } = signInValue;
     const checkReqObj = checkRequest(email, password);
+    setSignInValid(checkReqObj);
+
     if (!Object.values(checkReqObj).includes(false)) {
       fetch(SignInAPI, {
         method: "POST",
-        body: JSON.stringify({
-          email: email,
-          password: password,
-        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(signInValue),
       })
         .then((response) => response.json())
         .then((result) => {
@@ -63,7 +62,7 @@ const SignInModal = ({ setSignMode, history }) => {
           alertMessage = '입력하지 않은 값이 존재합니다.';
           break;
         case 'Not Existing Email':
-          alertMessage = '존재하지 않느 이메일입니다.';
+          alertMessage = '존재하지 않는 이메일입니다.';
           break;
         case 'Unmatched Password':
           alertMessage = '비밀번호가 일치하지 않습니다.';
@@ -75,9 +74,10 @@ const SignInModal = ({ setSignMode, history }) => {
       alert(alertMessage);
     }
     else {
-      if (message === 'SUCCESS' && token) {
+      if (message === 'Success' && token) {
         localStorage.setItem("token", token);
         setSignModalOn(false);
+        alert('로그인 성공!')
       }
       else {
         alert('서버 오류가 발생했습니다. 잠시 후에 접속해주세요.')
@@ -258,4 +258,4 @@ const SignInMsg = styled.footer`
   }
 `;
 
-export default withRouter(SignInModal);
+export default SignInModal;

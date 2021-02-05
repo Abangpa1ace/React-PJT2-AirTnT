@@ -57,10 +57,9 @@ const ModalDimmer = styled.div`
 
 const ModalBox = styled.div`
   min-width: 300px;
-  min-height: 400px;
   width: ${({ width }) => width};
   background: #ffffff;
-  border-radius: ${({ theme }) => theme.radius};
+  border-radius: 10px;
   transform: translateY(300px);
   opacity: 0;
   transition: all .4s ease;
@@ -88,7 +87,9 @@ const ModalBoxHeader = styled.header`
 `;
 
 const ModalBoxContent = styled.section`
-  padding: 20px;
+  padding: 30px 20px;
+  max-height: 650px;
+  overflow-y: auto;
 `;
 
 export default ModalContainer;
