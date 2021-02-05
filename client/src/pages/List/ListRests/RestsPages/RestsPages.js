@@ -1,16 +1,17 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../../Context';
 import RestsPagination from './RestsPagination';
 
 const RestsPages = () => {
-  const { restList, page, setPage } = useGlobalContext();
-  const startCount = (page-1) * 20 + 1;
+  const { restsTotal, page, LIMIT } = useGlobalContext();
+  let startCount = (page-1) * LIMIT + 1;
+  let endCount = startCount + LIMIT - 1 > restsTotal ? restsTotal : startCount + LIMIT - 1;
 
   return (
     <Restspages>
-      <RestsPagination page={page} setPage={setPage} />
-      <p>숙소 {restList.length}개 중 {startCount} - {startCount+19}</p>
+      <RestsPagination />
+      <p>숙소 {restsTotal}개 중 {startCount} - {endCount}</p>
       <span>추가 수수료가 부과됩니다. 세금도 부과될 수 있습니다.</span>
     </Restspages>
   )

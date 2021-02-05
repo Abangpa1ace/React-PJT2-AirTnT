@@ -4,12 +4,12 @@ import { useGlobalContext } from '../../../../Context';
 import RestsFilterBtn from './RestsFilterBtn';
 
 const RestsHeader = () => {
-  const { restList, searchValue } = useGlobalContext();
+  const { restsTotal, searchValue } = useGlobalContext();
   const { dateIn, dateOut, guest } = searchValue;
   return (
     <Restsheader>
       <p>
-        {restList.length >= 300 ? `300개 이상의 숙소` : `${restList.length}개의 숙소`} ∙ 
+        {restsTotal >= 300 ? `300개 이상의 숙소` : `${restsTotal}개의 숙소`} ∙ 
         {`${dateIn} - ${dateOut}`} ∙ 
         {`게스트 ${guest}명`}
       </p>
