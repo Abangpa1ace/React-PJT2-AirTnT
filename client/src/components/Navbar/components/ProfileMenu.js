@@ -3,6 +3,36 @@ import { Linker } from '../../Global/GlobalComponent';
 import styled from 'styled-components';
 import { NAVPROFMENU } from '../NavbarData';
 
+
+const ProfileMenu = ({ setSignModalOn, setSignMode }) => {
+  const signUpModal = () => {
+    setSignMode('signup');
+    setSignModalOn(true);
+  }
+
+  const signInModal = () => {
+    setSignMode('signin');
+    setSignModalOn(true);
+  }
+
+  return (
+    <Profilemenu>
+      <li key="0" onClick={signUpModal}>
+        회원가입
+      </li>
+      <li key="1" onClick={signInModal}>
+        로그인
+      </li>
+      {NAVPROFMENU.map(menu =>
+        <li key={menu.id}>
+          <Linker to={menu.link}>{menu.text}</Linker>
+        </li>
+      )}
+
+    </Profilemenu>
+  )
+}
+
 const Profilemenu = styled.ul`
   position: absolute;
   top: 50px;
@@ -11,6 +41,7 @@ const Profilemenu = styled.ul`
   padding: 10px 0;
   background: #ffffff;
   border-radius: ${(props) => props.theme.radius};
+  box-shadow: ${({ theme }) => theme.shadowDiagonal};
   overflow: hidden;
   z-index: 600;
 
@@ -27,14 +58,5 @@ const Profilemenu = styled.ul`
   }
 `;
 
-const ProfileMenu = () => {
-  return (
-    <Profilemenu>
-      {NAVPROFMENU.map((menu) => 
-        <li key={menu.id}><Linker to={menu.link}>{menu.text}</Linker></li>
-      )}
-    </Profilemenu>
-  )
-}
 
 export default ProfileMenu;

@@ -18,16 +18,6 @@ export const NAVBARMENU = [
 
 export const NAVPROFMENU = [
   {
-    id: 0,
-    text: '회원가입',
-    link: '/register',
-  },
-  {
-    id: 1,
-    text: '로그인',
-    link: '/login',
-  },
-  {
     id: 2,
     text: '숙소 호스트 되기',
     link: '/',
@@ -72,5 +62,26 @@ export const SEARCHSET = [
     type: 'button',
     title: '인원',
     desc: '게스트 추가',
+  },
+]
+
+export const GUESTCATEGORY = [
+  {
+    id: 0,
+    group: 'adult',
+    title: '성인',
+    desc: '만 13세 이상',
+  },
+  {
+    id: 1,
+    group: 'kid',
+    title: '어린이',
+    desc: '2~12세',
+  },
+  {
+    id: 2,
+    group: 'baby',
+    title: '유아',
+    desc: '2세 미만',
   },
 ]
