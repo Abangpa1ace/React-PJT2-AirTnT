@@ -21,11 +21,11 @@ const AppProvider = ({ children }) => {
   // Rests Data
   const [restsTotal, setRestsTotal] = useState(0);
   const [restList, setRestList] = useState([]);
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(1);
   const LIMIT = 15;
 
   const fetchRests = async () => {
-    const response = await fetch(`${RestsAPI}?page=${page}&limit=${LIMIT}`, { method: 'GET' });
+    const response = await fetch(`${RestsAPI}?search[location]=${searchValue.location}&page=${page}&limit=${LIMIT}`, { method: 'GET' });
     const result = await response.json();
     setRestsTotal(result.restsTotal);
     setRestList(result.restsList);
@@ -57,6 +57,7 @@ const AppProvider = ({ children }) => {
         handleNavFixed,
         searchOn,
         setSearchOn,
+        fetchRests,
         searchValue,
         setSearchValue,
         updateSearchValue,
