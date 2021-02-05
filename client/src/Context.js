@@ -25,10 +25,13 @@ const AppProvider = ({ children }) => {
   const LIMIT = 15;
 
   const fetchRests = async () => {
-    const response = await fetch(`${RestsAPI}?search[location]=${searchValue.location}&page=${page}&limit=${LIMIT}`, { method: 'GET' });
+    const response = await fetch(
+      `${RestsAPI}?search[location]=${searchValue.location}&page=${page}&limit=${LIMIT}`, 
+      { method: 'GET' }
+    );
     const result = await response.json();
-    setRestsTotal(result.restsTotal);
     setRestList(result.restsList);
+    setRestsTotal(result.restsTotal);
   }
   
   useEffect(() => {
