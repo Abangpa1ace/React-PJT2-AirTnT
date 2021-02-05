@@ -5,7 +5,7 @@ import ListRests from './ListRests/ListRests';
 import ListMap from './ListMap/ListMap';
 
 const List = () => {
-  const [restId, setRestId] = useState(-1);
+  const [restId, setRestId] = useState(-10);
   const { setNavFixed, setSearchOn } = useGlobalContext();
 
   useEffect(() => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../../Context';
-import RestsPagination from './RestsPagination';
+import RestsPageBtn from './RestsPageBtn';
 
 const RestsPages = () => {
   const { restsTotal, page, LIMIT } = useGlobalContext();
@@ -10,7 +10,7 @@ const RestsPages = () => {
 
   return (
     <Restspages>
-      <RestsPagination />
+      <RestsPageBtn />
       <p>숙소 {restsTotal}개 중 {startCount} - {endCount}</p>
       <span>추가 수수료가 부과됩니다. 세금도 부과될 수 있습니다.</span>
     </Restspages>
