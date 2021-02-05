@@ -2,32 +2,33 @@ import React from 'react';
 import { Linker } from '../../Global/GlobalComponent';
 import styled from 'styled-components';
 import { NAVPROFMENU } from '../NavbarData';
-import { useGlobalContext } from '../../../Context';
 
-const ProfileMenu = () => {
-  const { setSignModalOn, setSignMode } = useGlobalContext();
-  
-  const activeModal = (text) => {
-    if (text === '회원가입') {
-      setSignMode('register')
-      setSignModalOn(true);
-    }
-    else if (text === '로그인') {
-      setSignMode('login')
-      setSignModalOn(true);
-    }
-    else {
-      return null;
-    }
+
+const ProfileMenu = ({ setSignModalOn, setSignMode }) => {
+  const signUpModal = () => {
+    setSignMode('signup');
+    setSignModalOn(true);
+  }
+
+  const signInModal = () => {
+    setSignMode('signin');
+    setSignModalOn(true);
   }
 
   return (
     <Profilemenu>
-      {NAVPROFMENU.map((menu) => 
-        <li key={menu.id} onClick={() => activeModal(menu.text)}>
+      <li key="0" onClick={signUpModal}>
+        회원가입
+      </li>
+      <li key="1" onClick={signInModal}>
+        로그인
+      </li>
+      {NAVPROFMENU.map(menu =>
+        <li key={menu.id}>
           <Linker to={menu.link}>{menu.text}</Linker>
         </li>
       )}
+
     </Profilemenu>
   )
 }
