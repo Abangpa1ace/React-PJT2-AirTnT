@@ -5,7 +5,7 @@ import RestsHeader from './RestsHeader/RestsHeader';
 import RestsItem from './RestsItem/RestsItem';
 import RestsPages from './RestsPages/RestsPages';
 import RestsRecent from './RestsRecent/RestsRecent';
-s
+
 const RestContainer = styled.div`
   width: 47%;
   padding: 60px 0 0;

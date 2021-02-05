@@ -6,6 +6,7 @@ import MapModal from '../ListMap/MapModal';
 import { flexCenter } from '../../../Styles/theme';
 
 const { kakao } = window;
+let asideMap;
 
 const ListMap = ({ restId }) => {
   // Map Setting
@@ -15,8 +16,12 @@ const ListMap = ({ restId }) => {
   const [zoom, setZoom] = useState(8);
 
   useEffect(() => {
-    loadMap();
-  }, [restList, zoom, restId]);
+    asideMap = loadMap();
+  }, [restList, zoom]);
+
+  useEffect(() => {
+    setCustomOverlay(asideMap);
+  }, [restList, restId])
 
   // Modal Setting
   const [isModalOn, setIsModalOn] = useState(false);
@@ -36,8 +41,7 @@ const ListMap = ({ restId }) => {
     const map = new kakao.maps.Map(mapContainer, options);
 
     // Marker, Custom Overlay Pinning
-    setMarker(map, restList);
-    setCustomOverlay(map, restList);
+    setMarker(map);
 
     // Erase Modal when click map
     kakao.maps.event.addListener(map, 'click', () => {
@@ -58,10 +62,12 @@ const ListMap = ({ restId }) => {
       setZoom(nowZoom);
       setIsModalOn(false);
     })
+
+    return map;
   }
 
-  const setMarker = (map, list) => {
-    list.forEach((rest) => {
+  const setMarker = (map) => {
+    restList.forEach((rest) => {
       const imgSrc= 'https://image.flaticon.com/icons/png/512/1201/1201643.png';
       const imgSize = new kakao.maps.Size(35, 35);
       const marker = new kakao.maps.Marker({
@@ -78,8 +84,12 @@ const ListMap = ({ restId }) => {
     })
   }
 
-  const setCustomOverlay = (map, list) => {
-    list.forEach((rest) => {
+  const setCustomOverlay = (map) => {
+    let pinList = document.getElementsByClassName('pin');
+    for (let pin of pinList) {
+      pin.style.display = "none";
+    }
+    restList.forEach((rest) => {
       const content = 
       `<div 
         class= 'pin ${rest.id === restId ? 'focus' : ''}'>
@@ -171,6 +181,7 @@ const MapContainer = styled.div`
     &.focus {
       background: ${({ theme }) => theme.themeBlack};
       color: #ffffff;
+      transform: scale(1.15);
     }
   }
 `;

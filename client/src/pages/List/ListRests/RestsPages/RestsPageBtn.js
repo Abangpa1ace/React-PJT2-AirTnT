@@ -5,7 +5,7 @@ import { useGlobalContext } from '../../../../Context';
 import { Button } from '../../../../Components/Global/GlobalComponent';
 import { flexCenter } from '../../../../Styles/theme';
 
-const Pagination = () => {
+const RestsPageBtn = () => {
   const { restsTotal, page, setPage, LIMIT } = useGlobalContext();
   const pageArrLength = Math.ceil(restsTotal/LIMIT)
   const pageArr = Array.from({ length: pageArrLength }, (_, i) => i+1)
@@ -27,7 +27,6 @@ const Pagination = () => {
         onClick={() => prevPage()}
       >&lt;</Button>
       {pageArr.map((pageNum) => {
-        console.log(page === pageNum)
         return (
           <Button 
             width="30px"
@@ -55,4 +54,4 @@ const PageBtnCon = styled.div`
   margin: 0 auto;
 `;
 
-export default Pagination
+export default RestsPageBtn
