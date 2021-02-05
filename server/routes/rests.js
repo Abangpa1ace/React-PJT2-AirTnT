@@ -5,19 +5,24 @@ const restsData = require('../database/restsData');
 
 router.get('/', function(req, res, next) {
   let restsList = restsData;
-  const restsTotal = restsData.length;
+  let restsTotal = restsData.length;
   const Query = req.query;
+  const { search, page, limit } = Query;
 
   const emptyQuery = Object.keys(Query).length === 0;
   if(!emptyQuery) {
-    const page = Number(Query.page);
-    const limit = Number(Query.limit)
-    const startIdx = (page - 1) * limit;
-    restsList = restsList.slice(startIdx, startIdx + limit);
+    const Page = Number(page);
+    const Limit = Number(limit)
+    const startIdx = (Page - 1) * Limit;
+    if (search.location) {
+      restsList = restsList.filter(rest => rest.title.includes(search.location))
+      restsTotal = restsList.length
+    }
+    sortedRestsList = restsList.slice(startIdx, startIdx + Limit);
   }
   res.json({
     restsTotal: restsTotal,
-    restsList: restsList
+    restsList: sortedRestsList
   });
 });
 
