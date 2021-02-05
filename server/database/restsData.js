@@ -58,7 +58,7 @@ const restsData = [
       type: "콘도(아파트)",
       validRoom: "전체",
     },
-    title: "망원역 도보3분거리/Clean and Cozy House #3",
+    title: "cozy my stay 한강 5분거리 망원동 마포구",
     mainInfo: {
       maxGuest: 3,
       bedroom: 0,
@@ -100,7 +100,7 @@ const restsData = [
       type: "콘도(아파트)",
       validRoom: "전체",
     },
-    title: "망원역 도보3분거리/Clean and Cozy House #3",
+    title: "[홍대역1번출구] 리조트스타일 더블룸(2인실) 201호",
     mainInfo: {
       maxGuest: 4,
       bedroom: 2,
@@ -142,7 +142,7 @@ const restsData = [
       type: "콘도(아파트)",
       validRoom: "전체",
     },
-    title: "망원역 도보3분거리/Clean and Cozy House #3",
+    title: "망원역 한강인근/Clean and Cozy House #5",
     mainInfo: {
       maxGuest: 4,
       bedroom: 2,
@@ -180,11 +180,11 @@ const restsData = [
       "https://a0.muscache.com/im/pictures/9d6450d0-9040-4ce1-b8c0-26c378039238.jpg?im_w=960",
     ],
     category: {
-      city: "홍대",
+      city: "마포",
       type: "콘도(아파트)",
     },
     validRoom: "전체",
-    title: "망원역 도보3분거리/Clean and Cozy House #3",
+    title: "♥격리&흡연 가능♥ Sunshine-house 홍대역 도보3분",
     mainInfo: {
       maxGuest: 4,
       bedroom: 2,
@@ -222,11 +222,11 @@ const restsData = [
       "https://a0.muscache.com/im/pictures/de2e9445-9d48-4c18-b722-cd63834633d7.jpg?im_w=480",
     ],
     category: {
-      city: "홍대",
+      city: "마포",
       type: "콘도(아파트)",
       validRoom: "전체",
     },
-    title: "망원역 도보3분거리/Clean and Cozy House #3",
+    title: "[홍대역5분] 쾌적한 디럭스더블룸/개별욕실 (2인실)",
     mainInfo: {
       maxGuest: 4,
       bedroom: 2,
@@ -264,11 +264,11 @@ const restsData = [
       "https://a0.muscache.com/im/pictures/e499c929-56a1-4eb7-a0ee-98df9af8e599.jpg?im_w=480",
     ],
     category: {
-      city: "홍대",
+      city: "용산",
       type: "콘도(아파트)",
       validRoom: "전체",
     },
-    title: "망원역 도보3분거리/Clean and Cozy House #3",
+    title: "New!!! Near!!! 이태원#경리단#해방촌#명동#남산@Cozy Villa~",
     mainInfo: {
       maxGuest: 4,
       bedroom: 2,
@@ -306,11 +306,11 @@ const restsData = [
       "https://a0.muscache.com/im/pictures/adbd1d0e-118c-48af-8716-e2fec0122c7c.jpg?im_w=320",
     ],
     category: {
-      city: "홍대",
+      city: "용산",
       type: "콘도(아파트)",
       validRoom: "전체",
     },
-    title: "망원역 도보3분거리/Clean and Cozy House #3",
+    title: "#이태원역도보5분#소독완벽#주차가능#조용하고깨",
     mainInfo: {
       maxGuest: 4,
       bedroom: 2,
@@ -348,11 +348,11 @@ const restsData = [
       "https://a0.muscache.com/im/pictures/b79234c9-6962-418e-a3eb-60257665b55e.jpg?im_w=480",
     ],
     category: {
-      city: "홍대",
+      city: "용산",
       type: "콘도(아파트)",
       validRoom: "전체",
     },
-    title: "망원역 도보3분거리/Clean and Cozy House #3",
+    title: "#코로나대비#완전방역#이태원역 도보5분거리#주차가능",
     mainInfo: {
       maxGuest: 4,
       bedroom: 2,
@@ -390,11 +390,11 @@ const restsData = [
       "https://a0.muscache.com/im/pictures/b907308c-fd3f-4688-9601-7fbbb69aa733.jpg?im_w=480",
     ],
     category: {
-      city: "홍대",
+      city: "강남",
       type: "콘도(아파트)",
       validRoom: "전체",
     },
-    title: "망원역 도보3분거리/Clean and Cozy House #3",
+    title: "☆612 Gangnam Residence/강남1min/신논현30sec/WIFI/방역,소독",
     mainInfo: {
       maxGuest: 4,
       bedroom: 2,
@@ -432,11 +432,11 @@ const restsData = [
       "https://a0.muscache.com/im/pictures/e122e380-0871-4522-a915-14c09bf8da86.jpg?im_w=480",
     ],
     category: {
-      city: "홍대",
+      city: "강남",
       type: "콘도(아파트)",
       validRoom: "전체",
     },
-    title: "망원역 도보3분거리/Clean and Cozy House #3",
+    title: "☆1402 Gangnam Residence/강남1min/신논현30sec/WIFI/방역,소독",
     mainInfo: {
       maxGuest: 4,
       bedroom: 2,
@@ -4204,7 +4204,6 @@ const restsData = [
     },
     superHost: false
   },
-  
 ]
 
 module.exports = restsData;
