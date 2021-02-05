@@ -4,7 +4,8 @@ var router = express.Router();
 const restsData = require('../database/restsData');
 
 router.get('/', function(req, res, next) {
-  let restList = restsData;
+  let restsList = restsData;
+  const restsTotal = restsData.length;
   const Query = req.query;
 
   const emptyQuery = Object.keys(Query).length === 0;
@@ -12,9 +13,12 @@ router.get('/', function(req, res, next) {
     const page = Number(Query.page);
     const limit = Number(Query.limit)
     const startIdx = (page - 1) * limit;
-    restList = restList.slice(startIdx, startIdx + limit);
+    restsList = restsList.slice(startIdx, startIdx + limit);
   }
-  res.json(restList);
+  res.json({
+    restsTotal: restsTotal,
+    restsList: restsList
+  });
 });
 
 router.get('/detail/:id', function(req, res, next) {

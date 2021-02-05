@@ -8,7 +8,7 @@ import { flexCenter, flexAlignCol } from '../../../../Styles/theme';
 import { useGlobalContext } from '../../../../Context';
 
 const SearchBar = () => {
-  const { searchOn, searchValue, updateSearchValue } = useGlobalContext();
+  const { searchOn, setSearchOn, searchValue, updateSearchValue } = useGlobalContext();
   const { location, dateIn, dateOut, guest } = searchValue;
   const [searchActive, setSearchActive] = useState(false);
   const [searchFocus, setSearchFocus] = useState(-1);
@@ -58,7 +58,7 @@ const SearchBar = () => {
           <span>인원</span>
           <p>게스트 {guest === 0 ? '추가' : `${guest}명`}</p>
         </SearchUnit>
-        <Linker to="/list">
+        <Linker to="/list" onClick={() => setSearchOn(false)}>
           <Button 
             width={searchActive ? "80px" : "49px"}
             color="#ffffff"

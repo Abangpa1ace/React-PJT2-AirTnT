@@ -17,7 +17,7 @@ const RestsFilterBtn = () => {
               margin="0 10px 0 0"
               border={(props) => props.theme.gray2}
               borderHov={(props) => props.theme.themeBlack}
-              onClick={() => setFilterFocus(filterFocus !== -1 ? -1 : id)}
+              onClick={() => setFilterFocus(filterFocus === id ? -1 : id)}
             >{filter}</Button>
             {id === filterFocus && modal}
           </FilterBtnWrap>
