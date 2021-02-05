@@ -19,14 +19,16 @@ const AppProvider = ({ children }) => {
   });
 
   // Rests Data
+  const [restsTotal, setRestsTotal] = useState(0);
   const [restList, setRestList] = useState([]);
-  const [page, setPage] = useState(1);
-  const LIMIT = 10;
+  const [page, setPage] = useState(2);
+  const LIMIT = 15;
 
   const fetchRests = async () => {
     const response = await fetch(`${RestsAPI}?page=${page}&limit=${LIMIT}`, { method: 'GET' });
     const result = await response.json();
-    setRestList(result);
+    setRestsTotal(result.restsTotal);
+    setRestList(result.restsList);
   }
   
   useEffect(() => {
@@ -56,11 +58,14 @@ const AppProvider = ({ children }) => {
         searchOn,
         setSearchOn,
         searchValue,
+        setSearchValue,
         updateSearchValue,
         restList,
         setRestList,
+        restsTotal,
         page,
         setPage,
+        LIMIT,
       }}>
       {children}
     </AppContext.Provider>
