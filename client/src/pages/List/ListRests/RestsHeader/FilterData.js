@@ -3,7 +3,7 @@
 export const TYPESDATA = [
   {
     id: 0,
-    typeEn: 'total',
+    typeEn: 'whole',
     title: '전체',
     desc: '집 전체를 단독으로 사용합니다',
     checked: false,
