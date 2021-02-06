@@ -24,7 +24,10 @@ router.get('/', function(req, res, next) {
       const typeList = type.split(',');
       restsList = restsList.filter(rest => typeList.includes(rest.category.typeEn));
     }
-    
+    if (price) {
+      const priceRange = price.split(',');
+      restsList = restsList.filter(rest => rest.price >= priceRange[0] && rest.price <= priceRange[1]);
+    }
 
     restsTotal = restsList.length;
     pagedRestsList = restsList.slice(startIdx, startIdx + Limit);
