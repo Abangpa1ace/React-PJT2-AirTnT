@@ -15,6 +15,7 @@ const restsData = [
       city: "마포",
       type: "콘도(아파트)",
       validRoom: "개인실",
+      typeEn: "private",
     },
     title: "망원역 도보3분거리/Clean and Cozy House #3",
     mainInfo: {
@@ -57,6 +58,7 @@ const restsData = [
       city: "마포",
       type: "콘도(아파트)",
       validRoom: "개인실",
+      typeEn: "private",
     },
     title: "cozy my stay 한강 5분거리 망원동 마포구",
     mainInfo: {
@@ -71,7 +73,7 @@ const restsData = [
       "무료 주차 공간",
       "주방"
     ],
-    price: 82490,
+    price: 32490,
     like: {
       isLiked: false,
       likeAvg: 4.87,
@@ -99,6 +101,7 @@ const restsData = [
       city: "마포",
       type: "콘도(아파트)",
       validRoom: "전체",
+      typeEn: "whole",
     },
     title: "[홍대역1번출구] 리조트스타일 더블룸(2인실) 201호",
     mainInfo: {
@@ -141,6 +144,7 @@ const restsData = [
       city: "마포",
       type: "콘도(아파트)",
       validRoom: "전체",
+      typeEn: "whole",
     },
     title: "망원역 한강인근/Clean and Cozy House #5",
     mainInfo: {
@@ -183,6 +187,7 @@ const restsData = [
       city: "마포",
       type: "콘도(아파트)",
       validRoom: "호텔 객실",
+      typeEn: "hotel",
     },
     title: "♥격리&흡연 가능♥ Sunshine-house 홍대역 도보3분",
     mainInfo: {
@@ -225,6 +230,7 @@ const restsData = [
       city: "마포",
       type: "콘도(아파트)",
       validRoom: "다인실",
+      typeEn: "common",
     },
     title: "[홍대역5분] 쾌적한 디럭스더블룸/개별욕실 (2인실)",
     mainInfo: {
@@ -239,7 +245,7 @@ const restsData = [
       "무료 주차 공간",
       "주방"
     ],
-    price: 78320,
+    price: 68320,
     like: {
       isLiked: false,
       likeAvg: 4.87,
@@ -267,6 +273,7 @@ const restsData = [
       city: "용산",
       type: "콘도(아파트)",
       validRoom: "개인실",
+      typeEn: "private",
     },
     title: "New!!! Near!!! 이태원#경리단#해방촌#명동#남산@Cozy Villa~",
     mainInfo: {
@@ -309,6 +316,7 @@ const restsData = [
       city: "용산",
       type: "콘도(아파트)",
       validRoom: "다인실",
+      typeEn: "common",
     },
     title: "#이태원역도보5분#소독완벽#주차가능#조용하고깨",
     mainInfo: {
@@ -323,7 +331,7 @@ const restsData = [
       "무료 주차 공간",
       "주방"
     ],
-    price: 62932,
+    price: 82932,
     like: {
       isLiked: false,
       likeAvg: 4.87,
@@ -351,6 +359,7 @@ const restsData = [
       city: "용산",
       type: "콘도(아파트)",
       validRoom: "전체",
+      typeEn: "whole",
     },
     title: "#코로나대비#완전방역#이태원역 도보5분거리#주차가능",
     mainInfo: {
@@ -365,7 +374,7 @@ const restsData = [
       "무료 주차 공간",
       "주방"
     ],
-    price: 65021,
+    price: 55021,
     like: {
       isLiked: false,
       likeAvg: 4.87,
@@ -393,6 +402,7 @@ const restsData = [
       city: "강남",
       type: "콘도(아파트)",
       validRoom: "호텔 객실",
+      typeEn: "hotel",
     },
     title: "☆612 Gangnam Residence/강남1min/신논현30sec/WIFI/방역,소독",
     mainInfo: {
@@ -407,7 +417,7 @@ const restsData = [
       "무료 주차 공간",
       "주방"
     ],
-    price: 85000,
+    price: 95000,
     like: {
       isLiked: false,
       likeAvg: 4.87,
@@ -435,6 +445,7 @@ const restsData = [
       city: "강남",
       type: "콘도(아파트)",
       validRoom: "호텔 객실",
+      typeEn: "hotel",
     },
     title: "☆1402 Gangnam Residence/강남1min/신논현30sec/WIFI/방역,소독",
     mainInfo: {
@@ -449,7 +460,7 @@ const restsData = [
       "무료 주차 공간",
       "주방"
     ],
-    price: 90000,
+    price: 132000,
     like: {
       isLiked: false,
       likeAvg: 4.87,
@@ -477,6 +488,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -519,6 +531,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -561,6 +574,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -603,6 +617,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -645,6 +660,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -687,6 +703,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -730,6 +747,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -772,6 +790,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -814,6 +833,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -856,6 +876,7 @@ const restsData = [
   //     city: "마포",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -898,6 +919,7 @@ const restsData = [
   //     city: "마포",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -940,6 +962,7 @@ const restsData = [
   //     city: "마포",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -982,6 +1005,7 @@ const restsData = [
   //     city: "마포",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -1025,6 +1049,7 @@ const restsData = [
   //     type: "콘도(아파트)",
   //   },
   //   validRoom: "전체",
+  //     typeEn: "whole",
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
   //     maxGuest: 4,
@@ -1066,6 +1091,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -1108,6 +1134,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -1150,6 +1177,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -1192,6 +1220,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -1234,6 +1263,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -1276,6 +1306,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -1318,6 +1349,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -1360,6 +1392,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -1402,6 +1435,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -1444,6 +1478,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -1486,6 +1521,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -1528,6 +1564,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -1571,6 +1608,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -1613,6 +1651,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -1655,6 +1694,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -1697,6 +1737,7 @@ const restsData = [
   //     city: "마포",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -1739,6 +1780,7 @@ const restsData = [
   //     city: "마포",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -1781,6 +1823,7 @@ const restsData = [
   //     city: "마포",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -1823,6 +1866,7 @@ const restsData = [
   //     city: "마포",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -1866,6 +1910,7 @@ const restsData = [
   //     type: "콘도(아파트)",
   //   },
   //   validRoom: "전체",
+  //     typeEn: "whole",
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
   //     maxGuest: 4,
@@ -1907,6 +1952,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -1949,6 +1995,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -1991,6 +2038,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -2033,6 +2081,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -2075,6 +2124,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -2117,6 +2167,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -2159,6 +2210,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -2201,6 +2253,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -2243,6 +2296,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -2285,6 +2339,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -2327,6 +2382,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -2369,6 +2425,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -2412,6 +2469,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -2454,6 +2512,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -2496,6 +2555,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -2538,6 +2598,7 @@ const restsData = [
   //     city: "마포",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -2580,6 +2641,7 @@ const restsData = [
   //     city: "마포",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -2622,6 +2684,7 @@ const restsData = [
   //     city: "마포",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -2664,6 +2727,7 @@ const restsData = [
   //     city: "마포",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -2707,6 +2771,7 @@ const restsData = [
   //     type: "콘도(아파트)",
   //   },
   //   validRoom: "전체",
+  //     typeEn: "whole",
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
   //     maxGuest: 4,
@@ -2748,6 +2813,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -2790,6 +2856,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -2832,6 +2899,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -2874,6 +2942,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -2916,6 +2985,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -2958,6 +3028,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3000,6 +3071,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3042,6 +3114,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3084,6 +3157,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3126,6 +3200,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3168,6 +3243,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3210,6 +3286,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3253,6 +3330,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3295,6 +3373,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3337,6 +3416,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3379,6 +3459,7 @@ const restsData = [
   //     city: "마포",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3421,6 +3502,7 @@ const restsData = [
   //     city: "마포",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3463,6 +3545,7 @@ const restsData = [
   //     city: "마포",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3505,6 +3588,7 @@ const restsData = [
   //     city: "마포",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3548,6 +3632,7 @@ const restsData = [
   //     type: "콘도(아파트)",
   //   },
   //   validRoom: "전체",
+  //     typeEn: "whole",
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
   //     maxGuest: 4,
@@ -3589,6 +3674,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3631,6 +3717,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3673,6 +3760,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3715,6 +3803,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3757,6 +3846,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3799,6 +3889,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3841,6 +3932,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3883,6 +3975,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3925,6 +4018,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -3967,6 +4061,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -4009,6 +4104,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -4051,6 +4147,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -4094,6 +4191,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -4136,6 +4234,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
@@ -4178,6 +4277,7 @@ const restsData = [
   //     city: "홍대",
   //     type: "콘도(아파트)",
   //     validRoom: "전체",
+  //     typeEn: "whole",
   //   },
   //   title: "망원역 도보3분거리/Clean and Cozy House #3",
   //   mainInfo: {
