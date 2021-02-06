@@ -37,7 +37,7 @@ const AppProvider = ({ children }) => {
   const fetchRests = async () => {
     const { type, price, facilities } = filterValue
     const response = await fetch(
-      `${RestsAPI}?search[location]=${searchValue.location}&&filter[type]=${type}&page=${page}&limit=${LIMIT}
+      `${RestsAPI}?search[location]=${searchValue.location}&&filter[type]=${type}&filter[price]=${price}&page=${page}&limit=${LIMIT}
       `, 
       { method: 'GET' }
     );
@@ -48,7 +48,7 @@ const AppProvider = ({ children }) => {
   
   useEffect(() => {
     fetchRests();
-  }, [page, filterValue]);
+  }, [page]);
 
   const handleNavFixed = () => {
     const { pageYOffset } = window;

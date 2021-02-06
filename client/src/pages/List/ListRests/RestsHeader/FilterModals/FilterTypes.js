@@ -7,7 +7,7 @@ import FilterModalBox from './FilterModalBox';
 
 const FilterTypes = ({ setFilterFocus }) => {
   const [types, setTypes] = useState(TYPESDATA);
-  const { updateFilterValue } = useGlobalContext();
+  const { updateFilterValue, fetchRests } = useGlobalContext();
 
   const toggleCheck = (id) => {
     const newTypes = types.map((type) => {
@@ -18,6 +18,8 @@ const FilterTypes = ({ setFilterFocus }) => {
       }
     })
     setTypes(newTypes);
+    const filterTypeList = newTypes.filter(type => type.checked).map(type => type.typeEn);
+    updateFilterValue('type', filterTypeList);
   }
 
   const clearTypes = () => {
@@ -31,8 +33,7 @@ const FilterTypes = ({ setFilterFocus }) => {
   }
 
   const filterTypes = () => {
-    const filterTypeList = types.filter(type => type.checked).map(type => type.typeEn);
-    updateFilterValue('type', filterTypeList);
+    fetchRests();
     setFilterFocus(-1);
   }
 
