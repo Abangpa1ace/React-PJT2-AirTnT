@@ -1,46 +1,50 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { flexCenter, flexBetween } from '../../../../../Styles/theme';
-import CounterBtn from '../../../../../Components/Global/CounterBtn';
-import { BEDDINGDATA } from '../FilterData';
+import { useGlobalContext } from '../../../../../Context';
 import FilterModalBox from './FilterModalBox';
+import CounterBtn from '../../../../../Components/Global/CounterBtn';
+import { flexCenter, flexBetween } from '../../../../../Styles/theme';
+import { BEDDINGDATA } from '../FilterData';
 
-const FilterBedding = () => {
-  const [beddingCount, setBeddingCount] = useState({
-    bed: 0,
-    bedroom: 0,
-    bathroom: 0,
-  })
+
+const FilterBedding = ({ setFilterFocus }) => {
+  const { filterValue, updateFilterValue, fetchRests } = useGlobalContext();
+  const { bedding } = filterValue;
 
   const minusBedding = (name) => {
-    const minusValue = beddingCount[name] === 0 ? 0 : beddingCount[name]-1;
-    setBeddingCount({
-      ...beddingCount,
+    const minusValue = bedding[name] === 0 ? 0 : bedding[name]-1;
+    updateFilterValue('bedding', {
+      ...bedding,
       [name]: minusValue,
     })
   };
 
   const plusBedding = (name) => {
-    const plusValue = beddingCount[name] === 16 ? 16 : beddingCount[name]+1;
-    setBeddingCount({
-      ...beddingCount,
+    const plusValue = bedding[name] === 16 ? 16 : bedding[name]+1;
+    updateFilterValue('bedding', {
+      ...bedding,
       [name]: plusValue,
     })
   };
 
-  const ClearBedding = () => {
-    setBeddingCount({
+  const clearBedding = () => {
+    updateFilterValue('bedding', {
       bed: 0,
       bedroom: 0,
       bathroom: 0,
     })
   }
 
+  const filterBedding = () => {
+    fetchRests();
+    setFilterFocus(-1);
+  }
+
   return (
-    <FilterModalBox width="320px" onClickDelete={ClearBedding} onClickSave>
+    <FilterModalBox width="320px" onClickDelete={clearBedding} onClickSave={filterBedding}>
       <BeddingContainer>
-        {BEDDINGDATA.map((bedding) => {
-          const { id, infoEn, title } = bedding;
+        {BEDDINGDATA.map((bedData) => {
+          const { id, infoEn, title } = bedData;
           return (
             <BeddingContent key={id}>
               <CounterLeft>
@@ -48,11 +52,11 @@ const FilterBedding = () => {
               </CounterLeft>
               <CounterRight>
                 <CounterBtn
-                  condition={beddingCount[infoEn] === 0}
+                  condition={bedding[infoEn] === 0}
                   clickEvent={() => minusBedding(infoEn)}>-</CounterBtn>
-                <span>{beddingCount[infoEn]}</span>
+                <span>{bedding[infoEn]}</span>
                 <CounterBtn
-                  condition={beddingCount[infoEn] === 16}
+                  condition={bedding[infoEn] === 16}
                   clickEvent={() => plusBedding(infoEn)}>+</CounterBtn>
               </CounterRight>
             </BeddingContent>

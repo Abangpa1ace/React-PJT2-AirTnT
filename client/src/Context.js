@@ -44,11 +44,13 @@ const AppProvider = ({ children }) => {
     if (type.length !== 0) {
       RestsAPI_Query += `&filter[type]=${type}`
     }
-    if (price[0] > 10000 && price[1] < 1000000) {
+    if (price[0] > 10000 || price[1] < 1000000) {
       RestsAPI_Query += `&filter[price]=${price}`
     }
-    if (Object.values(bedding).reduce((a,b) => a+b) > 0) {
-      RestsAPI_Query += `&filter[bedding]=${bedding}`
+    for (let key in bedding) {
+      if (bedding[key] > 0) {
+        RestsAPI_Query += `&filter[${key}]=${bedding[key]}`
+      }
     }
     const response = await fetch(RestsAPI_Query, { method: 'GET' });
     const result = await response.json();
