@@ -17,11 +17,11 @@ router.get('/', function(req, res, next) {
     if (location) {
       restsList = restsList.filter(rest => rest.title.includes(location))
     }
-  }  
-
+  }
+  
   if (filter) {
-    const { type, price, bedding } = filter;
-    
+    const { type, price, bed, bedroom, bathroom } = filter;
+
     if (type) {
       const typeList = type.split(',');
       restsList = restsList.filter(rest => typeList.includes(rest.category.typeEn));
@@ -30,8 +30,18 @@ router.get('/', function(req, res, next) {
       const priceRange = price.split(',');
       restsList = restsList.filter(rest => rest.price >= priceRange[0] && rest.price <= priceRange[1]);
     }
-  }
 
+    if (bed) {
+      restsList = restsList.filter(rest => rest.mainInfo['bed'] >= bed);
+    }
+    if (bedroom) {
+      restsList = restsList.filter(rest => rest.mainInfo['bedroom'] >= bedroom);
+    }
+    if (bathroom) {
+      restsList = restsList.filter(rest => rest.mainInfo['bathroom'] >= bathroom);
+    }
+  }
+  
   const restsTotal = restsList.length;
   const pagedRestsList = restsList.slice(startIdx, startIdx + Limit);
   
