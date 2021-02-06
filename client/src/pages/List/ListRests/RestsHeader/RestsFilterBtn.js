@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Button } from '../../../../Components/Global/GlobalComponent';
 import { flexAlign } from '../../../../Styles/theme';
-import FilterFacilities from "./FilterModals/FilterFacilities";
+import FilterBedding from "./FilterModals/FilterBedding";
 import FilterPrice from "./FilterModals/FilterPrice";
 import FilterTypes from "./FilterModals/FilterTypes";
 
@@ -23,7 +23,7 @@ const RestsFilterBtn = () => {
     {
       id: 2,
       filter: '침실과 침대',
-      modal: <FilterFacilities setFilterFocus={setFilterFocus} />,
+      modal: <FilterBedding setFilterFocus={setFilterFocus} />,
     },
     {
       id: 3,

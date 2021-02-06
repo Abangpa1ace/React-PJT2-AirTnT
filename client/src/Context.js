@@ -21,7 +21,7 @@ const AppProvider = ({ children }) => {
   const [filterValue, setFilterValue] = useState({
     type: [],
     price: [10000, 1000000],
-    facilities: {
+    bedding: {
       bed: 0,
       bedroom: 0,
       bathroom: 0,
@@ -35,12 +35,22 @@ const AppProvider = ({ children }) => {
   const LIMIT = 15;
 
   const fetchRests = async () => {
-    const { type, price, facilities } = filterValue
-    const response = await fetch(
-      `${RestsAPI}?search[location]=${searchValue.location}&&filter[type]=${type}&filter[price]=${price}&page=${page}&limit=${LIMIT}
-      `, 
-      { method: 'GET' }
-    );
+    const { location } = searchValue;
+    const { type, price, bedding } = filterValue;
+    let RestsAPI_Query = `${RestsAPI}?page=${page}&limit=${LIMIT}`;
+    if (location && location !== '가까운 여행지 둘러보기') {
+      RestsAPI_Query += `&search[location]=${searchValue.location}`;
+    }
+    if (type.length !== 0) {
+      RestsAPI_Query += `&filter[type]=${type}`
+    }
+    if (price[0] > 10000 && price[1] < 1000000) {
+      RestsAPI_Query += `&filter[price]=${price}`
+    }
+    if (Object.values(bedding).reduce((a,b) => a+b) > 0) {
+      RestsAPI_Query += `&filter[bedding]=${bedding}`
+    }
+    const response = await fetch(RestsAPI_Query, { method: 'GET' });
     const result = await response.json();
     setRestList(result.restsList);
     setRestsTotal(result.restsTotal);
