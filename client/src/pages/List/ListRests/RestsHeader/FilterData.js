@@ -1,39 +1,9 @@
-import FilterFacilities from "./FilterModals/FilterFacilities";
-import FilterPrice from "./FilterModals/FilterPrice";
-import FilterTypes from "./FilterModals/FilterTypes";
 
-export const FILTERMODALS = [
-  {
-    id: 0,
-    filter: '숙소유형',
-    modal: <FilterTypes />,
-  },
-  {
-    id: 1,
-    filter: '요금',
-    modal: <FilterPrice />,
-  },
-  {
-    id: 2,
-    filter: '침실과 침대',
-    modal: <FilterFacilities />,
-  },
-  {
-    id: 3,
-    filter: '즉시 예약',
-    modal: null,
-  },
-  {
-    id: 4,
-    filter: '필터 추가하기',
-    modal: null,
-  },
-];
 
 export const TYPESDATA = [
   {
     id: 0,
-    typeEn: 'total',
+    typeEn: 'whole',
     title: '전체',
     desc: '집 전체를 단독으로 사용합니다',
     checked: false,

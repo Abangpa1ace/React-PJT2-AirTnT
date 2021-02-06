@@ -5,9 +5,9 @@ import { FaMapMarkedAlt } from 'react-icons/fa';
 import { useGlobalContext } from '../../../../../Context';
 
 const SearchNearby = () => {
-  const { updateSearchValue } = useGlobalContext();
+  const { searchValue, updateSearchValue } = useGlobalContext();
   return (
-    <DetailMap>
+    <DetailMap isClosed={searchValue.location}>
       <AutoCompleteNear onClick={() => updateSearchValue('location', '가까운 여행지 둘러보기')}>
         <FaMapMarkedAlt />
         <span>가까운 여행지 둘러보기</span>
@@ -17,6 +17,7 @@ const SearchNearby = () => {
 };
 
 const DetailMap = styled.div`
+  display: ${({ isClosed }) => isClosed ? "none" : "block"};
   position: absolute;
   width: 450px;
   background: #ffffff;

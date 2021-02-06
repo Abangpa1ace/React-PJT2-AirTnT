@@ -18,6 +18,16 @@ const AppProvider = ({ children }) => {
     guest: 0,
   });
 
+  const [filterValue, setFilterValue] = useState({
+    type: [],
+    price: [10000, 1000000],
+    facilities: {
+      bed: 0,
+      bedroom: 0,
+      bathroom: 0,
+    }
+  })
+
   // Rests Data
   const [restsTotal, setRestsTotal] = useState(0);
   const [restList, setRestList] = useState([]);
@@ -25,15 +35,20 @@ const AppProvider = ({ children }) => {
   const LIMIT = 15;
 
   const fetchRests = async () => {
-    const response = await fetch(`${RestsAPI}?search[location]=${searchValue.location}&page=${page}&limit=${LIMIT}`, { method: 'GET' });
+    const { type, price, facilities } = filterValue
+    const response = await fetch(
+      `${RestsAPI}?search[location]=${searchValue.location}&&filter[type]=${type}&page=${page}&limit=${LIMIT}
+      `, 
+      { method: 'GET' }
+    );
     const result = await response.json();
-    setRestsTotal(result.restsTotal);
     setRestList(result.restsList);
+    setRestsTotal(result.restsTotal);
   }
   
   useEffect(() => {
     fetchRests();
-  }, [page]);
+  }, [page, filterValue]);
 
   const handleNavFixed = () => {
     const { pageYOffset } = window;
@@ -49,6 +64,13 @@ const AppProvider = ({ children }) => {
     })
   };
 
+  const updateFilterValue = (name, value) => {
+    setFilterValue({
+      ...filterValue,
+      [name]: value,
+    })
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -61,6 +83,9 @@ const AppProvider = ({ children }) => {
         searchValue,
         setSearchValue,
         updateSearchValue,
+        filterValue,
+        setFilterValue,
+        updateFilterValue,
         restList,
         setRestList,
         restsTotal,

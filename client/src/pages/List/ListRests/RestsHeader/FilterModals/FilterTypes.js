@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useGlobalContext } from '../../../../../Context';
 import { flexAlign } from '../../../../../Styles/theme';
 import { TYPESDATA } from '../FilterData';
 import FilterModalBox from './FilterModalBox';
 
-const FilterTypes = () => {
+const FilterTypes = ({ setFilterFocus }) => {
   const [types, setTypes] = useState(TYPESDATA);
+  const { updateFilterValue } = useGlobalContext();
 
   const toggleCheck = (id) => {
     const newTypes = types.map((type) => {
@@ -18,7 +20,7 @@ const FilterTypes = () => {
     setTypes(newTypes);
   }
 
-  const ClearTypes = () => {
+  const clearTypes = () => {
     const newTypes = types.map((type) => {
       return {
         ...type,
@@ -28,11 +30,17 @@ const FilterTypes = () => {
     setTypes(newTypes);
   }
 
+  const filterTypes = () => {
+    const filterTypeList = types.filter(type => type.checked).map(type => type.typeEn);
+    updateFilterValue('type', filterTypeList);
+    setFilterFocus(-1);
+  }
+
   return (
-    <FilterModalBox width="350px" onClickDelete={ClearTypes} onClickSave>
+    <FilterModalBox width="350px" onClickDelete={clearTypes} onClickSave={filterTypes}>
       <TypeContainer>
-        {types.map((type, idx) => {
-          const { id, typeEn, title, desc, checked } = type;
+        {types.map((type) => {
+          const { id, title, desc, checked } = type;
           return (
             <TypeContent key={id}>
               <input type="checkbox" 

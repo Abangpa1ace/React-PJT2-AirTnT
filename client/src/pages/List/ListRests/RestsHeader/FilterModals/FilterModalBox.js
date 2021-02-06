@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Button } from '../../../../../Components/Global/GlobalComponent';
 import { flexBetween } from '../../../../../Styles/theme';
 
-const FilterModalBox = ({ children, width, onClickDelete }) => {
+const FilterModalBox = ({ children, width, onClickDelete, onClickSave }) => {
   return (
     <ModalBox width={width}>
       {children}
@@ -14,6 +14,7 @@ const FilterModalBox = ({ children, width, onClickDelete }) => {
           color="#ffffff"
           background={({ theme }) => theme.themeBlack}
           backgroundHov="#000000"
+          onClick={onClickSave}
         >저장</Button>
       </ModalControl>
     </ModalBox>
