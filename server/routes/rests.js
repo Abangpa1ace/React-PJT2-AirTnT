@@ -5,21 +5,23 @@ const restsData = require('../database/restsData');
 
 router.get('/', function(req, res, next) {
   let restsList = restsData;
-  // let restsTotal = restsData.length;
   const Query = req.query;
   const { search, filter, page, limit } = Query;
+  const Page = Number(page);
+  const Limit = Number(limit)
+  const startIdx = (Page - 1) * Limit;
 
-  const emptyQuery = Object.keys(Query).length === 0;
-  if(!emptyQuery) {
-    const Page = Number(page);
-    const Limit = Number(limit)
-    const startIdx = (Page - 1) * Limit;
+  if (search) {
+    const { location } = search;
 
-    if (search) {
-      restsList = restsList.filter(rest => rest.title.includes(search.location))
+    if (location) {
+      restsList = restsList.filter(rest => rest.title.includes(location))
     }
+  }
+  
+  if (filter) {
+    const { type, price, bed, bedroom, bathroom } = filter;
 
-    const { type, price, facilities } = filter;
     if (type) {
       const typeList = type.split(',');
       restsList = restsList.filter(rest => typeList.includes(rest.category.typeEn));
@@ -29,9 +31,20 @@ router.get('/', function(req, res, next) {
       restsList = restsList.filter(rest => rest.price >= priceRange[0] && rest.price <= priceRange[1]);
     }
 
-    restsTotal = restsList.length;
-    pagedRestsList = restsList.slice(startIdx, startIdx + Limit);
+    if (bed) {
+      restsList = restsList.filter(rest => rest.mainInfo['bed'] >= bed);
+    }
+    if (bedroom) {
+      restsList = restsList.filter(rest => rest.mainInfo['bedroom'] >= bedroom);
+    }
+    if (bathroom) {
+      restsList = restsList.filter(rest => rest.mainInfo['bathroom'] >= bathroom);
+    }
   }
+  
+  const restsTotal = restsList.length;
+  const pagedRestsList = restsList.slice(startIdx, startIdx + Limit);
+  
   res.json({
     restsTotal: restsTotal,
     restsList: pagedRestsList,

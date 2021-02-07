@@ -193,7 +193,7 @@ const restsData = [
     mainInfo: {
       maxGuest: 4,
       bedroom: 2,
-      bed: 2,
+      bed: 3,
       bathroom: 1
     },
     subInfo: [
@@ -279,7 +279,7 @@ const restsData = [
     mainInfo: {
       maxGuest: 4,
       bedroom: 2,
-      bed: 2,
+      bed: 4,
       bathroom: 1
     },
     subInfo: [
@@ -322,7 +322,7 @@ const restsData = [
     mainInfo: {
       maxGuest: 4,
       bedroom: 2,
-      bed: 2,
+      bed: 3,
       bathroom: 1
     },
     subInfo: [
@@ -365,7 +365,7 @@ const restsData = [
     mainInfo: {
       maxGuest: 4,
       bedroom: 2,
-      bed: 2,
+      bed: 1,
       bathroom: 1
     },
     subInfo: [
@@ -451,7 +451,7 @@ const restsData = [
     mainInfo: {
       maxGuest: 4,
       bedroom: 2,
-      bed: 2,
+      bed: 4,
       bathroom: 1
     },
     subInfo: [

@@ -31,7 +31,7 @@ export const TYPESDATA = [
   },
 ]
 
-export const FACILITYDATA = [
+export const BEDDINGDATA = [
   {
     id: 0,
     infoEn: 'bed',
