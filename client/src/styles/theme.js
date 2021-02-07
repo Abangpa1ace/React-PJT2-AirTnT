@@ -2,6 +2,7 @@ import { css } from 'styled-components';
 
 const theme = {
   webWidth: '1600px',
+  detailWidth: '1280px',
   themeBlack: '#222222',
   themePink: '#FF385C',
   themePinkDarker: '#E7204D',

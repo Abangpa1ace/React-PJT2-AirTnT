@@ -7,6 +7,7 @@ import CoronaNotice from './Components/Navbar/components/CoronaNotice';
 import Navbar from './Components/Navbar/Navbar';
 import Home from './Pages/Home/Home';
 import List from './Pages/List/List';
+import Detail from './Pages/Detail/Detail';
 import Footer from './Components/Footer/Footer';
 
 
@@ -19,7 +20,8 @@ function Routes() {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/list" component={List} />
+          <Route path="/list" component={List} />
+          <Route path="/detail" component={Detail} />
         </Switch>
         <Footer />
       </ThemeProvider>
