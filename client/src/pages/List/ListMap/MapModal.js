@@ -8,7 +8,7 @@ import { flexAlign } from '../../../Styles/theme';
 const MapModal = ({ isModalOn, modalX, modalY, modalData }) => {
   const { id, imageList, title, category, like, price } = modalData;
   const { likeAvg, likeCount } = like;
-  const { city, type, validRoom } = category;
+  const { city, type, building } = category;
 
   return (
     <RestModal 
@@ -29,7 +29,7 @@ const MapModal = ({ isModalOn, modalX, modalY, modalData }) => {
           <span>({likeCount})</span>
         </div>
         <div className="description">
-          <p>{city}의 {type} {validRoom}</p>
+          <p>{city}의 {building} {type}</p>
           <p>{title}</p>
         </div>
         <div className="price">

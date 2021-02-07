@@ -65,7 +65,7 @@ const RecentItem = styled.article`
 `;
 
 const RestsItemRecent = ({ id, imageList, title, category, price, like, recentId, setRecentId }) => {
-  const { city, type, validRoom } = category;
+  const { city, type, building } = category;
   const { likeAvg, likeCount } = like;
   return (
     <RecentItem
@@ -85,7 +85,7 @@ const RestsItemRecent = ({ id, imageList, title, category, price, like, recentId
         <span>({likeCount})</span>
       </div>
       <div className="description">
-        <p>{city}의 {type} {validRoom}</p>
+        <p>{city}의 {building} {type}</p>
         <p>{title}</p>
       </div>
       <div className="price">

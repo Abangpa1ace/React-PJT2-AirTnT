@@ -14,8 +14,8 @@
       ],
       "category": {
         "city": "마포",
-        "type": "콘도(아파트)",
-        "validRoom": "전체"
+        "building": "콘도(아파트)",
+        "type": "전체"
       },
       "title": "이태원 개수작 하우스 겨울 감성 물씬!",
       "mainInfo": {
@@ -56,8 +56,8 @@
       ],
       "category": {
         "city": "마포",
-        "type": "콘도(아파트)",
-        "validRoom": "전체"
+        "building": "콘도(아파트)",
+        "type": "전체"
       },
       "title": "도구 붕붕하우스 도구해수욕장 걸어서 5분 거리, 포항 호미곶",
       "mainInfo": {
@@ -98,8 +98,8 @@
       ],
       "category": {
         "city": "마포",
-        "type": "콘도(아파트)",
-        "validRoom": "전체"
+        "building": "콘도(아파트)",
+        "type": "전체"
       },
       "title": "SUNNY STAY 301 죽도시장 자차 5분 고속터미널",
       "mainInfo": {
@@ -140,8 +140,8 @@
       ],
       "category": {
         "city": "마포",
-        "type": "콘도(아파트)",
-        "validRoom": "전체"
+        "building": "콘도(아파트)",
+        "type": "전체"
       },
       "title": "망리단길 5분 거리 감성이 풍기는 숙소",
       "mainInfo": {
@@ -182,8 +182,8 @@
       ],
       "category": {
         "city": "홍대",
-        "type": "콘도(아파트)",
-        "validRoom": "전체"
+        "building": "콘도(아파트)",
+        "type": "전체"
       },
       "title": "주문진해수욕장 전망 높은 태형하우스 편안한 시간을!",
       "mainInfo": {

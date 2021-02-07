@@ -4,12 +4,12 @@ import { Button } from '../../../../Components/Global/GlobalComponent';
 import { BsHeart } from 'react-icons/bs';
 
 const ItemInfoHeader = ({ category, title}) => {
-  const { city, type, validRoom } = category;
+  const { city, type, building } = category;
 
   return (
     <InfoHeader className='item-info-header'>
       <InfoHeaderTitle>
-        <span>{city}의 {type} {validRoom}</span>
+        <span>{city}의 {building} {type}</span>
         <h2>{title}</h2>
       </InfoHeaderTitle>
       <Button
