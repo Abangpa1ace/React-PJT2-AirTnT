@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import DetailConBox from '../../DetailConBox';
+import { Button } from '../../../../Components/Global/GlobalComponent';
+import DetailCircleImg from '../../DetailCircleImg';
 import { flexAlign, flexBetween } from '../../../../Styles/theme';
 import { BsStarFill } from 'react-icons/bs';
 import { REVIEW_SCORE, REVIEW_RECORD } from '../../DetailData';
@@ -30,11 +32,27 @@ const AddReview = () => {
           const { id, img, name, date, content } = record;
           return (
             <RecordItem key={id}>
-
+              <header>
+                <DetailCircleImg src={img} alt="reviewer-profile" length="60px" marginRight="15px" />
+                <div>
+                  <p>{name}</p>
+                  <span>{date}</span>
+                </div>
+              </header>
+              <p>{content}</p>
             </RecordItem>
           )
         })}
       </ReviewGrid>
+      <Button
+        padding="15px 25px"
+        border={({ theme }) => theme.themeBlack}
+        fontSize="16px"
+        backgroundHov={({ theme }) => theme.gray0}
+        radius="10px"
+      >
+        편의시설 {REVIEW_RECORD.length}개 모두 보기
+      </Button>
     </DetailConBox>
   )
 }
@@ -94,6 +112,21 @@ const ScoreBar = styled.div`
 `;
 
 const RecordItem = styled.li`
+  padding: 0 100px 0 0;
+  margin: 0 0 20px;
+
+  header {
+    ${flexAlign};
+    margin: 0 0 15px;
+    p { 
+      padding: 0 0 5px;
+      font-weight: bold;
+    };
+  }
+  
+  & > p {
+    line-height: 1.5;
+  }
 `;
 
 export default AddReview
