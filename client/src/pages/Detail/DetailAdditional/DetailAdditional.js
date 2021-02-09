@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import AddReview from './components/AddReview';
 import AddMap from './components/AddMap';
 import AddHost from './components/AddHost';
+import AddRules from './components/AddRules';
 
 const DetailAdditional = () => {
   return (
@@ -10,6 +11,7 @@ const DetailAdditional = () => {
       <AddReview />
       <AddMap />
       <AddHost />
+      <AddRules />
     </Detailadditional>
   )
 }

@@ -1,12 +1,14 @@
 import { BiDish } from 'react-icons/bi';
-import { BsHouseDoor, BsWifi } from 'react-icons/bs'
+import { BsHouseDoor, BsWifi, BsFillCalendarFill } from 'react-icons/bs'
 import { CgSmartHomeRefrigerator } from 'react-icons/cg';
+import { FiAlertCircle } from 'react-icons/fi';
 import { FaInternetExplorer, FaDog } from 'react-icons/fa';
-import { GiHighGrass, GiHeartburn, GiStoneWall, GiBrightExplosion, GiWindSlap, GiForkKnifeSpoon, GiCookingPot, GiFireplace } from 'react-icons/gi'
+import { GiPartyPopper, GiHighGrass, GiHeartburn, GiStoneWall, GiBrightExplosion, GiWindSlap, GiForkKnifeSpoon, GiCookingPot, GiFireplace } from 'react-icons/gi'
 import { GrLocation, GrCalendar, GrNotes } from 'react-icons/gr';
-import { RiComputerLine, RiParkingBoxLine } from 'react-icons/ri';
-import { MdVideoLabel } from 'react-icons/md';
+import { RiSurgicalMaskLine, RiComputerLine, RiParkingBoxLine } from 'react-icons/ri';
+import { MdVideoLabel, MdSmokeFree } from 'react-icons/md';
 import { SiApacheairflow } from 'react-icons/si';
+import { WiTime2, WiTime10 } from 'react-icons/wi';
 
 export const DETAIL_NOTICE = [
   {
@@ -140,5 +142,76 @@ export const REVIEW_RECORD = [
     name: '지원',
     date: '2021년 1월',
     content: `너무 예뻤어요.`,
+  },
+]
+
+export const RULES_LIST = [
+  {
+    id: 0,
+    title: '숙소 이용규칙',
+    list: [
+      {
+        svg: <WiTime2 />,
+        desc: `체크인 시간: 오후 2:00 이후`,
+      },
+      {
+        svg: <WiTime10 />,
+        desc: `체크아웃 시간: 오전 10:00`,
+      },
+      {
+        svg: <BsHouseDoor />,
+        desc: `스마트록(으)로 셀프 체크인`,
+      },
+      {
+        svg: <MdSmokeFree />,
+        desc: `흡연 금지`,
+      },
+      {
+        svg: <FaDog />,
+        desc: `반려동물 동반 불가`,
+      },
+      {
+        svg: <GiPartyPopper />,
+        desc: `파티나 이벤트 금지`,
+      },
+      {
+        svg: <BsFillCalendarFill />,
+        desc: `28박 이상의 장기 숙박 가능`,
+      },
+    ]
+  },
+  {
+    id: 1,
+    title: '건강과 안전',
+    list: [
+      {
+        svg: <GiBrightExplosion />,
+        desc: `에어비앤비의 강화된 청소 절차 준수에 동의했습니다.`,
+      },
+      {
+        svg: <RiSurgicalMaskLine/>,
+        desc: `에어비앤비의 사회적 거리 두기 및 관련 가이드라인이 적용됩니다.`,
+      },
+      {
+        svg: <FiAlertCircle />,
+        desc: `화재경보기 없음`,
+      },
+      {
+        svg: <FiAlertCircle />,
+        desc: `일산화탄소 경보기 필요 없음`,
+      },
+    ]
+  },
+  {
+    id: 2,
+    title: '환불 정책',
+    list: [
+      {
+        desc: `체크인 5일 전까지 수수료 없이 취소 가능.`,
+      },
+      {
+        desc: `그 이후로는 체크인 전에 취소하면 첫 1박 요금과 서비스 수수료를 제외하고 50%가 환불됩니다.`,
+      },
+    ]
   },
 ]
