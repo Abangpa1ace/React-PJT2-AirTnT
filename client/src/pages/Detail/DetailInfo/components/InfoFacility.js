@@ -1,16 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Button } from '../../../../Components/Global/GlobalComponent';
+import { useGlobalContext } from '../../../../Context';
 import { flexAlign } from '../../../../Styles/theme';
 import DetailConBox from '../../DetailConBox';
-import { FACILITY_LIST, FACILITY_ICONS } from '../../DetailData';
+import { FACILITY_ICONS } from '../../DetailData';
 
 const InfoFacility = () => {
-  const facilityShown = FACILITY_LIST.slice(0, 10);
+  const { restDetail } = useGlobalContext();
   return (
     <DetailConBox head="편의시설">
       <FacilityGrid>
-        {facilityShown.map(facility => 
+        {restDetail.subInfo && restDetail.subInfo.slice(0,10).map(facility => 
           <FacilityItem>
             {FACILITY_ICONS[facility]}
             <p>{facility}</p>
@@ -25,7 +26,7 @@ const InfoFacility = () => {
         backgroundHov={({ theme }) => theme.gray0}
         radius="10px"
       >
-        편의시설 {FACILITY_LIST.length}개 모두 보기
+        편의시설 {restDetail.subInfo && restDetail.subInfo.length}개 모두 보기
       </Button>
     </DetailConBox>
   )

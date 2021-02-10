@@ -1,63 +1,77 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from '../../../Components/Global/GlobalComponent';
+import { Linker, Button } from '../../../Components/Global/GlobalComponent';
 import { BsStarFill } from 'react-icons/bs';
 import { flexBetween, flexAlign } from '../../../Styles/theme';
 import { useGlobalContext } from '../../../Context';
 
 const AsideStickyBox = () => {
-  const { searchValue } = useGlobalContext();
+  const { searchValue, restDetail } = useGlobalContext();
+  let likeAvg, likeCount;
+  if (restDetail.like) {
+    likeCount = restDetail.like.likeReviews.length;
+    likeAvg = (restDetail.like.likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / 6).reduce((a,b) => a+b) / likeCount).toFixed(2)
+  }
+  
   return (
     <StickyBox>
       <StickyHeader>
-        <p><strong>₩76,210</strong>/박</p>
+        <p><strong>₩{restDetail.price && restDetail.price.toLocaleString()}</strong>/박</p>
         <div>
-          <BsStarFill /><strong>&nbsp;4.83</strong><span>&nbsp;(60)</span>
+          <BsStarFill />
+          <strong>&nbsp;{likeAvg}</strong>
+          <span>&nbsp;({likeCount})</span>
         </div>
       </StickyHeader>
       <StickyValue>
         <ValueBox>
           <span>체크인</span>
-          <input type="text" placeholder="2021. 3. 2." />
+          <input type="text" 
+            value={searchValue.dateIn && searchValue.dateIn.format("YYYY. M. D")} 
+            placeholder="날짜 추가" />
         </ValueBox>
         <ValueBox>
           <span>체크아웃</span>
-          <input type="text" placeholder="2021. 3. 4." />
+          <input type="text" 
+            value={searchValue.dateOut && searchValue.dateOut.format("YYYY. M. D")} 
+            placeholder="날짜 추가" />
         </ValueBox>
         <ValueBox>
           <div>
             <span>인원</span>
-            <p>게스트 2명</p>
+            <p>게스트 {searchValue.guest}명</p>
           </div>
           <strong>
             ⇧
           </strong>
         </ValueBox>
       </StickyValue>
-      <Button
-        width="100%"
-        padding="15px 0"
-        color="#ffffff"
-        background={({ theme }) => theme.themePinkDarker}
-        radius="10px"
-        fontSize="16px"
-      >예약하기</Button>
+      <Linker to="/reservation">
+          <Button
+          width="100%"
+          padding="15px 0"
+          color="#ffffff"
+          background={({ theme }) => theme.themePinkDarker}
+          radius="10px"
+          fontSize="16px"
+        >예약하기</Button>
+      </Linker>
       <p>예약 확정 전에는 요금이 청구되지 않습니다.</p>
       <StickyPrice>
-        <span>₩76,210 x 2박</span>
-        <span>₩152,420</span>
+        <span>₩{restDetail.price && restDetail.price.toLocaleString()} x {searchValue.dateDiff}박</span>
+        <span>₩{restDetail.price && (restDetail.price * searchValue.dateDiff).toLocaleString()}</span>
       </StickyPrice>
       <StickyPrice>
         <span>서비스 수수료</span>
-        <span>₩21,158</span>
+        <span>₩{(21158*searchValue.dateDiff).toLocaleString()}</span>
       </StickyPrice>
       <StickyPrice>
         <span>숙박세와 수수료</span>
-        <span>₩2,152</span>
+        <span>₩{(2152*searchValue.dateDiff).toLocaleString()}</span>
       </StickyPrice>
       <StickyTotal>
         <span>총 합계</span>
-        <span>₩176,090</span>
+        <span>₩{restDetail.price && ((restDetail.price + 21158 + 2152) * searchValue.dateDiff).toLocaleString()}</span>
       </StickyTotal>
     </StickyBox>
   )

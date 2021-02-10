@@ -71,32 +71,32 @@ export const REVIEW_SCORE = [
   {
     id: 0,
     text: '청결도',
-    point: 4.5,
+    key: 'clean',
   },
   {
     id: 1,
     text: '정확성',
-    point: 4.9,
+    key: 'accuracy',
   },
   {
     id: 2,
     text: '의사소통',
-    point: 5.0,
+    key: 'communication',
   },
   {
     id: 3,
     text: '위치',
-    point: 4.7,
+    key: 'spot',
   },
   {
     id: 4,
     text: '체크인',
-    point: 3.6,
+    key: 'check',
   },
   {
     id: 5,
     text: '가격 대비 만족도',
-    point: 4.3,
+    key: 'cost_effective',
   },
 ]
 

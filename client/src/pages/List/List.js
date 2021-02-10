@@ -6,10 +6,11 @@ import ListMap from './ListMap/ListMap';
 
 const List = () => {
   const [restId, setRestId] = useState(-10);
-  const { setNavFixed, setSearchOn } = useGlobalContext();
+  const { setNavFixed, setNavFootWidth, setSearchOn } = useGlobalContext();
 
   useEffect(() => {
     setNavFixed(true);
+    setNavFootWidth("1600px");
     setSearchOn(false);
   }, [])
 

@@ -4,15 +4,20 @@ import DetailConBox from '../../DetailConBox';
 import { DayPickerRangeController } from 'react-dates';
 import { START_DATE } from 'react-dates/constants';
 import 'react-dates/lib/css/_datepicker.css';
+import { useGlobalContext } from '../../../../Context';
 
 const InfoCalender = () => {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  const { searchValue } = useGlobalContext();
+  const [startDate, setStartDate] = useState(searchValue.dateIn);
+  const [endDate, setEndDate] = useState(searchValue.dateOut);
   const [focusedInput, setFocusedInput] = useState(START_DATE);
   
   return (
-    <DetailConBox head={`Mangwon 1(il)-dong, Mapo-gu에서 2박`}>
-      <DateSpan>{`2021년 3월 2일 - 2021년 3월 4일`}</DateSpan>
+    <DetailConBox head={`Mangwon 1(il)-dong, Mapo-gu에서 ${searchValue.dateDiff}박`}>
+      <DateSpan>
+        {`${searchValue.dateIn && searchValue.dateIn.format("YYYY년 M월 D일")} - 
+        ${searchValue.dateOut && searchValue.dateOut.format("YYYY년 M월 D일")}`}
+      </DateSpan>
       <DayPickerRangeController
         startDate={startDate}
         endDate={endDate}

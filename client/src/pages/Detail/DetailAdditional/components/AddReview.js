@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import DetailConBox from '../../DetailConBox';
+import { useGlobalContext } from '../../../../Context';
 import { Button } from '../../../../Components/Global/GlobalComponent';
 import DetailCircleImg from '../../DetailCircleImg';
 import { flexAlign, flexBetween } from '../../../../Styles/theme';
@@ -8,20 +9,59 @@ import { BsStarFill } from 'react-icons/bs';
 import { REVIEW_SCORE, REVIEW_RECORD } from '../../DetailData';
 
 const AddReview = () => {
+  const { restDetail } = useGlobalContext();
+
+  let likeAvg, likeCount;
+  if (restDetail.like) {
+    likeCount = restDetail.like.likeReviews.length;
+    likeAvg = (restDetail.like.likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / 6).reduce((a,b) => a+b) / likeCount).toFixed(2)
+  }
+
+  const [reviewScore, setReviewScore] = useState({
+    clean: 0,
+    accuracy: 0,
+    communication: 0,
+    spot: 0,
+    check: 0,
+    cost_effective: 0,
+  });
+
+  useEffect(() => {
+    avgReviewScore()
+  }, [restDetail])
+
+  const avgReviewScore = () => {
+    if (restDetail.like) {
+      const { likeReviews } = restDetail.like;
+      let newScoreObj = reviewScore;
+      for (let review of likeReviews) {
+        for (let key in review.score) {
+          newScoreObj[key] += review.score[key]
+        }
+      }
+      for (let key in newScoreObj) {
+        const newScoreVal = newScoreObj[key]/likeReviews.length
+        newScoreObj[key] = newScoreVal;
+      }
+      setReviewScore(newScoreObj);
+    }
+  }
+
+
   return (
     <DetailConBox>
       <ReviewHead>
-        <BsStarFill />4.83(후기 60개)
+        <BsStarFill />{`${likeAvg}(후기 ${likeCount}개)`}
       </ReviewHead>
       <ReviewGrid>
         {REVIEW_SCORE.map((score) => {
-          const { id, text, point } = score;
+          const { id, text, key } = score;
           return (
             <ScoreItem key={id}>
               <p>{text}</p>
               <div>
-                <ScoreBar point={point} />
-                <span>{point.toFixed(1)}</span>
+                <ScoreBar point={reviewScore[key]} />
+                <span>{reviewScore[key].toFixed(1)}</span>
               </div>
             </ScoreItem>
           )
@@ -51,7 +91,7 @@ const AddReview = () => {
         backgroundHov={({ theme }) => theme.gray0}
         radius="10px"
       >
-        편의시설 {REVIEW_RECORD.length}개 모두 보기
+        후기 {restDetail.like && restDetail.like.likeReviews.length}개 모두 보기
       </Button>
     </DetailConBox>
   )

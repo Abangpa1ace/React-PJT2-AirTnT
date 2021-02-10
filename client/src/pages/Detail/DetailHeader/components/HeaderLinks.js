@@ -3,12 +3,22 @@ import styled from 'styled-components';
 import { Button } from '../../../../Components/Global/GlobalComponent';
 import { flexBetween, flexAlign } from '../../../../Styles/theme';
 import { BsStarFill, BsHeart, BsUpload } from 'react-icons/bs';
+import { useGlobalContext } from '../../../../Context';
 
 const HeaderLinks = () => {
+  const { restDetail } = useGlobalContext();
+  let likeAvg, likeCount;
+  if (restDetail.like) {
+    likeCount = restDetail.like.likeReviews.length;
+    likeAvg = (restDetail.like.likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / 6).reduce((a,b) => a+b) / likeCount).toFixed(2)
+  }
+  
   return (
     <Headerlinks>
       <HeaderLinkLeft>
-        <BsStarFill /><strong>&nbsp;4.83</strong><span>&nbsp;(60)</span>
+        <BsStarFill />
+        <strong>&nbsp;{likeAvg}</strong>
+        <span>&nbsp;({likeCount})</span>
         <span>&ensp;∙&ensp;</span>
         <p>Mangwon 1(il)-dong, Mapo-gu, 서울, 한국</p>
       </HeaderLinkLeft>

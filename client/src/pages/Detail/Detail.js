@@ -8,11 +8,11 @@ import DetailAdditional from './DetailAdditional/DetailAdditional';
 import { RestsAPI } from '../../Data/config';
 
 const Detail = () => {
-  const { setNavFixed, setSearchOn } = useGlobalContext();
-  const [detailData, setDetailData] = useState({});
+  const { setNavFixed, setSearchOn, setRestDetail, setNavFootWidth } = useGlobalContext();
 
   useEffect(() => {
     setNavFixed(true);
+    setNavFootWidth("1120px");
     setSearchOn(false);
     fetchDetail()
   }, [])
@@ -21,13 +21,13 @@ const Detail = () => {
     const DetailAPI = RestsAPI + window.location.pathname; 
     const response = await fetch(`${DetailAPI}`, { method: 'GET' });
     const result = await response.json();
-    setDetailData(result);
+    setRestDetail(result);
   }
 
   return (
     <>
       <DetailContainer>
-        <DetailHeader data={detailData} />
+        <DetailHeader />
         <DetailMain>
           <DetailInfo />
           <DetailAside />

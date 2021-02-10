@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Linker } from '../../Global/GlobalComponent';
 import { useGlobalContext } from '../../../Context';
 import { SiAirbnb } from 'react-icons/si';
 import { flexAlign } from '../../../Styles/theme';
@@ -10,10 +10,10 @@ const NavLeft = () => {
 
   return (
     <Navleft navFixed={navFixed}>
-      <Link to="/">
+      <Linker to="/">
         <SiAirbnb />
         <h2>airTnT</h2>
-      </Link>
+      </Linker>
     </Navleft>
   )
 }

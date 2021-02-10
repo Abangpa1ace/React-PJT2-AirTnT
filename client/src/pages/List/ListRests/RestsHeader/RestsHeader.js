@@ -10,7 +10,7 @@ const RestsHeader = () => {
     <Restsheader>
       <p>
         {restsTotal >= 300 ? `300개 이상의 숙소` : `${restsTotal}개의 숙소`} ∙ 
-        {`${dateIn} - ${dateOut}`} ∙ 
+        {`${dateIn && dateIn.format("M월 D일")} - ${dateOut && dateOut.format("M월 D일")}`} ∙ 
         {`게스트 ${guest}명`}
       </p>
       <h1>지도에서 선택한 지역의 숙소</h1>

@@ -1,11 +1,13 @@
 import React from 'react';
 import HeaderLinks from './components/HeaderLinks';
 import HeaderImgGrid from './components/HeaderImgGrid';
+import { useGlobalContext } from '../../../Context';
 
-const DetailHeader = ({ data }) => {
+const DetailHeader = () => {
+  const { restDetail } = useGlobalContext();
   return (
     <>
-      <h3>{data && data.title}</h3>
+      <h3>{restDetail.title}</h3>
       <HeaderLinks />
       <HeaderImgGrid />
     </>

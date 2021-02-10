@@ -10,7 +10,6 @@ import List from './Pages/List/List';
 import Detail from './Pages/Detail/Detail';
 import Footer from './Components/Footer/Footer';
 
-
 function Routes() {
   return (
     <Router id="Routes">

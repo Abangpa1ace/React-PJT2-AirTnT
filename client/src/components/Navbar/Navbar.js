@@ -8,11 +8,11 @@ import { flexAlign } from '../../Styles/theme';
 
 
 const Navbar = () => {
-  const { navFixed, searchOn } = useGlobalContext();
+  const { navFixed, navFootWidth, searchOn } = useGlobalContext();
 
   return (
     <Nav fixed={navFixed} >
-      <NavContainer fixed={navFixed} searchOn={searchOn}>
+      <NavContainer fixed={navFixed} searchOn={searchOn} width={navFootWidth}>
         <NavLeft />
         <NavCenter />
         <NavRight />
@@ -44,7 +44,7 @@ const NavContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: ${({ searchOn }) => !searchOn ? 'center' : 'flex-start'};
-  width: ${({ theme }) => theme.webWidth};
+  width: ${({ width, theme }) => width || theme.webWidth};
   padding: ${({ searchOn }) => !searchOn ? 'none' : '30px 0 10px'};
   margin: 0 auto;
 `;

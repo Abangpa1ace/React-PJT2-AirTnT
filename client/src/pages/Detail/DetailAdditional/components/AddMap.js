@@ -1,22 +1,28 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components';
+import { useGlobalContext } from '../../../../Context';
 import DetailConBox from '../../DetailConBox';
 import { Button } from '../../../../Components/Global/GlobalComponent';
 
 const { kakao } = window;
 
 const AddMap = () => {
+  const { restDetail } = useGlobalContext();
 
   useEffect(() => {
     loadAddMap()
-  }, [])
+  }, [restDetail])
 
   const loadAddMap = () => {
     const mapContainer = document.querySelector('.map-container');
-    mapContainer.innerHTML = '';
+    let lat, long
+    if (restDetail.location) {
+      lat = restDetail.location.lat;
+      long = restDetail.location.long;
+    }
 
     const options = {
-      center: new kakao.maps.LatLng(37.502, 126.777),
+      center: new kakao.maps.LatLng(lat, long),
       level: 6,
     }
     const map = new kakao.maps.Map(mapContainer, options);
@@ -27,19 +33,11 @@ const AddMap = () => {
     const marker = new kakao.maps.Marker({
       map: map,
       image: new kakao.maps.MarkerImage(imgSrc, imgSize),
-      position: new kakao.maps.LatLng(37.502, 126.777),
-      // title: rest.title,
+      position: new kakao.maps.LatLng(lat, long),
+      title: restDetail.title,
       zIndex: 3,
     })
     marker.setMap(map);
-
-    // update Zoom Level when zoom in/out
-    kakao.maps.event.addListener(map, 'zoom_changed', () => {
-      const nowZoom = map.getLevel();
-      // setZoom(nowZoom);
-    })
-
-    return map;
   }
   return (
     <DetailConBox head="위치">
