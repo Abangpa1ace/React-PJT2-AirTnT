@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import DetailConBox from '../../DetailConBox';
 import { useGlobalContext } from '../../../../Context';
-import { Button } from '../../../../Components/Global/GlobalComponent';
+import { Button } from '../../../../GlobalComponents/Common/StyledCommon';
 import DetailCircleImg from '../../DetailCircleImg';
 import { flexAlign, flexBetween } from '../../../../Styles/theme';
 import { BsStarFill } from 'react-icons/bs';

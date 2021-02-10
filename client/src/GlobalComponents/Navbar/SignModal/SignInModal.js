@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import { Button } from '../Global/GlobalComponent';
+import { Button } from '../Common/StyledCommon';
 import { SignInAPI } from '../../Data/config';
 
 const SignInModal = ({ setSignModalOn, setSignMode }) => {

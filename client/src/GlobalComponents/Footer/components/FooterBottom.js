@@ -1,25 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useGlobalContext } from '../../../Context';
-import RightsLeft from './RightsLeft';
-import RightsRight from './RightsRight';
+import BottomCredit from './BottomCredit';
+import BottomSocial from './BottomSocial';
 import { flexBetween } from '../../../Styles/theme';
 
-const FooterRights = () => {
+const FooterBottom = () => {
   const { navFootWidth } = useGlobalContext();
   return (
-    <Footerrights width={navFootWidth}>
-      <RightsLeft />
-      <RightsRight />
-    </Footerrights>
+    <Footerbottom width={navFootWidth}>
+      <BottomCredit />
+      <BottomSocial />
+    </Footerbottom>
   )
 }
 
-const Footerrights = styled.div`
+const Footerbottom = styled.div`
   ${flexBetween}
   width: ${({ width, theme }) => width || theme.webWidth};
   margin: 0 auto;
   padding: 24px 0;
 `;
 
-export default FooterRights
+export default FooterBottom

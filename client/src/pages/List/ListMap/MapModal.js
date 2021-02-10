@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Carousel from '../../../Components/Carousel/Carousel';
-import { Linker } from '../../../Components/Global/GlobalComponent';
+import Carousel from '../../../GlobalComponents/Carousel/Carousel';
+import { Linker } from '../../../GlobalComponents/Common/StyledCommon';
 import { BsStarFill } from 'react-icons/bs';
 import { flexAlign } from '../../../Styles/theme';
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import { Button } from '../Global/GlobalComponent';
+import { Button } from '../Common/StyledCommon';
 import SignModalInput from './components/SignModalInput';
 import SignDivider from './components/SignDivider';
 import { SignUpAPI } from '../../Data/config';

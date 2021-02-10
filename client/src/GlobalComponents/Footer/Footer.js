@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import FooterLinks from './components/FooterLinks';
-import FooterRights from './components/FooterRights';
+import FooterBottom from './components/FooterBottom';
 
 const Foot = styled.footer`
   background: ${({ theme }) => theme.gray0};
@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <Foot>
       <FooterLinks />
-      <FooterRights />
+      <FooterBottom />
     </Foot>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Carousel from '../../../../Components/Carousel/Carousel';
-import { Button, Linker } from '../../../../Components/Global/GlobalComponent';
+import Carousel from '../../../../GlobalComponents/Carousel/Carousel';
+import { Button, Linker } from '../../../../GlobalComponents/Common/StyledCommon';
 import { flexAlign } from '../../../../Styles/theme';
 import { BsHeart, BsStarFill } from 'react-icons/bs';
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../../../Context';
 import { flexCenter, flexBetween } from '../../../../../Styles/theme';
-import PlusMinusBtn from './PlusMinusBtn';
+import CounterBtn from '../../../../Common/CounterBtn';
 import { GUESTCATEGORY } from '../../../NavbarData'; 
 
 const SearchMember = () => {
@@ -45,13 +45,13 @@ const SearchMember = () => {
                 <p>{desc}</p>
               </MemberLeft>
               <MemberRight>
-                <PlusMinusBtn
+                <CounterBtn
                   condition={guestCount[group] === 0}
-                  clickEvent={() => minusGuestCount(group)}>-</PlusMinusBtn>
+                  clickEvent={() => minusGuestCount(group)}>-</CounterBtn>
                 <span>{guestCount[group]}</span>
-                <PlusMinusBtn
+                <CounterBtn
                   condition={guestCount[group] === 16}
-                  clickEvent={() => plusGuestCount(group)}>+</PlusMinusBtn>
+                  clickEvent={() => plusGuestCount(group)}>+</CounterBtn>
               </MemberRight>
             </li>
         )

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import { Linker, Button } from '../../../Global/GlobalComponent';
+import { Linker, Button } from '../../../Common/StyledCommon';
 import SearchDetails from './SearchDetails/SearchDetails';
 import { BiSearch } from 'react-icons/bi';
 import { flexCenter, flexAlignCol } from '../../../../Styles/theme';

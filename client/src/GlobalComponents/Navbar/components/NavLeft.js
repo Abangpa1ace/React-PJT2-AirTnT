@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Linker } from '../../Global/GlobalComponent';
+import { Linker } from '../../Common/StyledCommon';
 import { useGlobalContext } from '../../../Context';
 import { SiAirbnb } from 'react-icons/si';
 import { flexAlign } from '../../../Styles/theme';

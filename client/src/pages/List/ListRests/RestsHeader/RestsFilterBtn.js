@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Button } from '../../../../Components/Global/GlobalComponent';
+import { Button } from '../../../../GlobalComponents/Common/StyledCommon';
 import { flexAlign } from '../../../../Styles/theme';
 import FilterBedding from "./FilterModals/FilterBedding";
 import FilterPrice from "./FilterModals/FilterPrice";

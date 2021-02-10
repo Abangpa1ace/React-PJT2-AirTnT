@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from '../../../../Components/Global/GlobalComponent';
+import { Button } from '../../../../GlobalComponents/Common/StyledCommon';
 import { useGlobalContext } from '../../../../Context';
 import { flexAlign } from '../../../../Styles/theme';
 import DetailConBox from '../../DetailConBox';

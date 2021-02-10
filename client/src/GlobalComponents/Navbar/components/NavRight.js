@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../Context';
-import { Linker, Button } from '../../Global/GlobalComponent';
-import ProfileMenu from './ProfileMenu';
+import { Linker, Button } from '../../Common/StyledCommon';
+import NavRightMenu from './NavRightMenu';
 import { RiGlobalLine, RiMenuLine } from 'react-icons/ri';
 import { CgProfile } from 'react-icons/cg';
 import { flexCenter, flexAlign } from '../../../Styles/theme';
-import SignModal from '../../../Components/SignModal/SignModal';
+import SignModal from '../../SignModal/SignModal';
 
 const NavRight = () => {
   const { navFixed } = useGlobalContext();
@@ -29,7 +29,7 @@ const NavRight = () => {
       <MenuButton fixed={navFixed} onClick={() => setShowMenu(!showMenu)}>
         <RiMenuLine />
         <CgProfile />
-        {showMenu && <ProfileMenu setSignModalOn={setSignModalOn} setSignMode={setSignMode} />}
+        {showMenu && <NavRightMenu setSignModalOn={setSignModalOn} setSignMode={setSignMode} />}
       </MenuButton>
       <SignModal signModalOn={signModalOn} setSignModalOn={setSignModalOn} signMode={signMode} setSignMode={setSignMode} />
     </NavRightWrapper> 

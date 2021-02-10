@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Linker, Button } from '../../../Components/Global/GlobalComponent';
+import { Linker, Button } from '../../../GlobalComponents/Common/StyledCommon';
 import { BsStarFill } from 'react-icons/bs';
 import { flexBetween, flexAlign } from '../../../Styles/theme';
 import { useGlobalContext } from '../../../Context';

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Linker } from '../../Global/GlobalComponent';
+import { Linker } from '../../Common/StyledCommon';
 import styled from 'styled-components';
 import { NAVPROFMENU } from '../NavbarData';
 
 
-const ProfileMenu = ({ setSignModalOn, setSignMode }) => {
+const NavRightMenu = ({ setSignModalOn, setSignMode }) => {
   const signUpModal = () => {
     setSignMode('signup');
     setSignModalOn(true);
@@ -59,4 +59,4 @@ const Profilemenu = styled.ul`
 `;
 
 
-export default ProfileMenu;
+export default NavRightMenu;

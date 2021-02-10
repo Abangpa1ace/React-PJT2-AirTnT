@@ -2,34 +2,38 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { useGlobalContext } from '../../../Context';
 import { flexCenter } from '../../../Styles/theme';
-import { Linker } from '../../Global/GlobalComponent';
+import { Linker } from '../../Common/StyledCommon';
 import { FOOTERRIGHTSDATA } from '../FooterData';
 
-const RightsLeft = () => {
+const BottomCredit = () => {
   const { navFootWidth } = useGlobalContext();
   return (
-    <Rightsleft isFlex = {navFootWidth === "1600px"}>
+    <Bottomcredit isFlex = {navFootWidth === "1600px"}>
       <div>© 2021 Airbnb, Inc. All rights reserved</div>
-      <RightsLink>
+      <CreditList sFlex = {navFootWidth === "1600px"}>
         {FOOTERRIGHTSDATA.map((data, idx) => 
           <li key={data.id}>
             {idx !== 0 && <span>∙</span>}
             <Linker to={data.link}>{data.title}</Linker>
           </li>
         )}
-      </RightsLink>
-    </Rightsleft>
+      </CreditList>
+    </Bottomcredit>
   )
 }
 
-const Rightsleft = styled.div`
+const Bottomcredit = styled.div`
   ${({ isFlex }) => isFlex ? css`${flexCenter};` : css`display: block;` }
+
+  div {
+    margin: 0 15px 0 0;
+  }
 `;
 
-const RightsLink = styled.ul`
+const CreditList = styled.ul`
   ${flexCenter}
-  margin: 5px 0 0;
-  span { margin: 5px; }
+  margin: ${({ isFlex }) => isFlex ? "0px" : "5px 0 0"};
+  span { margin: 0 5px; }
 `
 
-export default RightsLeft
+export default BottomCredit

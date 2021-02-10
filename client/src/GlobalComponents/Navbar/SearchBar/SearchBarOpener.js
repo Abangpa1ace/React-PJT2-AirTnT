@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from '../../../Global/GlobalComponent';
+import { Button } from '../../../Common/StyledCommon';
 import { BiSearch } from 'react-icons/bi';
 import { flexBetween } from '../../../../Styles/theme';
 import { useGlobalContext } from '../../../../Context';

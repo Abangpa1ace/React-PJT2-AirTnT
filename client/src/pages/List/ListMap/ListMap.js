@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../Context';
-import { Button } from '../../../Components/Global/GlobalComponent';
+import { Button } from '../../../GlobalComponents/Common/StyledCommon';
 import MapModal from '../ListMap/MapModal';
 import { flexCenter } from '../../../Styles/theme';
 

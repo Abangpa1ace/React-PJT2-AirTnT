@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../../Context';
 import DetailConBox from '../../DetailConBox';
-import { Button } from '../../../../Components/Global/GlobalComponent';
+import { Button } from '../../../../GlobalComponents/Common/StyledCommon';
 
 const { kakao } = window;
 

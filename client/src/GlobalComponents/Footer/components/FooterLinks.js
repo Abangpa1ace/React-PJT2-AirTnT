@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../Context';
-import { Linker } from '../../Global/GlobalComponent';
+import { Linker } from '../../Common/StyledCommon';
 import { FOOTERLINKDATA } from '../FooterData';
 
 const FooterLinks = () => {
