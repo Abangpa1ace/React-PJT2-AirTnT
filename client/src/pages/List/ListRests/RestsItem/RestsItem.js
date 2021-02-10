@@ -46,7 +46,7 @@ const RestsItem = ({ id, imageList, category, title, mainInfo, subInfo, price, l
         price={price}
         like={like}
       />
-      <Linker to={`/details/${id}`}></Linker>
+      <Linker to={`/detail/${id}`}></Linker>
     </Restsitem>
   )
 }

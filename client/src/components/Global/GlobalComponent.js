@@ -7,7 +7,10 @@ export const Linker = styled(Link)`
   width: ${({ width }) => width };
   height: ${({ height }) => height };
   color: ${({ color, theme }) => color ? color : theme.themeBlack };
-  &:hover { color: ${({ colorHov }) => colorHov}; }
+  &:hover { 
+    color: ${({ colorHov }) => colorHov}; 
+    text-decoration: 0;
+  }
   font-size: ${({ fontSize }) => fontSize };
 `;
 

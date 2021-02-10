@@ -5,7 +5,7 @@ const randomer = (src) => {
     return src[Math.floor(Math.random() * src.length)]
   }
   else {
-    return Math.floor(Math.random() * src)
+    return Math.floor(Math.random() * src) + 1;
   }
 }
 
@@ -385,7 +385,40 @@ for (let i=1 ; i <= 150 ; i++) {
       bed: randomer(6),
       bathroom: randomer(2),
     },
+    host: {
+      img: 'https://i1.sndcdn.com/artworks-000509394897-gx4xx6-t500x500.jpg',
+      name: 'TTaeng',
+      registerDate: '2015년 2월',
+      review: ['good', 'good', 'very good'],
+      secure: true,
+      number: 010-0000-0000,
+    },
+    introduce: 
+      `기원을 담아,
+      망원역 한켠에 숙소를 오픈했습니다.
+
+      소중한 사람과 함께하는 공간이 되었으면 좋겠습니다.
+
+      a.숙소
+      - 망원역에서 3분거리에 위치해 있으며, 근처에는 조용한 카페들과 망원시장이 있습니다.
+
+      - 오픈전 리모델링을 해서 깨끗하고 편안합니다.
+
+      - 침실과 작은 테이블이 있는 큰방, 최대 6명까지 둘러 앉아, 함께 저녁을 먹으며 이야기를 할 수 있는 작은 방으로 이루어져 있습니다. (이웃 주민들을 위해 10시 이후에는 작은 소리로 대화 해주세요.)
+      *코로나 확산 방지를 위해 한시적으로 예약 최대 인원을 4인으로 제한합니다.`,
     subInfo: [
+      randomer(SUBINFOS),
+      randomer(SUBINFOS),
+      randomer(SUBINFOS),
+      randomer(SUBINFOS),
+      randomer(SUBINFOS),
+      randomer(SUBINFOS),
+      randomer(SUBINFOS),
+      randomer(SUBINFOS),
+      randomer(SUBINFOS),
+      randomer(SUBINFOS),
+      randomer(SUBINFOS),
+      randomer(SUBINFOS),
       randomer(SUBINFOS),
       randomer(SUBINFOS),
       randomer(SUBINFOS),
@@ -398,6 +431,98 @@ for (let i=1 ; i <= 150 ; i++) {
       isLiked: false,
       likeAvg: Number((2 + Math.random() * 3).toFixed(2)),
       likeCount: randomer(200),
+      likeReviews: [
+        {
+          id: 0,
+          img: '/images/default3.jpg',
+          name: '탱이',
+          date: '2021년 1월',
+          comment: `여기는 진짜 여태껏 가 본 숙소중에 가장 만족스러웠습니다. 다음번에 또 오고싶어요.`,
+          score: {
+            clean: Number((2 + Math.random() * 3).toFixed(2)),
+            accuracy: Number((2 + Math.random() * 3).toFixed(2)),
+            communication: Number((2 + Math.random() * 3).toFixed(2)),
+            spot: Number((2 + Math.random() * 3).toFixed(2)),
+            check: Number((2 + Math.random() * 3).toFixed(2)),
+            cost_effective: Number((2 + Math.random() * 3).toFixed(2)),
+          },
+        },
+        {
+          id: 1,
+          img: '/images/default3.jpg',
+          name: '깨비',
+          date: '2021년 1월',
+          comment: `호스트 분도 너무 친절하시고 꼼꼼히 배려해주셨고요, 공간은 사진으로 본 것 보다 더 예쁜데다 심지어 넓었습니다.`,
+          score: {
+            clean: Number((2 + Math.random() * 3).toFixed(2)),
+            accuracy: Number((2 + Math.random() * 3).toFixed(2)),
+            communication: Number((2 + Math.random() * 3).toFixed(2)),
+            spot: Number((2 + Math.random() * 3).toFixed(2)),
+            check: Number((2 + Math.random() * 3).toFixed(2)),
+            cost_effective: Number((2 + Math.random() * 3).toFixed(2)),
+          },
+        },
+        {
+          id: 2,
+          img: '/images/default3.jpg',
+          name: '태진',
+          date: '2021년 1월',
+          comment: `다음번에 또 오고싶어요.`,
+          score: {
+            clean: Number((2 + Math.random() * 3).toFixed(2)),
+            accuracy: Number((2 + Math.random() * 3).toFixed(2)),
+            communication: Number((2 + Math.random() * 3).toFixed(2)),
+            spot: Number((2 + Math.random() * 3).toFixed(2)),
+            check: Number((2 + Math.random() * 3).toFixed(2)),
+            cost_effective: Number((2 + Math.random() * 3).toFixed(2)),
+          },
+        },
+        {
+          id: 3,
+          img: '/images/default3.jpg',
+          name: 'Hwang',
+          date: '2021년 1월',
+          comment: `망원역에 가깝고 주변 구경할 것들이 많아서 좋아요! 집이 넓고 음향기기가 맘에 들어서 즐겁게 술먹구 놀았어요!`,
+          score: {
+            clean: Number((2 + Math.random() * 3).toFixed(2)),
+            accuracy: Number((2 + Math.random() * 3).toFixed(2)),
+            communication: Number((2 + Math.random() * 3).toFixed(2)),
+            spot: Number((2 + Math.random() * 3).toFixed(2)),
+            check: Number((2 + Math.random() * 3).toFixed(2)),
+            cost_effective: Number((2 + Math.random() * 3).toFixed(2)),
+          },
+        },
+        {
+          id: 4,
+          img: '/images/default3.jpg',
+          name: '병진',
+          date: '2021년 1월',
+          comment: `사진으로 봤던 것처럼 분위기도 좋고 구석구석 예쁜 인테리어 덕분에 머무는 내내 좋았고 더 머물고 싶을 정도로 편했습니다ㅎㅎ `,
+          score: {
+            clean: Number((2 + Math.random() * 3).toFixed(2)),
+            accuracy: Number((2 + Math.random() * 3).toFixed(2)),
+            communication: Number((2 + Math.random() * 3).toFixed(2)),
+            spot: Number((2 + Math.random() * 3).toFixed(2)),
+            check: Number((2 + Math.random() * 3).toFixed(2)),
+            cost_effective: Number((2 + Math.random() * 3).toFixed(2)),
+          },
+        },
+        {
+          id: 5,
+          img: '/images/default3.jpg',
+          name: '지원',
+          date: '2021년 1월',
+          comment: `너무 예뻤어요.`,
+          score: {
+            clean: Number((2 + Math.random() * 3).toFixed(2)),
+            accuracy: Number((2 + Math.random() * 3).toFixed(2)),
+            communication: Number((2 + Math.random() * 3).toFixed(2)),
+            spot: Number((2 + Math.random() * 3).toFixed(2)),
+            check: Number((2 + Math.random() * 3).toFixed(2)),
+            cost_effective: Number((2 + Math.random() * 3).toFixed(2)),
+          },
+        },
+      ]
     },
     location: {
       lat: 37.40 + Number((Math.random() * 0.20).toFixed(3)),
@@ -442,7 +567,7 @@ for (let i=1 ; i <= 150 ; i++) {
 //     price: 75095,
 //     like: {
 //       isLiked: true,
-//       likeAvg: 4.87,
+//       likeAvg: likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / review.score.length)
 //       likeCount: 31,
 //     },
 //     location: {
@@ -485,7 +610,7 @@ for (let i=1 ; i <= 150 ; i++) {
 //     price: 32490,
 //     like: {
 //       isLiked: false,
-//       likeAvg: 4.87,
+//       likeAvg: likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / review.score.length)
 //       likeCount: 31,
 //     },
 //     location: {
@@ -528,7 +653,7 @@ for (let i=1 ; i <= 150 ; i++) {
 //     price: 45921,
 //     like: {
 //       isLiked: false,
-//       likeAvg: 4.87,
+//       likeAvg: likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / review.score.length)
 //       likeCount: 31,
 //     },
 //     location: {
@@ -571,7 +696,7 @@ for (let i=1 ; i <= 150 ; i++) {
 //     price: 62001,
 //     like: {
 //       isLiked: false,
-//       likeAvg: 4.87,
+//       likeAvg: likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / review.score.length)
 //       likeCount: 31,
 //     },
 //     location: {
@@ -614,7 +739,7 @@ for (let i=1 ; i <= 150 ; i++) {
 //     price: 85021,
 //     like: {
 //       isLiked: false,
-//       likeAvg: 4.87,
+//       likeAvg: likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / review.score.length)
 //       likeCount: 31,
 //     },
 //     location: {
@@ -657,7 +782,7 @@ for (let i=1 ; i <= 150 ; i++) {
 //     price: 68320,
 //     like: {
 //       isLiked: false,
-//       likeAvg: 4.87,
+//       likeAvg: likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / review.score.length)
 //       likeCount: 31,
 //     },
 //     location: {
@@ -700,7 +825,7 @@ for (let i=1 ; i <= 150 ; i++) {
 //     price: 100239,
 //     like: {
 //       isLiked: false,
-//       likeAvg: 4.87,
+//       likeAvg: likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / review.score.length)
 //       likeCount: 31,
 //     },
 //     location: {
@@ -743,7 +868,7 @@ for (let i=1 ; i <= 150 ; i++) {
 //     price: 82932,
 //     like: {
 //       isLiked: false,
-//       likeAvg: 4.87,
+//       likeAvg: likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / review.score.length)
 //       likeCount: 31,
 //     },
 //     location: {
@@ -786,7 +911,7 @@ for (let i=1 ; i <= 150 ; i++) {
 //     price: 55021,
 //     like: {
 //       isLiked: false,
-//       likeAvg: 4.87,
+//       likeAvg: likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / review.score.length)
 //       likeCount: 31,
 //     },
 //     location: {
@@ -829,7 +954,7 @@ for (let i=1 ; i <= 150 ; i++) {
 //     price: 95000,
 //     like: {
 //       isLiked: false,
-//       likeAvg: 4.87,
+//       likeAvg: likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / review.score.length)
 //       likeCount: 31,
 //     },
 //     location: {
@@ -872,7 +997,7 @@ for (let i=1 ; i <= 150 ; i++) {
 //     price: 132000,
 //     like: {
 //       isLiked: false,
-//       likeAvg: 4.87,
+//       likeAvg: likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / review.score.length)
 //       likeCount: 31,
 //     },
 //     location: {
@@ -915,7 +1040,7 @@ for (let i=1 ; i <= 150 ; i++) {
 //     price: 42000,
 //     like: {
 //       isLiked: false,
-//       likeAvg: 4.87,
+//       likeAvg: likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / review.score.length)
 //       likeCount: 31,
 //     },
 //     location: {
@@ -958,7 +1083,7 @@ for (let i=1 ; i <= 150 ; i++) {
 //     price: 80000,
 //     like: {
 //       isLiked: false,
-//       likeAvg: 4.87,
+//       likeAvg: likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / review.score.length)
 //       likeCount: 31,
 //     },
 //     location: {
@@ -1001,7 +1126,7 @@ for (let i=1 ; i <= 150 ; i++) {
 //     price: 95000,
 //     like: {
 //       isLiked: false,
-//       likeAvg: 4.87,
+//       likeAvg: likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / review.score.length)
 //       likeCount: 31,
 //     },
 //     location: {
@@ -1044,7 +1169,7 @@ for (let i=1 ; i <= 150 ; i++) {
 //     price: 105000,
 //     like: {
 //       isLiked: false,
-//       likeAvg: 4.87,
+//       likeAvg: likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / review.score.length)
 //       likeCount: 31,
 //     },
 //     location: {
@@ -1087,7 +1212,7 @@ for (let i=1 ; i <= 150 ; i++) {
 //     price: 110000,
 //     like: {
 //       isLiked: false,
-//       likeAvg: 4.87,
+//       likeAvg: likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / review.score.length)
 //       likeCount: 31,
 //     },
 //     location: {
@@ -1130,7 +1255,7 @@ for (let i=1 ; i <= 150 ; i++) {
 //     price: 65000,
 //     like: {
 //       isLiked: false,
-//       likeAvg: 4.87,
+//       likeAvg: likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / review.score.length)
 //       likeCount: 31,
 //     },
 //     location: {
@@ -1174,7 +1299,7 @@ for (let i=1 ; i <= 150 ; i++) {
 //     price: 70000,
 //     like: {
 //       isLiked: false,
-//       likeAvg: 4.87,
+//       likeAvg: likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / review.score.length)
 //       likeCount: 31,
 //     },
 //     location: {
@@ -1217,7 +1342,7 @@ for (let i=1 ; i <= 150 ; i++) {
 //     price: 55000,
 //     like: {
 //       isLiked: false,
-//       likeAvg: 4.87,
+//       likeAvg: likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / review.score.length)
 //       likeCount: 31,
 //     },
 //     location: {
@@ -1260,7 +1385,7 @@ for (let i=1 ; i <= 150 ; i++) {
 //     price: 120000,
 //     like: {
 //       isLiked: false,
-//       likeAvg: 4.53,
+//       likeAvg: likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / review.score.length)
 //       likeCount: 127,
 //     },
 //     location: {
@@ -1303,7 +1428,7 @@ for (let i=1 ; i <= 150 ; i++) {
 //     price: 75095,
 //     like: {
 //       isLiked: true,
-//       likeAvg: 4.87,
+//       likeAvg: likeReviews.map(review => Object.values(review.score).reduce((a,b) => a+b) / review.score.length)
 //       likeCount: 31,
 //     },
 //     location: {

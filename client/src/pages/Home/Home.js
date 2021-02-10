@@ -7,10 +7,11 @@ import HomeHosting from './components/HomeHosting';
 import { useGlobalContext } from '../../Context';
 
 export default function Home() {
-  const { setNavFixed, handleNavFixed, setSearchOn } = useGlobalContext();
+  const { setNavFixed, setNavFootWidth, handleNavFixed, setSearchOn } = useGlobalContext();
 
   useEffect(() => {
     setNavFixed(false);
+    setNavFootWidth("1600px");
     setSearchOn(true);
   }, [])
 

@@ -8,7 +8,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import { useGlobalContext } from '../../../../../Context';
 
 const SearchCalender = ({ setSearchFocus }) => {
-  const { searchValue, setSearchValue, updateSearchValue } = useGlobalContext();
+  const { searchValue, setSearchValue } = useGlobalContext();
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [focusedInput, setFocusedInput] = useState(START_DATE);
@@ -20,14 +20,17 @@ const SearchCalender = ({ setSearchFocus }) => {
   const dateSelect = () => {
     const dateKey = "_d"
     if (startDate !== null) {
-      updateSearchValue('dateIn', moment(startDate[dateKey].toString()).format("M월 D일"));
+      setSearchValue({
+        ...searchValue,
+        dateIn: moment(startDate[dateKey].toString()),
+      })
       setSearchFocus(2);
     }
     if (endDate !== null) {
       setSearchValue({
         ...searchValue,
-        dateOut: moment(endDate[dateKey].toString()).format("M월 D일"),
-        dateDiff: moment.duration(endDate.diff(startDate)).asDays()
+        dateOut: moment(endDate[dateKey].toString()),
+        dateDiff: moment.duration(endDate.diff(startDate)).asDays(),
       })
       setSearchFocus(3);
     }

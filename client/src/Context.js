@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from 'react';
-// import moment from 'moment';
 import { RestsAPI } from './Data/config';
 
 const AppContext = React.createContext();
@@ -7,13 +6,14 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   // Navigation bar Control
   const [navFixed, setNavFixed] = useState(false);
+  const [navFootWidth, setNavFootWidth] = useState("");
   const [searchOn, setSearchOn] = useState(true);
 
   // Search Values
   const [searchValue, setSearchValue] = useState({
     location: '',
-    dateIn: null,
-    dateOut: null,
+    dateIn: 0,
+    dateOut: 0,
     dateDiff: 0,
     guest: 0,
   });
@@ -83,11 +83,16 @@ const AppProvider = ({ children }) => {
     })
   }
 
+  // rest Detail Data
+  const [restDetail, setRestDetail] = useState({});
+
   return (
     <AppContext.Provider
       value={{
         navFixed,
         setNavFixed,
+        navFootWidth,
+        setNavFootWidth,
         handleNavFixed,
         searchOn,
         setSearchOn,
@@ -104,6 +109,8 @@ const AppProvider = ({ children }) => {
         page,
         setPage,
         LIMIT,
+        restDetail,
+        setRestDetail,
       }}>
       {children}
     </AppContext.Provider>

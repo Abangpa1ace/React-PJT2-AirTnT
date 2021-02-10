@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { Linker, Button } from '../../../Global/GlobalComponent';
 import SearchDetails from './SearchDetails/SearchDetails';
-// import { SEARCHSET } from '../../NavbarData';
 import { BiSearch } from 'react-icons/bi';
 import { flexCenter, flexAlignCol } from '../../../../Styles/theme';
 import { useGlobalContext } from '../../../../Context';
@@ -45,7 +44,7 @@ const SearchBar = () => {
           focused={searchFocus === 1} 
           onClick={() => setSearchFocus(1)}>
           <span>체크인</span>
-          <p>{dateIn ? dateIn : '날짜 추가'}</p>
+          <p>{dateIn ? dateIn.format("M월 D일") : '날짜 추가'}</p>
         </SearchUnit>
         <SearchUnit
           className='unit-checkout'
@@ -53,7 +52,7 @@ const SearchBar = () => {
           focused={searchFocus === 2} 
           onClick={() => setSearchFocus(2)}>
           <span>체크아웃</span>
-          <p>{dateOut ? dateOut : '날짜 추가'}</p>
+          <p>{dateOut ? dateOut.format("M월 D일") : '날짜 추가'}</p>
         </SearchUnit>
         <SearchUnit
           className='unit-people'
