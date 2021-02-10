@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Button } from '../../../../GlobalComponents/Common/StyledCommon';
 import { useGlobalContext } from '../../../../Context';
 import { flexAlign } from '../../../../Styles/theme';
-import DetailConBox from '../../DetailConBox';
+import DetailConBox from '../../common/DetailConBox';
 import { FACILITY_ICONS } from '../../DetailData';
 
 const InfoFacility = () => {

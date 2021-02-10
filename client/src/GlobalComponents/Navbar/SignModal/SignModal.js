@@ -1,5 +1,5 @@
 import React from 'react';
-import ModalContainer from '../Modal/ModalContainer';
+import ModalContainer from '../../Modal/ModalContainer';
 import SignUpModal from './SignUpModal';
 import SignInModal from './SignInModal';
 

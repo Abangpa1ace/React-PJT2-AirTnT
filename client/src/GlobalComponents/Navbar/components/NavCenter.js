@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../Context';
-import SearchBarOpener from './SearchBar/SearchBarOpener';
-import SearchBar from './SearchBar/SearchBar';
-import SearchMenu from './SearchBar/SearchMenu';
+import SearchBarOpener from '../SearchBar/SearchBarOpener';
+import SearchBar from '../SearchBar/SearchBar';
+import SearchMenu from '../SearchBar/SearchMenu';
 import { flexAlignCol } from '../../../Styles/theme';
 
 const NavCenter = () => {

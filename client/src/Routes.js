@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import GlobalReset from './Styles/reset';
 import theme from './Styles/theme';
-import CoronaNotice from './Pages/Home/CoronaNotice';
+import CoronaNotice from './Pages/Home/components/CoronaNotice';
 import Navbar from './GlobalComponents/Navbar/Navbar';
 import Home from './Pages/Home/Home';
 import List from './Pages/List/List';

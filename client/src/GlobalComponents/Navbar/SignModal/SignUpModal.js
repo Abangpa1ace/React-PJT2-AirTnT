@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import { Button } from '../Common/StyledCommon';
+import { Button } from '../../Common/StyledCommon';
 import SignModalInput from './components/SignModalInput';
 import SignDivider from './components/SignDivider';
-import { SignUpAPI } from '../../Data/config';
+import { SignUpAPI } from '../../../Data/config';
 
 const SignUpModal = ({ setSignModalOn, setSignMode }) => {
   const [signUpValue, setSignUpValue] = useState({

@@ -5,7 +5,7 @@ import 'react-dates/initialize';
 import { DayPickerRangeController } from 'react-dates';
 import { START_DATE } from 'react-dates/constants';
 import 'react-dates/lib/css/_datepicker.css';
-import { useGlobalContext } from '../../../../../Context';
+import { useGlobalContext } from '../../../../Context';
 
 const SearchCalender = ({ setSearchFocus }) => {
   const { searchValue, setSearchValue } = useGlobalContext();

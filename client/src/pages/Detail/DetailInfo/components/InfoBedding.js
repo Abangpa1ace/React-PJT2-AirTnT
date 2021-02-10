@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import DetailConBox from '../../DetailConBox';
+import DetailConBox from '../../common/DetailConBox';
 import { BiBed } from 'react-icons/bi';
 
 const InfoBedding = () => {

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { useGlobalContext } from '../../../../../Context';
-import { flexCenter, flexBetween } from '../../../../../Styles/theme';
-import CounterBtn from '../../../../Common/CounterBtn';
-import { GUESTCATEGORY } from '../../../NavbarData'; 
+import { useGlobalContext } from '../../../../Context';
+import { flexCenter, flexBetween } from '../../../../Styles/theme';
+import CounterBtn from '../../../Common/CounterBtn';
+import { GUESTCATEGORY } from '../../NavbarData'; 
 
 const SearchMember = () => {
   const { updateSearchValue } = useGlobalContext();

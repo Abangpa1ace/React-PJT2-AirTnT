@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { flexAlign } from '../../../../../Styles/theme';
+import { flexAlign } from '../../../../Styles/theme';
 import { FaMapMarkedAlt } from 'react-icons/fa';
-import { useGlobalContext } from '../../../../../Context';
+import { useGlobalContext } from '../../../../Context';
 
 const SearchNearby = () => {
   const { searchValue, updateSearchValue } = useGlobalContext();

@@ -6,7 +6,7 @@ import NavRightMenu from './NavRightMenu';
 import { RiGlobalLine, RiMenuLine } from 'react-icons/ri';
 import { CgProfile } from 'react-icons/cg';
 import { flexCenter, flexAlign } from '../../../Styles/theme';
-import SignModal from '../../SignModal/SignModal';
+import SignModal from '../SignModal/SignModal';
 
 const NavRight = () => {
   const { navFixed } = useGlobalContext();
