@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import DetailConBox from '../../DetailConBox';
+import DetailConBox from '../../common/DetailConBox';
 import { DayPickerRangeController } from 'react-dates';
 import { START_DATE } from 'react-dates/constants';
 import 'react-dates/lib/css/_datepicker.css';

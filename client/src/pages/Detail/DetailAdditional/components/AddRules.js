@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { flexAlign } from '../../../../Styles/theme';
-import DetailConBox from '../../DetailConBox';
+import DetailConBox from '../../common/DetailConBox';
 import { RULES_LIST } from '../../DetailData';
 
 const AddRules = () => {

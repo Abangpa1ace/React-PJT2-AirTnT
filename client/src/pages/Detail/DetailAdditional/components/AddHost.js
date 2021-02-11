@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
-import DetailConBox from '../../DetailConBox';
-import DetailCircleImg from '../../DetailCircleImg';
-import { Button } from '../../../../Components/Global/GlobalComponent';
+import DetailConBox from '../../common/DetailConBox';
+import DetailCircleImg from '../../common/DetailCircleImg';
+import { Button } from '../../../../GlobalComponents/Common/StyledCommon';
 import { flexAlign } from '../../../../Styles/theme';
 import { BsStarFill } from 'react-icons/bs';
 import { FaUserShield } from 'react-icons/fa';

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from '../../../../Components/Global/GlobalComponent';
+import { Button } from '../../../../GlobalComponents/Common/StyledCommon';
 import { BsHeart } from 'react-icons/bs';
 
 const ItemInfoHeader = ({ category, title}) => {

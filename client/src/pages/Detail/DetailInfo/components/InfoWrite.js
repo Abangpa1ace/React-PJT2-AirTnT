@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../../Context';
-import DetailConBox from '../../DetailConBox';
+import DetailConBox from '../../common/DetailConBox';
 
 const InfoWrite = () => {
   const { restDetail } = useGlobalContext();

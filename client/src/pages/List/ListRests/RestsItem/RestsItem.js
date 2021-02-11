@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Carousel from '../../../../Components/Carousel/Carousel';
+import Carousel from '../../../../GlobalComponents/Carousel/Carousel';
 import ItemInfo from './ItemInfo';
 import { flexBetween } from '../../../../Styles/theme';
-import { Linker } from '../../../../Components/Global/GlobalComponent';
+import { Linker } from '../../../../GlobalComponents/Common/StyledCommon';
 
 const Restsitem = styled.li`
   ${flexBetween};

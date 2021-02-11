@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Linker, Image } from '../../../Components/Global/GlobalComponent';
+import { Linker, Image } from '../../../GlobalComponents/Common/StyledCommon';
 import { CITIESDATA } from '../HomeData';
 import { flexAlign } from '../../../Styles/theme';
 

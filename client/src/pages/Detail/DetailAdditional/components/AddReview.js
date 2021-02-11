@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import DetailConBox from '../../DetailConBox';
+import DetailConBox from '../../common/DetailConBox';
 import { useGlobalContext } from '../../../../Context';
-import { Button } from '../../../../Components/Global/GlobalComponent';
-import DetailCircleImg from '../../DetailCircleImg';
+import { Button } from '../../../../GlobalComponents/Common/StyledCommon';
+import DetailCircleImg from '../../common/DetailCircleImg';
 import { flexAlign, flexBetween } from '../../../../Styles/theme';
 import { BsStarFill } from 'react-icons/bs';
 import { REVIEW_SCORE, REVIEW_RECORD } from '../../DetailData';
