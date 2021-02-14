@@ -30,7 +30,7 @@ const SearchBar = () => {
         onClick={() => setSearchActive(true)}>
         <SearchUnit
           className='unit-location'
-          onColor={location}
+          activeColor={location}
           focused={searchFocus === 0}
           onClick={() => setSearchFocus(0)}>
           <span>위치</span>
@@ -40,7 +40,7 @@ const SearchBar = () => {
         </SearchUnit>
         <SearchUnit
           className='unit-checkin'
-          onColor={dateIn}
+          activeColor={dateIn}
           focused={searchFocus === 1} 
           onClick={() => setSearchFocus(1)}>
           <span>체크인</span>
@@ -48,7 +48,7 @@ const SearchBar = () => {
         </SearchUnit>
         <SearchUnit
           className='unit-checkout'
-          onColor={dateOut}
+          activeColor={dateOut}
           focused={searchFocus === 2} 
           onClick={() => setSearchFocus(2)}>
           <span>체크아웃</span>
@@ -56,7 +56,7 @@ const SearchBar = () => {
         </SearchUnit>
         <SearchUnit
           className='unit-people'
-          onColor={guest !== 0}
+          activeColor={guest !== 0}
           focused={searchFocus === 3} 
           onClick={() => setSearchFocus(3)}>
           <span>인원</span>
@@ -146,7 +146,7 @@ const SearchUnit = styled.div`
   }
 
   p, input {
-    color: ${({ onColor, theme }) => onColor ? theme.themePinkDarker : theme.gray2};
+    color: ${({ activeColor, theme }) =>  activeColor ? theme.themePinkDarker : theme.gray2};
   }
 `;
 

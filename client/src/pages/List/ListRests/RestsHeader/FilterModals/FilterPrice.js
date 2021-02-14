@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react';
 import styled from 'styled-components';
 import { RangeSlider, InputGroup, InputNumber } from 'rsuite';
 import "rsuite/dist/styles/rsuite-default.min.css";
@@ -11,7 +11,6 @@ const FilterPrice = ({ setFilterFocus }) => {
   const { price } = filterValue;
   const MIN_PRICE = 10000;
   const MAX_PRICE = 1000000;
-  // const [priceRange, setPriceRange] = useState([MIN_PRICE, MAX_PRICE])
   const avgPrice = Math.round(restList.map(rest => rest.price).reduce((acc, cur) => acc + cur) / restList.length).toLocaleString();
 
   const updateMinPrice = (value) => {

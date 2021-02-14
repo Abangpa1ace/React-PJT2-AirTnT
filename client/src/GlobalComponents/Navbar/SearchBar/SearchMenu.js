@@ -17,7 +17,6 @@ const SearchMenu = ({ navFocus, setNavFocus }) => {
             <Linker 
               to={menu.link}
               color={navFixed ? null : '#FFFFFF'}
-              colorHov={(props) => props.theme.gray1}
               fontSize="initial">
               {menu.text}
             </Linker>
@@ -35,6 +34,10 @@ const MenuList = styled.ul`
 const MenuItem = styled.li`
   margin: 0 15px;
   border-bottom: ${({ focused }) => focused ? `2px solid #ffffff` : 'none'};
+
+  &:hover a {
+    color: ${({ theme }) => theme.gray1};
+  }
 `;
 
 export default SearchMenu;

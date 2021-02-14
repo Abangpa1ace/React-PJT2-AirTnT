@@ -5,9 +5,9 @@ const jwt = require('jsonwebtoken')
 
 let usersDB = require('../database/usersData');
 
-// router.get('/', (req, res, next) => {
-//   res.render('users')
-// })
+const regexNotKor =  /[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
+const regexEmail = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+const regexPwd = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,15}$/;
 
 router.post('/signup', async (req, res, next) => {
   try {
@@ -56,10 +56,7 @@ router.post('/signin', (req, res, next) => {
 const checkSignUpError = (body, usersDB) => {
   const { firstName, lastName, email, password } = body;
   const undefinedValue = Object.values(body).map(bodyVal => bodyVal.length).includes(0);
-  const regexNotKor =  /[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
-  const regexEmail = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
   const existingEmail = usersDB.length !== 0 && usersDB.find(user => email === user.email);
-  const regexPwd = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,15}$/;
 
   if (undefinedValue) {
     return 'Undefined Value Exist'

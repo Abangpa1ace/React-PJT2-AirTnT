@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import DetailConBox from '../../common/DetailConBox';
 import { useGlobalContext } from '../../../../Context';
@@ -26,27 +26,28 @@ const AddReview = () => {
     cost_effective: 0,
   });
 
+  const avgReviewScore = useCallback(
+      () => {
+      if (restDetail.like) {
+        const { likeReviews } = restDetail.like;
+        let newScoreObj = reviewScore;
+        for (let review of likeReviews) {
+          for (let key in review.score) {
+            newScoreObj[key] += review.score[key]
+          }
+        }
+        for (let key in newScoreObj) {
+          const newScoreVal = newScoreObj[key]/likeReviews.length
+          newScoreObj[key] = newScoreVal;
+        }
+        setReviewScore(newScoreObj);
+      }
+    }, [restDetail, reviewScore]
+  )
+
   useEffect(() => {
     avgReviewScore()
-  }, [restDetail])
-
-  const avgReviewScore = () => {
-    if (restDetail.like) {
-      const { likeReviews } = restDetail.like;
-      let newScoreObj = reviewScore;
-      for (let review of likeReviews) {
-        for (let key in review.score) {
-          newScoreObj[key] += review.score[key]
-        }
-      }
-      for (let key in newScoreObj) {
-        const newScoreVal = newScoreObj[key]/likeReviews.length
-        newScoreObj[key] = newScoreVal;
-      }
-      setReviewScore(newScoreObj);
-    }
-  }
-
+  }, [restDetail, avgReviewScore])
 
   return (
     <DetailConBox>

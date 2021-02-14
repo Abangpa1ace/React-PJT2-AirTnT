@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../Context';
 import { Button } from '../../../GlobalComponents/Common/StyledCommon';
@@ -15,14 +15,6 @@ const ListMap = ({ restId }) => {
   const [longitude, setLongitude] = useState(126.7772);
   const [zoom, setZoom] = useState(8);
 
-  useEffect(() => {
-    asideMap = loadMap();
-  }, [restList, zoom]);
-
-  useEffect(() => {
-    setCustomOverlay(asideMap);
-  }, [restList, restId])
-
   // Modal Setting
   const [isModalOn, setIsModalOn] = useState(false);
   const [modalX, setModalX] = useState(0);
@@ -30,82 +22,90 @@ const ListMap = ({ restId }) => {
   const [modalData, setModalData] = useState({});
 
   // Load Map
-  const loadMap = () => {
-    const mapContainer = document.querySelector('.map-container');
-    mapContainer.innerHTML = '';
+  const loadMap = useCallback(
+    () => {
+      const mapContainer = document.querySelector('.map-container');
+      mapContainer.innerHTML = '';
 
-    const options = {
-      center: new kakao.maps.LatLng(latitude, longitude),
-      level: zoom,
-    }
-    const map = new kakao.maps.Map(mapContainer, options);
+      const options = {
+        center: new kakao.maps.LatLng(latitude, longitude),
+        level: zoom,
+      }
+      const map = new kakao.maps.Map(mapContainer, options);
 
-    // Marker, Custom Overlay Pinning
-    setMarker(map);
-
-    // Erase Modal when click map
-    kakao.maps.event.addListener(map, 'click', () => {
-      setIsModalOn(false)
-    })
-
-    // update center(lat, lng) when drag map
-    kakao.maps.event.addListener(map, 'dragend', () => {
-      const center = map.getCenter();
-      setLatitude(center.getLat());
-      setLongitude(center.getLng());
-      setIsModalOn(false);
-    })
-
-    // update Zoom Level when zoom in/out
-    kakao.maps.event.addListener(map, 'zoom_changed', () => {
-      const nowZoom = map.getLevel();
-      setZoom(nowZoom);
-      setIsModalOn(false);
-    })
-
-    return map;
-  }
-
-  const setMarker = (map) => {
-    restList.forEach((rest) => {
-      const imgSrc= 'https://image.flaticon.com/icons/png/512/1201/1201643.png';
-      const imgSize = new kakao.maps.Size(35, 35);
-      const marker = new kakao.maps.Marker({
-        map: map,
-        image: new kakao.maps.MarkerImage(imgSrc, imgSize),
-        position: new kakao.maps.LatLng(rest.location.lat, rest.location.long),
-        title: rest.title,
-        zIndex: 3,
+      // Marker, Custom Overlay Pinning
+      restList.forEach((rest) => {
+        const imgSrc= 'https://image.flaticon.com/icons/png/512/1201/1201643.png';
+        const imgSize = new kakao.maps.Size(35, 35);
+        const marker = new kakao.maps.Marker({
+          map: map,
+          image: new kakao.maps.MarkerImage(imgSrc, imgSize),
+          position: new kakao.maps.LatLng(rest.location.lat, rest.location.long),
+          title: rest.title,
+          zIndex: 3,
+        })
+        kakao.maps.event.addListener(marker, 'click', () => {
+          showModal(marker.Pc.x, marker.Pc.y, rest);
+        })
+        marker.setMap(map);
       })
-      kakao.maps.event.addListener(marker, 'click', () => {
-        showModal(marker.Pc.x, marker.Pc.y, rest);
-      })
-      marker.setMap(map);
-    })
-  }
 
-  const setCustomOverlay = (map) => {
-    let pinList = document.getElementsByClassName('pin');
-    for (let pin of pinList) {
-      pin.style.display = "none";
-    }
-    restList.forEach((rest) => {
-      const content = 
-      `<div 
-        class= 'pin ${rest.id === restId ? 'focus' : ''}'>
-        ₩${rest.price.toLocaleString()}
-      </div>`;
-      let priceCusOver = new kakao.maps.CustomOverlay({
-        map: map,
-        position: new kakao.maps.LatLng(rest.location.lat, rest.location.long),
-        content: content,
-        clickable: true,
-        yAnchor: 0,
-        zIndex: 2,
+      // Erase Modal when click map
+      kakao.maps.event.addListener(map, 'click', () => {
+        setIsModalOn(false)
       })
-      priceCusOver.setMap(map);
-    })
-  }
+
+      // update center(lat, lng) when drag map
+      kakao.maps.event.addListener(map, 'dragend', () => {
+        const center = map.getCenter();
+        setLatitude(center.getLat());
+        setLongitude(center.getLng());
+        setIsModalOn(false);
+      })
+
+      // update Zoom Level when zoom in/out
+      kakao.maps.event.addListener(map, 'zoom_changed', () => {
+        const nowZoom = map.getLevel();
+        setZoom(nowZoom);
+        setIsModalOn(false);
+      })
+
+      return map;
+    }, [restList, latitude, longitude, zoom]
+  )
+
+  const setCustomOverlay = useCallback(
+    (map) => {
+      let pinList = document.getElementsByClassName('pin');
+      for (let pin of pinList) {
+        pin.style.display = "none";
+      }
+      restList.forEach((rest) => {
+        const content = 
+        `<div 
+          class= 'pin ${rest.id === restId ? 'focus' : ''}'>
+          ₩${rest.price.toLocaleString()}
+        </div>`;
+        let priceCusOver = new kakao.maps.CustomOverlay({
+          map: map,
+          position: new kakao.maps.LatLng(rest.location.lat, rest.location.long),
+          content: content,
+          clickable: true,
+          yAnchor: 0,
+          zIndex: 2,
+        })
+        priceCusOver.setMap(map);
+      })
+    }, [restList, restId]
+  );
+
+  useEffect(() => {
+    asideMap = loadMap();
+  }, [restList, zoom, loadMap]);
+
+  useEffect(() => {
+    setCustomOverlay(asideMap);
+  }, [restList, restId, setCustomOverlay])
 
   const showModal = (x, y, rest) => {
     setModalData(rest);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
 import 'react-dates/initialize';
@@ -13,28 +13,30 @@ const SearchCalender = ({ setSearchFocus }) => {
   const [endDate, setEndDate] = useState(null);
   const [focusedInput, setFocusedInput] = useState(START_DATE);
 
+  const dateSelect = useCallback(
+    () => {
+      const dateKey = "_d"
+      if (startDate !== null) {
+        setSearchValue({
+          ...searchValue,
+          dateIn: moment(startDate[dateKey].toString()),
+        })
+        setSearchFocus(2);
+      }
+      if (endDate !== null) {
+        setSearchValue({
+          ...searchValue,
+          dateOut: moment(endDate[dateKey].toString()),
+          dateDiff: moment.duration(endDate.diff(startDate)).asDays(),
+        })
+        setSearchFocus(3);
+      }
+    }, [startDate, endDate, searchValue, setSearchFocus, setSearchValue]
+  );
+
   useEffect(() => {
     dateSelect();
-  }, [startDate, endDate]);
-
-  const dateSelect = () => {
-    const dateKey = "_d"
-    if (startDate !== null) {
-      setSearchValue({
-        ...searchValue,
-        dateIn: moment(startDate[dateKey].toString()),
-      })
-      setSearchFocus(2);
-    }
-    if (endDate !== null) {
-      setSearchValue({
-        ...searchValue,
-        dateOut: moment(endDate[dateKey].toString()),
-        dateDiff: moment.duration(endDate.diff(startDate)).asDays(),
-      })
-      setSearchFocus(3);
-    }
-  }
+  }, [startDate, endDate, dateSelect]);
 
   return (
     <DetailCalender>

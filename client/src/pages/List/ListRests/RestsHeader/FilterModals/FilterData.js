@@ -1,5 +1,3 @@
-
-
 export const TYPESDATA = [
   {
     id: 0,

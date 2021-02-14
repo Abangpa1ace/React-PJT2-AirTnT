@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../../Context';
 import DetailConBox from '../../common/DetailConBox';
@@ -9,36 +9,39 @@ const { kakao } = window;
 const AddMap = () => {
   const { restDetail } = useGlobalContext();
 
+  const loadAddMap = useCallback(
+    () => {
+      const mapContainer = document.querySelector('.map-container');
+      let lat, long
+      if (restDetail.location) {
+        lat = restDetail.location.lat;
+        long = restDetail.location.long;
+      }
+
+      const options = {
+        center: new kakao.maps.LatLng(lat, long),
+        level: 6,
+      }
+      const map = new kakao.maps.Map(mapContainer, options);
+
+      // Marker, Custom Overlay Pinning
+      const imgSrc= 'https://image.flaticon.com/icons/png/512/1201/1201643.png';
+      const imgSize = new kakao.maps.Size(35, 35);
+      const marker = new kakao.maps.Marker({
+        map: map,
+        image: new kakao.maps.MarkerImage(imgSrc, imgSize),
+        position: new kakao.maps.LatLng(lat, long),
+        title: restDetail.title,
+        zIndex: 3,
+      })
+      marker.setMap(map);
+    }, [restDetail]
+  )
+
   useEffect(() => {
     loadAddMap()
-  }, [restDetail])
+  }, [restDetail, loadAddMap])
 
-  const loadAddMap = () => {
-    const mapContainer = document.querySelector('.map-container');
-    let lat, long
-    if (restDetail.location) {
-      lat = restDetail.location.lat;
-      long = restDetail.location.long;
-    }
-
-    const options = {
-      center: new kakao.maps.LatLng(lat, long),
-      level: 6,
-    }
-    const map = new kakao.maps.Map(mapContainer, options);
-
-    // Marker, Custom Overlay Pinning
-    const imgSrc= 'https://image.flaticon.com/icons/png/512/1201/1201643.png';
-    const imgSize = new kakao.maps.Size(35, 35);
-    const marker = new kakao.maps.Marker({
-      map: map,
-      image: new kakao.maps.MarkerImage(imgSrc, imgSize),
-      position: new kakao.maps.LatLng(lat, long),
-      title: restDetail.title,
-      zIndex: 3,
-    })
-    marker.setMap(map);
-  }
   return (
     <DetailConBox head="위치">
       <MapContainer className="map-container"></MapContainer>
