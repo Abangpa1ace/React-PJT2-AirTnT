@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../Context';
 import DetailHeader from './DetailHeader/DetailHeader';
@@ -10,19 +10,21 @@ import { RestsAPI } from '../../Data/config';
 const Detail = () => {
   const { setNavFixed, setSearchOn, setRestDetail, setNavFootWidth } = useGlobalContext();
 
+  const fetchDetail = useCallback(
+    async () => {
+    const DetailAPI = RestsAPI + window.location.pathname; 
+    const response = await fetch(`${DetailAPI}`, { method: 'GET' });
+    const result = await response.json();
+    setRestDetail(result);
+    }, [setRestDetail]
+  );
+
   useEffect(() => {
     setNavFixed(true);
     setNavFootWidth("1120px");
     setSearchOn(false);
     fetchDetail()
-  }, [])
-
-  const fetchDetail = async () => {
-    const DetailAPI = RestsAPI + window.location.pathname; 
-    const response = await fetch(`${DetailAPI}`, { method: 'GET' });
-    const result = await response.json();
-    setRestDetail(result);
-  }
+  }, [setNavFixed, setNavFootWidth, setSearchOn, fetchDetail])
 
   return (
     <>

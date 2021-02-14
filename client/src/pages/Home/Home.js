@@ -13,7 +13,7 @@ export default function Home() {
     setNavFixed(false);
     setNavFootWidth("1600px");
     setSearchOn(true);
-  }, [])
+  }, [setNavFixed, setNavFootWidth, setSearchOn])
 
   useEffect(() => {
     window.addEventListener('scroll', handleNavFixed);

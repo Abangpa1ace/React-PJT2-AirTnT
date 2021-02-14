@@ -44,7 +44,7 @@ const SignInModal = ({ setSignModalOn, setSignMode }) => {
   }
 
   const checkRequest = (emailVal, passwordVal) => {
-    const emailRegex = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+    const emailRegex = /^([0-9a-zA-Z_.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
     const isValidEmail = emailRegex.test(emailVal);
     const isValidPassword = passwordVal.length >= 8;
     return {

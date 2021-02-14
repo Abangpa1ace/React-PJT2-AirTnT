@@ -12,7 +12,7 @@ const List = () => {
     setNavFixed(true);
     setNavFootWidth("1600px");
     setSearchOn(false);
-  }, [])
+  }, [setNavFixed, setNavFootWidth, setSearchOn])
 
   return (
     <ListPage>

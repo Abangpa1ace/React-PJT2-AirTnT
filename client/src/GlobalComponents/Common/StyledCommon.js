@@ -8,7 +8,6 @@ export const Linker = styled(Link)`
   height: ${({ height }) => height };
   color: ${({ color, theme }) => color ? color : theme.themeBlack };
   &:hover { 
-    color: ${({ colorHov }) => colorHov}; 
     text-decoration: 0;
   }
   font-size: ${({ fontSize }) => fontSize };

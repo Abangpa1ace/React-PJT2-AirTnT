@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect, useContext, useCallback } from 'react';
 import { RestsAPI } from './Data/config';
 
 const AppContext = React.createContext();
@@ -34,30 +34,34 @@ const AppProvider = ({ children }) => {
   const [page, setPage] = useState(1);
   const LIMIT = 15;
 
-  const fetchRests = async () => {
-    const { location } = searchValue;
-    const { type, price, bedding } = filterValue;
-    let RestsAPI_Query = `${RestsAPI}?page=${page}&limit=${LIMIT}`;
-    if (location && location !== '가까운 여행지 둘러보기') {
-      RestsAPI_Query += `&search[location]=${searchValue.location}`;
-    }
-    if (type.length !== 0) {
-      RestsAPI_Query += `&filter[type]=${type}`
-    }
-    if (price[0] > 10000 || price[1] < 1000000) {
-      RestsAPI_Query += `&filter[price]=${price}`
-    }
-    for (let key in bedding) {
-      if (bedding[key] > 0) {
-        RestsAPI_Query += `&filter[${key}]=${bedding[key]}`
+  const fetchRests = useCallback(
+    async () => {
+      const { location } = searchValue;
+      const { type, price, bedding } = filterValue;
+      
+      let RestsAPI_Query = `${RestsAPI}?page=${page}&limit=${LIMIT}`;
+      
+      if (location && location !== '가까운 여행지 둘러보기') {
+        RestsAPI_Query += `&search[location]=${searchValue.location}`;
       }
-    }
-    const response = await fetch(RestsAPI_Query, { method: 'GET' });
-    const result = await response.json();
-    setRestList(result.restsList);
-    setRestsTotal(result.restsTotal);
-  }
-  
+      if (type.length !== 0) {
+        RestsAPI_Query += `&filter[type]=${type}`
+      }
+      if (price[0] > 10000 || price[1] < 1000000) {
+        RestsAPI_Query += `&filter[price]=${price}`
+      }
+      for (let key in bedding) {
+        if (bedding[key] > 0) {
+          RestsAPI_Query += `&filter[${key}]=${bedding[key]}`
+        }
+      }
+      const response = await fetch(RestsAPI_Query);
+      const result = await response.json();
+      setRestList(result.restsList);
+      setRestsTotal(result.restsTotal);
+    }, [page, searchValue, filterValue]
+  );
+
   useEffect(() => {
     fetchRests();
   }, [page]);

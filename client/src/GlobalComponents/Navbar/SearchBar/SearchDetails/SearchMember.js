@@ -32,7 +32,7 @@ const SearchMember = () => {
   useEffect(() => {
     const guestSum = Object.values(guestCount).reduce((a,b) => a+b);
     updateSearchValue('guest', guestSum);
-  }, [guestCount])
+  }, [guestCount, updateSearchValue])
 
   return (
     <DetailMember>

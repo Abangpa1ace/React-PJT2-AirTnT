@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../../../Context';
 import FilterModalBox from './FilterModalBox';
 import CounterBtn from '../../../../../GlobalComponents/Common/CounterBtn';
 import { flexCenter, flexBetween } from '../../../../../Styles/theme';
-import { BEDDINGDATA } from '../FilterData';
+import { BEDDINGDATA } from './FilterData';
 
 
 const FilterBedding = ({ setFilterFocus }) => {
