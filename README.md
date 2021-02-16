@@ -24,6 +24,8 @@
 ## Outcome
 - 영상
 
-
+### Front-End
+- 파일구조 및 작업내용: https://github.com/Abangpa1ace/React-PJT2-Airbnb/blob/main/client/README.md
 
 ### Back-End
+- 파일구조 및 작업내용: 
