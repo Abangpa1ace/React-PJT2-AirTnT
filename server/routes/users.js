@@ -25,7 +25,7 @@ router.post('/signup', async (req, res, next) => {
     // Appropriate Logic
     else {
       response = successMessage();
-      const hashedPassword = await bcrypt.hash(body.password, 10);
+      const hashedPassword = bcrypt.hashSync(body.password, 10);
       usersDB.push({
         id: Date.now().toString(),
         ...body,

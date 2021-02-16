@@ -3,10 +3,10 @@ var router = express.Router();
 
 const restsData = require('../database/restsData');
 
+// List URL
 router.get('/', function(req, res, next) {
   let restsList = restsData;
-  const Query = req.query;
-  const { search, filter, page, limit } = Query;
+  const { search, filter, page, limit } = req.query;
   const Page = Number(page);
   const Limit = Number(limit)
   const startIdx = (Page - 1) * Limit;
@@ -51,6 +51,9 @@ router.get('/', function(req, res, next) {
   });
 });
 
+
+
+// Detail URL
 router.get('/detail/:id', function(req, res, next) {
   const restDetail = restsData.find((rest) => rest.id === Number(req.params.id));
   res.json(restDetail);
