@@ -1,4 +1,4 @@
-## Airbnb: Front-End
+## AirTnT: Front-End
 ### Directory
 ```
 +-- public
