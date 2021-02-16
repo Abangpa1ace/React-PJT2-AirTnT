@@ -1,9 +1,10 @@
-# React 2nd Project: Airbnb
+# React 2nd Project: AirTnT
 
 ## About
 - 개요 : 대표 부킹서비스 Airbnb(에어비앤비) 웹사이트 클론 프로젝트
 - 기간 : 1.25(월) ~ 2.10(수) / 17일간
 - 원본 : https://www.airbnb.co.kr/ (에어비앤비 코리아)
+<br />
 
 ## Skill Stack
 ### Front-End
@@ -20,6 +21,7 @@
 - Node.js
 - Express.js(Generator)
 - npm Middlewares: bcrypt, jsonwebtoken, cors
+<br />
 
 ## Outcome
 - 영상
@@ -29,3 +31,7 @@
 
 ### Back-End
 - 파일구조 및 작업내용: 
+<br />
+
+## Review
+
