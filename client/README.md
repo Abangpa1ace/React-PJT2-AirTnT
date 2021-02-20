@@ -1,5 +1,5 @@
 ## AirTnT: Front-End
-### Directory
+### Structure
 ```
 client
 ├── node_modules                  - CRA 모듈
@@ -60,7 +60,8 @@ client
     │   ├── reset.js              - createGlobalStyle 초기화 속성
     │   └── theme.js              - theme(너비, 색깔, 그림자) 및 FlexBox 공용속성
     │
-    ├── package.json, package-lock.json
+    ├── package.json
+    ├── package-lock.json
     ├── README.md
     └── .gitignore
 
