@@ -97,11 +97,11 @@ client
 - props에 따른 내부 width 가변
 <br />
 
-#### 5. Home 페이지
+#### 5. `<Home>` 메인 페이지
 - 기본UI 구현(Styled-Components 커스텀한 GridBox 재활용)
 <br />
 
-#### 6-1. List 페이지 좌측: Rests 목록
+#### 6-1. `<ListRests>` List 페이지 좌측: 숙소목록
 - Context API 숙소 리스트 표현(LIMIT = 15개)
 - `<RestsItem>` 숙소 클릭시 상세 페이지 이동(/:id path parameter)
 - 사진 슬라이더 `<Carousel>` 컴포넌트 제작 및 적용(Hover 시 화살표)
@@ -109,7 +109,7 @@ client
 - Filtering 구현: 숙소타입, 가격(rsuit 슬라이더바), 침대/침실 수 필터박스 구현 -> 저장버튼 클리깃, 쿼리스트링 추가 데이터 fetch()
 <br />
 
-#### 6-2. List 페이지 우측: 지도
+#### 6-2. `<ListMap>` List 페이지 우측: 지도
 - Kakao Maps API 활용 지도구현
 - 지도 우측 상단 zoom 버튼 클릭시 확대/축소 적용
 - 지도 Marker 구현: 각 숙소 위/고도 Pinning. 클릭시 숙소정보 박스 표시.
@@ -117,7 +117,7 @@ client
 - 지도 Custom Overlay 구현: 가격정보 포함. 좌측 숙소 Hover시, 해당 Custom Overlay 색상변경
 <br />
 
-#### 7. Detail 페이지
+#### 7. `<Detail>` 상세 페이지
 - 기본 UI구현. 정보 fetch() 데이터 연동. 프로필 원이미지, 정보박스 컴포넌트 재활용.
 - `<HeaderImgGrid>` imageList 5개 활용한 GridBox 구현
 - 정보란 좌측 일부 데이터 맵핑, 달력(react-dates) 및 날짜정보 연동 등
