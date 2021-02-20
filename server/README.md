@@ -31,26 +31,25 @@ server
 <br />
 
 ### OutCome
-1. 서버
-   - app.js 진입파일 설정, Express-generator 패키지 활용
-   - 각 Router 불러오기(require), app.use() Root Path 연동
-   - 미들웨어 연동(cookie-parser, cors 등)
+#### 1. 서버
+- app.js 진입파일 설정, Express-generator 패키지 활용
+- 각 Router 불러오기(require), app.use() Root Path 연동
+- 미들웨어 연동(cookie-parser, cors 등)
 <br />
 
-2. 미들웨어 
-   - cors : 클라이언트(포트 3000), 서버(포트 5000) 통신을 위한 미들웨어
-   - bcrypt : 비밀번호 암호화 해싱(hashSync), 비교(compareSync) 위한 미들웨어
-   - jsonwebtoken : 회원 로그인 시, Response 토큰동봉을 위한 미들웨어
+#### 2. 미들웨어 
+- cors : 클라이언트(포트 3000), 서버(포트 5000) 통신을 위한 미들웨어
+- bcrypt : 비밀번호 암호화 해싱(hashSync), 비교(compareSync) 위한 미들웨어
+- jsonwebtoken : 회원 로그인 시, Response 토큰동봉을 위한 미들웨어
 <br />
 
-3. 라우터(routes/)
-   - /users/signup : 회원가입 Request Body 검사(빈값 여부, 정규식, DB동일 이메일 여부), 양호시 DB저장 및 SUCCESS Response
-   - /users/signin : 로그인 Request Body 검사(빈값 여부, DB존재 계정 및 비밀번호 일치여부), 양호시 SUCCESS 및 토큰 Response
-   - /rests : 숙소리스트 Response -> Query string 검색 및 필터 로직, LIMIT(15개) 단위 페이지네이션
-   - /rests/detail : 숙소 1개 정보 Response -> Semantic URL (/:id) 변수값 매칭
+#### 3. 라우터(routes/)
+- /users/signup : 회원가입 Request Body 검사(빈값 여부, 정규식, DB동일 이메일 여부), 양호시 DB저장 및 SUCCESS Response
+- /users/signin : 로그인 Request Body 검사(빈값 여부, DB존재 계정 및 비밀번호 일치여부), 양호시 SUCCESS 및 토큰 Response
+- /rests : 숙소리스트 Response -> Query string 검색 및 필터 로직, LIMIT(15개) 단위 페이지네이션
+- /rests/detail : 숙소 1개 정보 Response -> Semantic URL (/:id) 변수값 매칭
 <br />
 
-4. 데이터베이스(database/)
-   - usersData.js : 회원가입 시 정보저장(id: new Date(), 비밀번호 해시), 회원가입 이메일 존재여부 및 로그인 정보비교 활용
-   - restsData.js : 숙소 150개 정보 배열저장 (일부 정보값 랜덤생성, 해당 로직포함)
-<br />
+#### 4. 데이터베이스(database/)
+- usersData.js : 회원가입 시 정보저장(id: new Date(), 비밀번호 해시), 회원가입 이메일 존재여부 및 로그인 정보비교 활용
+- restsData.js : 숙소 150개 정보 배열저장 (일부 정보값 랜덤생성, 해당 로직포함)
