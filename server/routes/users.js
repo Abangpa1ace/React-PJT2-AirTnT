@@ -12,25 +12,10 @@ const regexPwd = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,15
 router.post('/signup', async (req, res, next) => {
   try {
     const body = req.body;
-    let response = {
-      success: false,
-      message: 'Unknown Error',
-    }
-
-    // Inappropriate Logic
-    const errorMessage = checkSignUpError(body, usersDB);
-    if (errorMessage) {
-      response.message = errorMessage;
-    }
-    // Appropriate Logic
-    else {
-      response = successMessage();
+    const response = signUpResponse(body);
+    if (response.success) {
       const hashedPassword = bcrypt.hashSync(body.password, 10);
-      usersDB.push({
-        id: Date.now().toString(),
-        ...body,
-        password: hashedPassword,
-      })
+      usersDB.push({ id: Date.now().toString(), ...body, password: hashedPassword })
     }
     res.json(response);
   }
@@ -42,8 +27,13 @@ router.post('/signup', async (req, res, next) => {
 
 router.post('/signin', (req, res, next) => {
   try {
-    const response = checkSignIn(req, usersDB);
-    return res.json(response);
+    const body = req.body;
+    const response = signInResponse(body);
+    if (response.success) {
+      const token = jwt.sign(body, 'MY_SECRET_KEY');
+      response['token'] = token;
+    }
+    res.json(response)
   }
   catch(err) {
     throw new Error(err);
@@ -51,71 +41,83 @@ router.post('/signin', (req, res, next) => {
   next();
 })
 
-
-// SignUp Functions
-const checkSignUpError = (body, usersDB) => {
-  const { firstName, lastName, email, password } = body;
-  const undefinedValue = Object.values(body).map(bodyVal => bodyVal.length).includes(0);
-  const existingEmail = usersDB.length !== 0 && usersDB.find(user => email === user.email);
-
-  if (undefinedValue) {
-    return 'Undefined Value Exist'
-  }
-  else if (regexNotKor.test(firstName) || regexNotKor.test(lastName)) {
-    return 'Not Valid Name'
-  }
-  else if (!regexEmail.test(email)) {
-    return 'Not Valid Email'
-  }
-  else if (existingEmail) {
-    return  'Already Existing Email'
-  }
-  else if (!regexPwd.test(password)) {
-    return 'Not Valid Password'
-  }
-  else {
-    return undefined;
+// Sign-Up Validator & Function
+const signUpValidator = {
+  firstName: (value) => {
+    return !value
+      ? 'Undefined Value Exist'
+      : regexNotKor.test(value)
+      ? 'Not Valid Name'
+      : undefined;
+  },
+  lastName: (value) => {
+    return !value
+      ? 'Undefined Value Exist'
+      : regexNotKor.test(value)
+      ? 'Not Valid Name'
+      : undefined;
+  },
+  email: (value) => {
+    return !value
+      ? 'Undefined Value Exist'
+      : !regexEmail.test(value)
+      ? 'Not Valid Email'
+      : usersDB.find(user => value === user.email)
+      ? 'Already Existing Email'
+      : undefined;
+  },
+  password: (value) => {
+    return !value
+      ? 'Undefined Value Exist'
+      : !regexPwd.test(value)
+      ? 'Not Valid Password'
+      : undefined;
   }
 }
 
-const successMessage = () => {
-  return {
-    success: true,
-    message: 'Success',
+const signUpResponse = (body) => {
+  let message;
+  for (let key in body) {
+    message = signUpValidator[key](body[key]);
+  }
+  return ({
+    success: !message,
+    message: !message ? 'Success' : message,
+  })
+}
+
+// Sign-In Validator & Function
+const signInValidator = {
+  email: (value, matchedUser) => {
+    return !value
+      ? 'Undefined Value Exist'
+      : !regexEmail.test(value)
+      ? 'Not Valid Email'
+      : !matchedUser
+      ? 'Not Existing Email'
+      : undefined;
+  },
+  password: (value, matchedUser) => {
+    return !value
+      ? 'Undefined Value Exist'
+      : !regexPwd.test(value)
+      ? 'Not Valid Password'
+      : !bcrypt.compareSync(value, matchedUser.password)
+      ? 'Unmatched Password'
+      : undefined;
   }
 }
 
-// SignIn Functions
-const checkSignIn = (req, usersDB) => {
-  const { email, password } = req.body;
-  const undefinedValue = !email || !password;
-  const userExisted = usersDB.find((user) => email === user.email);
-  let response = {
-    success: false,
-    message: 'Unknown Error',
+const signInResponse = (body) => {
+  let message;
+  const matchedUser = usersDB.find(user => body.email === user.email);
+  for (let key in body) {
+    message = signInValidator[key](body[key], matchedUser);
   }
-
-  if (undefinedValue) {
-    response.message = 'Undefined Value Exist'
-  }
-  else if (!userExisted) {
-    response.message = 'Not Existing Email'
-  }
-  else {
-    const userCompared = bcrypt.compareSync(password, userExisted.password);
-    if (!userCompared) {
-      response.message = 'Unmatched Password'
-    }
-    else {
-      const token = jwt.sign(req.body, 'MY_SECRET_KEY');
-      response = {
-        success: true,
-        message: 'Success',
-        token: token,
-      }
-    }
-  }
-  return response;
+  return ({
+    success: !message,
+    message: !message ? 'Success' : message,
+  })
 }
 
 module.exports = router;
