@@ -14,19 +14,19 @@ const ItemInfoFooter = ({ mainInfo, subInfo, price, like }) => {
       <section className="info-wrapper">
         <div>
           <span>최대 인원 {maxGuest}명</span>
-          <span>∙</span>
+          <span>&nbsp;∙&nbsp;</span>
           <span>{bedroom === 0 ? '원룸' : `침실 ${bedroom}개`}</span>
-          <span>∙</span>
+          <span>&nbsp;∙&nbsp;</span>
           <span>침대 {bed === 0 ? '없음' : `${bed}개`}</span>
-          <span>∙</span>
+          <span>&nbsp;∙&nbsp;</span>
           <span>{bathroom === 0 ? '간이 욕실' : `욕실 ${bathroom}개`}</span>
         </div>
         <div>
-          {subInfo && subInfo.map((info, idx) => {
+          {subInfo && subInfo.slice(0,7).map((info, idx) => {
             return (
               <span>
                 {info}
-                {idx !== subInfo.length - 1 && <span>∙</span>}
+                {idx !== 6 ? <span>&nbsp;∙&nbsp;</span> : <span>&nbsp;등</span>}
               </span>
             )
           })}
