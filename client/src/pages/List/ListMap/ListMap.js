@@ -101,11 +101,11 @@ const ListMap = ({ restId }) => {
 
   useEffect(() => {
     asideMap = loadMap();
-  }, [restList, zoom, loadMap]);
+  }, [restList, loadMap]);
 
   useEffect(() => {
     setCustomOverlay(asideMap);
-  }, [restList, restId, setCustomOverlay])
+  }, [restList, restId, zoom, latitude, longitude, setCustomOverlay])
 
   const showModal = (x, y, rest) => {
     setModalData(rest);
