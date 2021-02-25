@@ -43,6 +43,7 @@
 우선, 목표 작업량과 서버구현까지 혼자서 완성했고 사이트의 퀄리티도 높은 편이어서, 학습적으로나 결과물적으로나 뿌듯한 프로젝트다.
 개인으로 진행해보니 초기세팅, 컨벤션이 일관되어 작업이 수월한 한편, 스스로 모든기능을 고민하고 결정하기 위한 선택&집중, 페이스 관리의 중요성을 느꼈다.
 무엇보다 개발업무의 꽃인 협업과 공통관리의 경험이 제한되는 점이 1차 팀 프로젝트에 비해 아쉽게 다가왔다.
+<br />
 
 #### 2. 새로 배우게 된 것들
 - Functional Components 숙달 : props 전달 및 기본 Hooks(useState, useEffect) 활용
@@ -52,6 +53,7 @@
 - KakaoMap API 활용 지도 서비스 구현 : 기본기능 + 정보 모달창 On/Off, 마커 위치에 따른 표시위치 계산
 - fetch(GET) 요청시 Path Parameter(id), Query String(search, filter, pagination) 반영
 - Node.js, Express.js 서버 구현 : Router, Query String 기본개념 적용, 미들웨어 활용(인증/인가, CORS) 
+<br />
 
 #### 3. 피드백
 혼자서 진행하다보니, 많은 양을 욕심부린만큼 디테일에서 아쉬운 부분들도 분명 생겼다.
