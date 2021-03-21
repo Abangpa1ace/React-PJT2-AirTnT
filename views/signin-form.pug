@@ -1,0 +1,8 @@
+h1= "Sign in a.k.a Login"
+
+form(method="POST" action="/users/signin")
+  p email:
+    input(type="text" name="email" placeholder="이메일")
+  p password:
+    input(type="password" name="password" placeholder="비밀번호")
+  input(type="submit" value="Login")
