@@ -25,6 +25,7 @@ const List = () => {
 const ListPage = styled.main`
   display: flex;
   align-items: flex-start;
+  margin: 50px 0 0;
 `;
 
 export default List;
