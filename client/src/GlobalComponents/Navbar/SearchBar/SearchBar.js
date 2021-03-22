@@ -34,7 +34,7 @@ const SearchBar = () => {
           focused={searchFocus === 0}
           onClick={() => setSearchFocus(0)}>
           <span>위치</span>
-          <input type="text" placeholder='어디로 여행가세요?' autoComplete="off"
+          <input type="text" placeholder='빈칸 혹은 "망원", "강남", "잠실" 등으로 검색해주세요!' autoComplete="off"
             name="location" value={location} 
             onChange={(e) => updateSearchValue(e.target.name, e.target.value)}/>
         </SearchUnit>
