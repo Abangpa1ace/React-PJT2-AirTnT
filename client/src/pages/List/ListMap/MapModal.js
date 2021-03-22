@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Carousel from '../../../GlobalComponents/Carousel/Carousel';
 import { Linker } from '../../../GlobalComponents/Common/StyledCommon';
 import { BsStarFill } from 'react-icons/bs';
-import { flexAlign } from '../../../Styles/theme';
+import { flexAlign } from '../../../styles/theme';
 
 const MapModal = ({ isModalOn, modalX, modalY, modalData }) => {
   const { id, imageList, title, category, like, price } = modalData;

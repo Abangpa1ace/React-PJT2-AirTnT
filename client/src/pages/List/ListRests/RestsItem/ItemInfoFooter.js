@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { BsStarFill } from 'react-icons/bs';
-import { flexAlign } from '../../../../Styles/theme';
+import { flexAlign } from '../../../../styles/theme';
 import { useGlobalContext } from '../../../../Context';
 
 const ItemInfoFooter = ({ mainInfo, subInfo, price, like }) => {

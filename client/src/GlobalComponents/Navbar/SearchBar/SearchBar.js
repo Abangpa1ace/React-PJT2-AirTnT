@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { Linker, Button } from '../../Common/StyledCommon';
 import SearchDetails from './SearchDetails/SearchDetails';
 import { BiSearch } from 'react-icons/bi';
-import { flexCenter, flexAlignCol } from '../../../Styles/theme';
+import { flexCenter, flexAlignCol } from '../../../styles/theme';
 import { useGlobalContext } from '../../../Context';
 
 const SearchBar = () => {

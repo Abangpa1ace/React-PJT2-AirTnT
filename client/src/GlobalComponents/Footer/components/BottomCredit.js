@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { useGlobalContext } from '../../../Context';
-import { flexCenter } from '../../../Styles/theme';
+import { flexCenter } from '../../../styles/theme';
 import { Linker } from '../../Common/StyledCommon';
 import { FOOTERRIGHTSDATA } from '../FooterData';
 

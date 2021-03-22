@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components';
-import { flexCenter } from '../../Styles/theme';
+import { flexCenter } from '../../styles/theme';
 import { Button } from '../Common/StyledCommon';
 
 const ModalContainer = ({ children, width, isModalOn, setIsModalOn, header }) => {

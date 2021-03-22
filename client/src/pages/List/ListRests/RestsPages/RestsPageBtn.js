@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../../Context';
 import { Button } from '../../../../GlobalComponents/Common/StyledCommon';
-import { flexCenter } from '../../../../Styles/theme';
+import { flexCenter } from '../../../../styles/theme';
 
 const RestsPageBtn = () => {
   const { restsTotal, page, setPage, LIMIT } = useGlobalContext();

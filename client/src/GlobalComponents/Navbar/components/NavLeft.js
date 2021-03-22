@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Linker } from '../../Common/StyledCommon';
 import { useGlobalContext } from '../../../Context';
 import { SiAirbnb } from 'react-icons/si';
-import { flexAlign } from '../../../Styles/theme';
+import { flexAlign } from '../../../styles/theme';
 
 const NavLeft = () => {
   const { navFixed } = useGlobalContext();

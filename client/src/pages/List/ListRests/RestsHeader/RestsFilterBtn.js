@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Button } from '../../../../GlobalComponents/Common/StyledCommon';
-import { flexAlign } from '../../../../Styles/theme';
+import { flexAlign } from '../../../../styles/theme';
 import FilterBedding from "./FilterModals/FilterBedding";
 import FilterPrice from "./FilterModals/FilterPrice";
 import FilterTypes from "./FilterModals/FilterTypes";

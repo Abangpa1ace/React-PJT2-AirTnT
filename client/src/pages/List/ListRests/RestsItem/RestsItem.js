@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Carousel from '../../../../GlobalComponents/Carousel/Carousel';
 import ItemInfo from './ItemInfo';
-import { flexBetween } from '../../../../Styles/theme';
+import { flexBetween } from '../../../../styles/theme';
 import { Linker } from '../../../../GlobalComponents/Common/StyledCommon';
 
 const RestsItem = ({ id, imageList, category, title, mainInfo, subInfo, price, like, restId, setRestId }) => {

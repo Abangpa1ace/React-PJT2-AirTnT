@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
 import { Button } from '../Common/StyledCommon';
-import { flexCenter } from '../../Styles/theme';
+import { flexCenter } from '../../styles/theme';
 
 const Carousel = styled.div`
   position: relative;

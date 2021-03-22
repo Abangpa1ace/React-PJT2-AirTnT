@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useGlobalContext } from '../../../Context';
 import BottomCredit from './BottomCredit';
 import BottomSocial from './BottomSocial';
-import { flexBetween } from '../../../Styles/theme';
+import { flexBetween } from '../../../styles/theme';
 
 const FooterBottom = () => {
   const { navFootWidth } = useGlobalContext();

@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useContext, useCallback } from 'react';
-// import { RestsAPI } from './Data/config';
-const Server = "https://pjt2-airtnt-server.herokuapp.com";
-const RestsAPI = `${Server}/rests`;
+import { RestsAPI } from './data/config';
 
 const AppContext = React.createContext();
 

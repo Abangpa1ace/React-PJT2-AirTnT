@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
 import { Button } from '../../Common/StyledCommon';
-import { SignInAPI } from '../../../Data/config';
+import { SignInAPI } from '../../../data/config';
 
 const SignInModal = ({ setSignModalOn, setSignMode }) => {
   const [signInValue, setSignInValue] = useState({

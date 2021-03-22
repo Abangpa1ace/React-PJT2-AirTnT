@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../../Context';
-import { flexBetween } from '../../../../Styles/theme';
+import { flexBetween } from '../../../../styles/theme';
 
 const InfoHeader = () => {
   const { restDetail } = useGlobalContext();

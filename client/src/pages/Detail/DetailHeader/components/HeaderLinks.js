@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import { Button } from '../../../../GlobalComponents/Common/StyledCommon';
-import { flexBetween, flexAlign } from '../../../../Styles/theme';
+import { flexBetween, flexAlign } from '../../../../styles/theme';
 import { BsStarFill, BsHeart, BsUpload } from 'react-icons/bs';
 import { useGlobalContext } from '../../../../Context';
 

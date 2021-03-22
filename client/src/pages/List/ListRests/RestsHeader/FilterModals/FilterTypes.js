@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../../../Context';
-import { flexAlign } from '../../../../../Styles/theme';
+import { flexAlign } from '../../../../../styles/theme';
 import { TYPESDATA } from './FilterData';
 import FilterModalBox from './FilterModalBox';
 

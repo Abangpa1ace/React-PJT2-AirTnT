@@ -4,7 +4,7 @@ import { RangeSlider, InputGroup, InputNumber } from 'rsuite';
 import "rsuite/dist/styles/rsuite-default.min.css";
 import FilterModalBox from './FilterModalBox';
 import { useGlobalContext } from '../../../../../Context';
-import { flexAlignCol } from '../../../../../Styles/theme';
+import { flexAlignCol } from '../../../../../styles/theme';
 
 const FilterPrice = ({ setFilterFocus }) => {
   const { restList, filterValue, updateFilterValue, fetchRests } = useGlobalContext();

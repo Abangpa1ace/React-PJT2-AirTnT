@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { RecentAPI } from '../../../../Data/config';
-import { flexBetween } from '../../../../Styles/theme';
+import { RecentAPI } from '../../../../data/config';
+import { flexBetween } from '../../../../styles/theme';
 import RestsItemRecent from './RestsItemRecent';
 
 const Restsrecent = styled.section`

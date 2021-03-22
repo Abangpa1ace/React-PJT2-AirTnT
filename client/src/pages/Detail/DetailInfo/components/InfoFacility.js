@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Button } from '../../../../GlobalComponents/Common/StyledCommon';
 import { useGlobalContext } from '../../../../Context';
-import { flexAlign } from '../../../../Styles/theme';
+import { flexAlign } from '../../../../styles/theme';
 import DetailConBox from '../../common/DetailConBox';
 import { FACILITY_ICONS } from '../../DetailData';
 

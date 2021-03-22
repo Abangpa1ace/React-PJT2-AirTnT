@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Linker, Image } from '../../../GlobalComponents/Common/StyledCommon';
 import { CITIESDATA } from '../HomeData';
-import { flexAlign } from '../../../Styles/theme';
+import { flexAlign } from '../../../styles/theme';
 
 const CitiesList = styled.ul`
   display: grid;

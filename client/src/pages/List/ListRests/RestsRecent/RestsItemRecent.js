@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Carousel from '../../../../GlobalComponents/Carousel/Carousel';
 import { Button, Linker } from '../../../../GlobalComponents/Common/StyledCommon';
-import { flexAlign } from '../../../../Styles/theme';
+import { flexAlign } from '../../../../styles/theme';
 import { BsHeart, BsStarFill } from 'react-icons/bs';
 
 const RecentItem = styled.article`

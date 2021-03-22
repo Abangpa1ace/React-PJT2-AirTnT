@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useGlobalContext } from '../../../../../Context';
 import FilterModalBox from './FilterModalBox';
 import CounterBtn from '../../../../../GlobalComponents/Common/CounterBtn';
-import { flexCenter, flexBetween } from '../../../../../Styles/theme';
+import { flexCenter, flexBetween } from '../../../../../styles/theme';
 import { BEDDINGDATA } from './FilterData';
 
 

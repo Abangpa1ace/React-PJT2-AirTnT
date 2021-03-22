@@ -5,7 +5,7 @@ import DetailHeader from './DetailHeader/DetailHeader';
 import DetailInfo from './DetailInfo/DetailInfo';
 import DetailAside from './DetailAside/DetailAside';
 import DetailAdditional from './DetailAdditional/DetailAdditional';
-import { RestsAPI } from '../../Data/config';
+import { RestsAPI } from '../../data/config';
 
 const Detail = () => {
   const { setNavFixed, setSearchOn, setRestDetail, setNavFootWidth } = useGlobalContext();

@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react'
 import styled from 'styled-components';
 import { useGlobalContext } from '../../../Context';
 import { Button } from '../../../GlobalComponents/Common/StyledCommon';
-import MapModal from '../ListMap/MapModal';
-import { flexCenter } from '../../../Styles/theme';
+import MapModal from './MapModal';
+import { flexCenter } from '../../../styles/theme';
 
 const { kakao } = window;
 let asideMap;

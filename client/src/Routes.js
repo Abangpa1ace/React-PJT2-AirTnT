@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import GlobalReset from './Styles/reset';
-import theme from './Styles/theme';
-import CoronaNotice from './Pages/Home/components/CoronaNotice';
+import GlobalReset from './styles/reset';
+import theme from './styles/theme';
+import CoronaNotice from './pages/Home/components/CoronaNotice';
 import Navbar from './GlobalComponents/Navbar/Navbar';
-import Home from './Pages/Home/Home';
-import List from './Pages/List/List';
-import Detail from './Pages/Detail/Detail';
+import Home from './pages/Home/Home';
+import List from './pages/List/List';
+import Detail from './pages/Detail/Detail';
 import Footer from './GlobalComponents/Footer/Footer';
 
 function Routes() {
