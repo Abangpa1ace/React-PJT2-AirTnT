@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { flexAlign } from '../../../../Styles/theme';
+import { flexAlign } from '../../../../styles/theme';
 import { FaMapMarkedAlt } from 'react-icons/fa';
 import { useGlobalContext } from '../../../../Context';
 
