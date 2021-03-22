@@ -10,7 +10,7 @@ const SearchNearby = () => {
     <DetailMap isClosed={searchValue.location}>
       <AutoCompleteNear onClick={() => updateSearchValue('location', '망원')}>
         <FaMapMarkedAlt />
-        <span>빈칸 혹은 망원, 강남, 잠실 등으로 검색해주세요!</span>
+        <span>빈칸 혹은 망원, 강남, 잠실 등으로 검색해주세요.</span>
       </AutoCompleteNear>
     </DetailMap>
   )

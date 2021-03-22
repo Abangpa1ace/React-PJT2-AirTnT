@@ -24,6 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "https://pjt2-airtnt-server.herokuapp.com",
   "eslintConfig": {
     "extends": [
       "react-app",
