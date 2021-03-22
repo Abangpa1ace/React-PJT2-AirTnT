@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { RecentAPI } from '../../../../data/config';
+import { RECENT_DATA } from '../../../../data/data';
 import { flexBetween } from '../../../../styles/theme';
 import RestsItemRecent from './RestsItemRecent';
 
@@ -27,14 +27,8 @@ const RestsRecent = () => {
   const [recentList, setRecentList] = useState([]);
   const [recentId, setRecentId] = useState(-1);
 
-  const fetchRecent = async () => {
-    const response = await fetch(RecentAPI);
-    const result = await response.json();
-    setRecentList(result.data);
-  }
-
   useEffect(() => {
-    fetchRecent();
+    setRecentList(RECENT_DATA.data)
   }, [])
 
   return (
