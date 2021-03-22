@@ -1,6 +1,7 @@
 // URI Cluster
 const Client = "http://localhost:3000";
-const Server = "http://localhost:5000";
+// const Server = "http://localhost:5000";
+const Server = "https://pjt2-airtnt-server.herokuapp.com";
 
 export const SignUpAPI = `${Server}/users/signup`; 
 export const SignInAPI = `${Server}/users/signin`;
