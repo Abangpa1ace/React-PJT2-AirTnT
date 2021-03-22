@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { flexAlign } from '../../../../styles/theme';
+import { flexAlign } from '../../../../Styles/theme';
 import { FaMapMarkedAlt } from 'react-icons/fa';
 import { useGlobalContext } from '../../../../Context';
 
@@ -10,7 +10,7 @@ const SearchNearby = () => {
     <DetailMap isClosed={searchValue.location}>
       <AutoCompleteNear onClick={() => updateSearchValue('location', '가까운 여행지 둘러보기')}>
         <FaMapMarkedAlt />
-        <span>가까운 여행지 둘러보기</span>
+        <span>빈칸 혹은 "망원", "강남", "잠실" 등으로 검색해주세요!</span>
       </AutoCompleteNear>
     </DetailMap>
   )
